@@ -1,0 +1,942 @@
+% tex/inputs/akmath.tex   2017-6-17   Alan U. Kennington.
+% $Id: tex/inputs/akmath.tex cd758e15f1 2017-06-17 18:11:02Z Alan U. Kennington $
+% Mathematical symbols. No general formatting macros.
+% Just symbols and basic formula construction macros.
+% Macros that are specific to the DG book should be in dgmpmax.tex.
+
+%------------------------------------------------------------------------------
+% Prevent double loading:
+\ifx\akmathtexloaded\relax\endinput\else\let\akmathtexloaded\relax\fi
+
+% Small caps and blackboard fonts:
+% \font\tensmc        cmcsc10
+\font\eightsmc      cmcsc8
+% \font\tenbbb        msym10 scaled\magstephalf
+% \font\tenbbb        msym10
+% \def\smc{\tensmc}
+% \def\Bbb{\tenbbb}
+
+% Some sort of blackboard bold. Not the best one.
+\font\tenbbb        bbold10
+\def\bbb{\fam0\tenbbb}
+
+% Fraktur font.
+\font\tencmfrak     cmfrak
+\let\cmfrak\tencmfrak
+
+\font\tenplsy plsy10
+\def\plsy{\tenplsy}
+
+\font\seventcrm tcrm1000 at 7truept
+
+% Magnified font to get decent medium-sized otimes symbol.
+\font\bigtencmsy cmsy10 scaled 1315
+\def\bigcmsy{\bigtencmsy}
+
+%------------------------------------------------------------------------------
+% Define bbm as a new family.
+\newfam\bbmfam
+\font\tenbbm        bbm10
+\font\ninebbm       bbm9
+\font\eightbbm      bbm8
+\font\sevenbbm      bbm7
+\font\fivebbm       bbm5
+\textfont\bbmfam=\tenbbm
+\scriptfont\bbmfam=\sevenbbm
+\scriptscriptfont\bbmfam=\fivebbm
+% The \fam is for maths-mode. The \tenbbm is for horiz-mode. Grrr.....
+\def\bbm{\fam\bbmfam\tenbbm}
+
+\def\bbmeight{% A very fake font family! Do not use unless very desperate!!!!
+ \textfont0=\eightbbm%
+ \scriptfont0=\fivebbm%
+ \scriptscriptfont0=\fivebbm%
+ \textfont1=\eightbbm%
+ \scriptfont1=\fivebbm%
+ \scriptscriptfont1=\fivebbm%
+ \textfont\bbmfam=\eightbbm%
+ \scriptfont\bbmfam=\fivebbm%
+ \scriptscriptfont\bbmfam=\fivebbm%
+ \fam\bbmfam%
+ \eightbbm%
+% Z% Test.
+ }
+
+%------------------------------------------------------------------------------
+% Define rsfs as a new family.
+\newfam\rsfsfam
+\font\tenrsfs       rsfs10
+\font\sevenrsfs     rsfs7
+\font\fiversfs      rsfs5
+\textfont\rsfsfam=\tenrsfs
+\scriptfont\rsfsfam=\sevenrsfs
+\scriptscriptfont\rsfsfam=\fiversfs
+% The \fam is for maths-mode. The \tenrsfs is for horiz-mode. Grrr.....
+\def\rsfs{\fam\rsfsfam\tenrsfs}
+
+%------------------------------------------------------------------------------
+% Define euxm as a new family.
+% \newfam\euxmfam
+% \font\teneuxm       euxm10
+% \font\seveneuxm     euxm7
+% \font\fiveeuxm      euxm5
+% \textfont\euxmfam=\teneuxm
+% \scriptfont\euxmfam=\seveneuxm
+% \scriptscriptfont\euxmfam=\fiveeuxm
+% % The \fam is for maths-mode. The \teneuxm is for horiz-mode. Grrr.....
+% \def\euxm{\fam\euxmfam\teneuxm}
+
+%------------------------------------------------------------------------------
+% Define eusm as a new family.
+\newfam\eusmfam
+\font\teneusm       eusm10
+\font\seveneusm     eusm7
+\font\fiveeusm      eusm5
+\textfont\eusmfam=\teneusm
+\scriptfont\eusmfam=\seveneusm
+\scriptscriptfont\eusmfam=\fiveeusm
+% The \fam is for maths-mode. The \teneusm is for horiz-mode. Grrr.....
+\def\eusm{\fam\eusmfam\teneusm}
+
+%------------------------------------------------------------------------------
+% Define cmmib as a new family.
+\newfam\cmmibfam
+\font\tencmmib       cmmib10
+\font\sevencmmib     cmmib7
+\font\fivecmmib      cmmib5
+\textfont\cmmibfam=\tencmmib
+\scriptfont\cmmibfam=\sevencmmib
+\scriptscriptfont\cmmibfam=\fivecmmib
+% The \fam is for maths-mode. The \tencmmib is for horiz-mode. Grrr.....
+\def\cmmib{\fam\cmmibfam\tencmmib}
+
+%------------------------------------------------------------------------------
+% Stuff to do underlining: a line under the base of an hbox, not under the box!
+% Should be in a separate macro file.
+\newdimen\ulinedepth \ulinedepth3pt %
+\def\uline#1{{\vtop{\hbox{#1}\skip0 \prevdepth\vskip-\skip0 %
+ \vskip\ulinedepth\hrule\vskip-\ulinedepth\vskip\skip0}}}
+
+% Put an overline over something at a fixed height.
+% There is apparently no \prevheight. Also, a \vbox is processed top-down.
+% This height is chosen for inf, sup, min and max.
+\newdimen\olineheight \olineheight=6.5pt %
+\def\oline{\relax % \relax, in case this comes first in \halign
+  \ifmmode\def\next{\mathpalette\matholine}\else\let\next\makeoline%
+  \fi\next}
+\def\makeoline#1{\setbox0\hbox{#1}\finoline}
+\def\matholine#1#2{\setbox0\hbox{$\mathsurround0pt#1{#2}$}\finoline}
+\def\finoline{\ht0=\olineheight\overline{\hbox{\box0}}}
+
+%------------------------------------------------------------------------------
+% Centered horizontal smash/squash.
+\def\clap#1{\hbox to0pt{\hss#1\hss}}
+\def\clapS#1#2{\hbox to#1{\hss#2\hss}}
+
+% Scripts which should lie outside a faction, e.g. in dx^k/dt.
+\def\rlapsup#1{\rlap{${}^{#1}$}}
+\def\rlapsub#1{\rlap{${}_{#1}$}}
+
+% Lap-macros for maths mode in script style.
+\def\rlaps#1{\rlap{$\scriptstyle#1$}}
+\def\llaps#1{\llap{$\scriptstyle#1$}}
+\def\claps#1{\clap{$\scriptstyle#1$}}
+
+%------------------------------------------------------------------------------
+\def\overcirc{\mathaccent"7017 }
+
+% Textual function names.
+\def\textop#1{\mathop{\rm#1}\nolimits}
+\def\textopdl#1{\mathop{\rm#1}}         % Default mathop is \displaylimits.
+\def\textord#1{\mathord{\rm#1}}
+\def\textbin#1{\mathbin{\rm#1}}
+\def\textrel#1{\mathrel{\rm#1}}
+
+% Vertically balanced version of \textop.
+\def\opstrut#1{\mathop{\rm\strut#1}}
+
+% Wider than normal overbar:
+% \def\Bar#1{\vbox{\offinterlineskip\ialign{##\crcr%
+%  \rm\hidewidth\char"7B\hidewidth\cr\noalign{\vskip-0.25ex}$#1$\cr}}}
+\def\Barx#1#2{% #1 = text, #2 = vertical distance.
+ \vbox{\offinterlineskip\ialign{##\crcr\hidewidth\setbox0=\hbox{\rm\char"7B}%
+ \ht0=#2 \box0\hidewidth\cr\noalign{\vskip-#2}$#1$\cr}}}
+\def\Bar#1{%
+ \vbox{\offinterlineskip\ialign{##\crcr\hidewidth\setbox0=\hbox{\rm\char"7B}%
+ \ht0=0.25ex \box0\hidewidth\cr\noalign{\vskip-0.25ex}$#1$\cr}}}
+\def\Barmin#1{% Use a minus sign. I have no idea what I'm doing here!
+ \vbox{\offinterlineskip\ialign{##\crcr%
+ \hidewidth\setbox0=\hbox{${}-{}$}%
+% \dimen0=\ht0\showthe\dimen0%
+ \ht0=0.5pt \ht0=0pt \box0\hidewidth\cr%
+ \noalign{\vskip-2.0pt}%
+ $#1$\cr}}}
+% \def\Ombar{\mathchoice{\Bar\Omega}{\Bar\Omega}{\bar\Omega}{\bar\Omega}}
+\def\Ombar{\mathchoice{\Barmin\Omega}{\Barmin\Omega}{\bar\Omega}{\bar\Omega}}
+
+% A hopefully thicker overbar which varies with \mathchoice.
+\def\hzBarstyle#1#2{%
+ {\def\hzbarsty{\ifcase#2\displaystyle\or\textstyle\or\scriptstyle%
+  \else\scriptscriptstyle\fi}%
+% \def\hzbar{\ifcase#2 D\or T\or S\else Z\fi}%
+ \setbox0=\hbox{$\hzbarsty#1$}\dimen0\wd0\advance\dimen0-2.5pt%
+ \vbox{\mathsurround0pt\offinterlineskip\ialign{##\crcr%
+  \hidewidth\setbox0=\hbox{\hsize\dimen0\vbox{\hrule height1pt}}\ht0=0.25ex%
+  \box0\hidewidth\cr%
+  \noalign{\vskip-0.25ex}%
+  $\hzbarsty#1$\cr}}%
+ }}
+\def\hzBar#1{% There should be a built-in facility in TeX to do this!
+ \mathchoice{\hzBarstyle{#1}{0}}{\hzBarstyle{#1}{1}}%
+  {\hzBarstyle{#1}{2}}{\hzBarstyle{#1}{3}}%
+ }
+
+%------------------------------------------------------------------------------
+% Superscript/subscript sign to balance with zero in other position.
+% This should only be used when the main character has some spare space
+% at the top right so that the sign can be left-shifted a little.
+% (This macro is distantly related to the \crfldg macro.)
+\def\szs#1{%
+ {% Set box 0 to an hbox containing a script-style "0".
+  \setbox0\hbox{$\scriptstyle0$}%
+  % Set dimen 0 to the width of box 0.
+  \dimen0\wd0 %
+  % Set box 0 to an hbox containing the parameter character in script style.
+  \setbox0\hbox{$\scriptstyle#1$}%
+  % Subtract the parameter-character width from the 0 width.
+  \advance\dimen0-\wd0 %
+  % Set dimen 0 to (width('0') - width(#1))/2.
+  % Note that it is expected that dimen 0 will be negative for #1 = '+' or '-'.
+  \divide\dimen0 by2 %
+  % Move #1 to the right so that it is centred within the width of a '0'.
+  \kern\dimen0{#1}%
+ }}
+
+%------------------------------------------------------------------------------
+% Sets of ordinal numbers.
+\ifx01
+\def\om{\omega}         % Not used much probably.
+\def\omp{\omega^+}      % Not used much probably.
+\def\omcomp#1{\om\setminus\{#1\}}
+\def\ompcomp#1{\omp\setminus\{#1\}}
+
+\def\oldintnotation{%
+% \def\ints{\hbox{\Bbb Z}}
+% \def\ints{\mathord{\bf Z}}%
+ \def\ints{{\bbm Z}}%
+ \def\nnints{{\ints^+}}%
+% \def\xnnints{{\nnints\bcup\{\infty\}}}%
+ \def\xnnints{{\omega^+}}%
+ \def\nnintsX{{\nnints\setbox0\hbox{$\scriptstyle{}^+$}\hskip-\wd0}}%
+% \def\posints{\nnints\setminus\{0\}}%
+% \def\posints{\mathord{\bf N}}%
+% \def\posints{{\mathord{{\rm I\kern-1.5pt N}}}}%
+ \def\posints{{\bbm N}}%
+ \def\xposints{{\bbm N}\cup\{\infty\}}%
+ }
+\def\newintnotation{%
+ % \def\ints{\hbox{\Bbb Z}}
+ \def\ints{\mathord{\bf Z}}%
+ \let\nnints\om%
+ \let\xnnints\omp%
+ \let\nnintsX\nnints%
+ \def\posints{\omcomp{0}}%
+ }
+% \oldintnotation
+\fi
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Some ordinal number things.
+\def\Ord{\textop{Ord}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Sets of integers.
+% \def\ints{\hbox{\Bbb Z}}
+% \def\ints{\mathord{\bf Z}}%
+\def\ints{\mathord{\bbm Z}}%
+\def\intsgt{\ints^+}
+\def\intsge{\ints_0^+}
+\def\intslt{\ints^-}
+\def\intsle{\ints_0^-}
+
+% Warning: The intsx macros seem to create an oversize Z when the macro
+% appears in a subscript or superscript. Must fix this!!
+% \def\intsx{\ints^*}
+% \def\intsx{\Bar\ints}
+\def\intsx{\Barmin\ints}
+% \def\intsxgt{\intsgt\cup\{\infty\}}
+% \def\intsxge{\intsge\cup\{\infty\}}
+\def\intsxgt{\intsx^+}
+\def\intsxge{\intsx^+_0}
+\def\intsxlt{\intsx^-}
+\def\intsxle{\intsx^-_0}
+
+% Warning: The macro intsgeX looks completely wrong to me. Don't use it!
+% \def\intsgeX{{\intsge\setbox0\hbox{$\scriptstyle{}_0^+$}\hskip-\wd0}}
+
+% Natural numbers.
+\def\intsnat{\mathord{\bbm N}}
+% \def\intsnatx{\intsnat\cup\{\infty\}}
+% \def\intsnatx{\Bar\intsnat}
+\def\intsnatx{\Barmin\intsnat}
+
+% Obsolete definitions.
+% \def\nnints{{\ints^+}}%
+% % \def\xnnints{{\nnints\bcup\{\infty\}}}%
+% \def\xnnints{{\omega^+}}%
+% \def\nnintsX{{\nnints\setbox0\hbox{$\scriptstyle{}^+$}\hskip-\wd0}}%
+% % \def\posints{\nnints\setminus\{0\}}%
+% % \def\posints{\mathord{\bf N}}%
+% % \def\posints{{\mathord{{\rm I\kern-1.5pt N}}}}%
+% \def\posints{{\bbm N}}%
+% \def\xposints{{\bbm N}\cup\{\infty\}}%
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Rational numbers.
+\def\rats{\mathord{\bbm Q}}
+\def\ratsgt{\rats^\szs{+}}
+\def\ratsge{\rats_0^\szs{+}}
+\def\ratslt{\rats^\szs{-}}
+\def\ratsle{\rats_0^\szs{-}}
+
+% \def\ratsx{\Bar\rats}
+\def\ratsx{\Barmin\rats}
+\def\ratsxgt{\ratsx^\szs{+}}
+\def\ratsxge{\ratsx_0^\szs{+}}
+\def\ratsxlt{\ratsx^\szs{-}}
+\def\ratsxle{\ratsx_0^\szs{-}}
+
+% Obsolete.
+% \def\oldrats{\mathord{Q}}
+% \def\nnrats{\rats_0^+}
+% \def\posrats{\rats^+}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Real numbers.
+% \def\reals{{\mathord{\hbox{\Bbb R}}}}
+% \def\reals{{\mathord{{\rm I\kern-1.5pt R}}}} % Fake blackboard bold R.
+\def\reals{\mathord{\bbm R}}
+\def\realseight{\mathord{\hbox{\bbmeight R}}}
+\def\realsgt{\reals^\szs{+}}
+\def\realsge{\reals^\szs{+}_0}
+\def\realslt{\reals^\szs{-}}
+\def\realsle{\reals^\szs{-}_0}
+
+% \def\realsx{\reals^*}
+% \def\realsxge{\realsge\cup\{\infty\}}
+% \def\realsx{\Bar\reals}
+\def\realsx{\Barmin\reals}
+% \def\realsx{\overline\reals}      % This overline is too thick and too wide.
+\def\realsxgt{\realsx^\szs{+}}
+\def\realsxge{\realsx^\szs{+}_0}
+\def\realsxlt{\realsx^\szs{-}}
+\def\realsxle{\realsx^\szs{-}_0}
+
+% Obsolete real number notations.
+% \def\xreals{\reals^*}
+% \def\nnreals{\reals^+} % Obsolete.
+% \def\xnnreals{\reals^+\cup\{\infty\}} % Obsolete.
+% % \def\nnreals{\reals_0^+}
+% % \def\posreals{\reals^+}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Complex numbers.
+% \def\oldcomplex{{\mathord{{\rm \hbox{\vrule}\kern-1.5pt C}}}}
+\def\complex{\mathord{\bbm C}}
+
+%------------------------------------------------------------------------------
+% Lebesgue measure. Unfortunately, I use \rsfs L for multilinear spaces already.
+\def\leb{\mathord{\bbm L}}
+
+% Analytical limits.
+\newdimen\limpluswidth{% Width of ${}^+$ for subscripts of limits.
+ \setbox0\hbox{$\scriptstyle{}^+$}\global\limpluswidth\wd0 }
+\def\limplus{\rlap{$\scriptstyle{}^+$}}
+\def\limplusskip{\hskip\limpluswidth}
+
+% Harpoon arrow on top of given text.
+% Should have generic macros for putting various arrows on top of things.
+{\catcode`\@=11 % Include @ in macro names.
+\gdef\rightharpoonupfill{$\m@th\smash-\mkern-7mu%
+ \cleaders\hbox{$\mkern-2mu\smash-\mkern-2mu$}\hfill
+ \mkern-7mu\mathord\rightharpoonup$}
+\gdef\overrightharpoonup#1{\vbox{\m@th\ialign{##\crcr
+ \rightharpoonupfill\crcr\noalign{\kern-\p@\nointerlineskip}
+ $\hfil\displaystyle{#1}\hfil$\crcr}}}
+} % End of catcode scope.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Dot on equals for abbreviations of specification tuples.
+\def\rightfanD{\mathrel{\hbox{\rlap{$-$}$<$}}}
+\let\rightfanT\rightfanD
+\def\rightfanS{\mathrel{\hbox{\rlap{$\scriptstyle-$}$\scriptstyle<$}}}
+\def\rightfanSS{%
+ \mathrel{\hbox{\rlap{$\scriptscriptstyle-$}$\scriptscriptstyle<$}}}
+\def\rightfan{\mathchoice{\rightfanD}{\rightfanT}{\rightfanS}{\rightfanSS}}
+
+\def\leftfanD{\mathrel{\hbox{\rlap{$-$}$>$}}}
+\let\leftfanT\leftfanD
+\def\leftfanS{\mathrel{\hbox{\rlap{$\scriptstyle-$}$\scriptstyle>$}}}
+\def\leftfanSS{%
+ \mathrel{\hbox{\rlap{$\scriptscriptstyle-$}$\scriptscriptstyle>$}}}
+\def\leftfan{\mathchoice{\leftfanD}{\leftfanT}{\leftfanS}{\leftfanSS}}
+
+\let\abbrevf\rightfan     % Abbreviation for/of/forward. X\abbrevf(X,T).
+\let\abbrevb\leftfan      % Abbreviation by/backward. (X,T)\abbrevf X.
+
+\let\ora\overrightarrow
+\let\orharp\overrightharpoonup
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Fixed spacing for various operators.
+\def\muskA{\mskip3mu}
+\def\muskB{\mskip4mu}
+\def\muskC{\mskip5mu}
+
+% \def\assert{\mathbin{\vdash}}
+% \def\assert{\muskC\vdash\muskB}
+% \def\assert{\mathrel{\vdash}}
+\let\assert\vdash                       % Relation atom.
+\def\asserts{\muskC\vdash\muskB}        % Extra space within an assertion.
+
+% Assertion in a particular propositional calculus.
+% \def\assertX#1{\muskC\vdash_{#1}\muskB}
+\def\assertX#1{\assert_{#1}}
+\def\assertsX#1{\muskC\assert_{#1}}
+
+% Two-way assertion.
+\def\assertt{\mathrel{\dashv\kern1.4pt\vdash}} % Bidirectional assertion.
+\def\assertts{\muskC\assertt\muskC}            % Extra space.
+
+\def\asserttX#1{\assertt_{#1}}
+\def\asserttsX#1{\muskC\assertt_{#1}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Conditional operators.
+\def\imprel{\mathrel{\Rightarrow}}          % Implies.
+\def\impshort{\muskA\Rightarrow\muskA}
+\def\implong{\muskC\Rightarrow\muskC}
+\def\impquad{\quad\Rightarrow\quad}
+\let\implies\imprel
+
+\def\notimprel{\mathrel{\not\Rightarrow}}   % Not implies.
+\def\notimpshort{\muskA\not\Rightarrow\muskA}
+\def\notimplong{\muskC\not\Rightarrow\muskC}
+\def\notimpquad{\quad\not\Rightarrow\quad}
+\let\notimplies\notimprel
+
+\def\impbyrel{\mathrel{\Leftarrow}}         % Implied by.
+\def\impbyshort{\muskA\Leftarrow\muskA}
+\def\impbylong{\muskC\Leftarrow\muskC}
+\def\impbyquad{\quad\Leftarrow\quad}
+\let\impliedby\impbyrel
+
+\def\iffrel{\mathrel{\Leftrightarrow}}      % If and only if.
+\def\iffshort{\muskA\Leftrightarrow\muskA}
+\def\ifflong{\muskC\Leftrightarrow\muskC}
+\def\iffquad{\quad\Leftrightarrow\quad}
+
+% \def\fspace{{\cal F}}
+% \def\powerset{{\cal P}}
+% \def\powerset{{\mathord{{\rm I\kern-1.5pt P}}}}
+\def\powerset{\mathord{\bbm P}}
+
+% List spaces.
+% \def\List{{\cal L}} % List space.
+\def\List{\mathop{\rm List}\nolimits}
+% \def\barList{\mathop{\rm List}\nolimits}
+% \def\barList{\mathop{\Bar{\rm List}}\nolimits}
+\def\barList{\mathop{\overline{\rm List}}\nolimits}
+
+% Multinomial coefficient spaces.
+\def\Mult{\mathop{\rm Mult}\nolimits}
+\def\barMult{\mathop{\overline{\rm Mult}}\nolimits}
+
+% Notations for maps for sets of bounds. These look very uneven and clumsy.
+% \def\infbar{\mathop{\overline{\rm inf}}}
+% \def\supbar{\mathop{\overline{\rm sup}}}
+% \def\minbar{\mathop{\overline{\rm min}}}
+% \def\maxbar{\mathop{\overline{\rm max}}}
+
+% Notations for maps for sets of bounds.
+% Must be used in math mode.
+\def\infbar{\mathop{\oline{\rm inf}}}
+\def\supbar{\mathop{\oline{\rm sup}}}
+\def\minbar{\mathop{\oline{\rm min}}}
+\def\maxbar{\mathop{\oline{\rm max}}}
+\def\lbbar{\mathop{\oline{\rm lb}}}
+\def\ubbar{\mathop{\oline{\rm ub}}}
+
+% These X-versions are intended to be used with a superscript.
+% Must be used in math mode.
+\def\infbarSR#1{{}^{\raise1pt\hbox{$\scriptstyle#1$}}}
+\def\infbarS#1{{\oline{\rm inf}}\infbarSR{#1}}
+\def\supbarS#1{{\oline{\rm sup}}\infbarSR{#1}}
+\def\minbarS#1{{\oline{\rm min}}\infbarSR{#1}}
+\def\maxbarS#1{{\oline{\rm max}}\infbarSR{#1}}
+
+\def\starList{\List^*}
+\def\Listx{\barList} % Could be barList or starList.
+
+\def\lift{\mathop{\rm lift}\nolimits} % Not to be confused with \opLift.
+
+\def\mcap{\mathop{\textstyle\bigcap}}
+\def\mcup{\mathop{\textstyle\bigcup}}
+\def\smcap{\mathop\cap\limits}
+\def\smcup{\mathop\cup\limits}
+% \def\bcap{\mathbin{\textstyle\cap}} % Binary \cap.
+% \def\bcup{\mathbin{\textstyle\cup}} % Binary \cup.
+\def\bcap{\mathbin{\cap}} % Binary \cap.
+\def\bcup{\mathbin{\cup}} % Binary \cup.
+
+\def\mprod{\mathop{\prod}}   % Forces sub/superscripts under/above symbol.
+
+\def\mtimes{\mathop{\times}}   % Forces sub/superscripts under/above symbol.
+\def\mcirctimes{% Forces sub/superscripts under/above symbol.
+ \mathop{\overcirc\times}}
+\def\lowtimes#1{\times_{\lower1pt\hbox{\kern-1pt$\scriptstyle#1$}}}
+
+\def\motimes{\mathop{\textstyle\bigotimes}}
+\def\smotimes{\mathop{\textstyle\otimes}}
+\def\sotimes{{\textstyle\bigotimes}} % Forces sub/superscripts to the side.
+\def\lowotimes#1{\otimes_{\lower1pt\hbox{$\scriptstyle#1$}}}
+
+\def\moplus{\mathop{\textstyle\bigoplus}}
+\def\smoplus{\mathop{\oplus}}
+\def\soplus{{\textstyle\bigoplus}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Some symbols which plain TeX doesn't give nice results for.
+% Small \times.
+\let\timesb\times                           % Binary
+\def\timesc{\mathop\times\displaylimits}    % Centred.
+\def\timesr{\mathop\times\nolimits}         % Right-hand side.
+
+% Small \otimes.
+\def\otimesb{\,\mathord\otimes\,}           % Small, binary.
+\def\otimesc{\mathop\otimes\displaylimits}  % Small, centred.
+\def\otimesr{\mathop\otimes\nolimits}       % Small, right-hand side.
+
+% Big \otimes.
+\def\botimes{\hbox{\bigcmsy\char"0A}}       % Large, solitary.
+\def\botimesb{\,\botimes\,}                 % Large, binary.
+\def\botimesc{\mathop{\botimes}\displaylimits} % Large, centred.
+\def\botimesr{\mathop{\botimes}\nolimits}   % Large, RHS.
+
+% Small \oplus.
+\def\oplusb{\,\mathord\oplus\,}             % Small, binary.
+\def\oplusc{\mathop{\textstyle\oplus}\displaylimits} % Small, centred.
+\def\oplusr{\mathop\oplus\nolimits}         % Small, right-hand side.
+
+% Big \oplus.
+\def\boplus{\hbox{\bigcmsy\char"08}}        % Large, solitary.
+\def\boplusb{\,\boplus\,}                   % Large, binary.
+\def\boplusc{\mathop{\boplus}\displaylimits} % Large, centred.
+\def\boplusr{\mathop{\boplus}\nolimits}     % Large, RHS.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Circles over arrows.
+% \def\arrowcircbig{\mathop{\to}\limits^\circ}
+\def\arrowcircbig{\mathrel{\mathop{\to}\limits^\circ}}
+\def\arrowcircsmall{\mathrel{\overcirc\to}}
+% \let\arrowcirc\arrowcircbig
+\let\arrowcirc\arrowcircsmall
+% width(\rightarrow) = 10pt, width(\longrightarrow) = 16pt, width(\circ) = 5pt.
+% \bgroup\setbox0\hbox{$\rightarrow$}\dimen0\wd0 \divide\dimen0 by2
+
+% William Tell symbols.
+\gdef\longwtell{%
+ \mathrel{\hbox{\hbox to0pt{\kern5.5pt$\circ$\hss}$\longrightarrow$}}}
+\gdef\medwtell{%
+ \mathrel{\hbox to13pt{\hbox to0pt{\kern4pt$\circ$\hss}\rightarrowfill}}}
+\gdef\smallwtell{\mathrel{\hbox{\hbox to0pt{\kern2pt$\circ$\hss}$\rightarrow$}}}
+\let\wtell\medwtell
+
+\def\smallsum{\mathop{\textstyle\sum}}
+\def\smallprod{\mathop{\textstyle\prod}}
+\let\forsome\exists         % Correct meaning of the symbol.
+\def\suchthat{;\muskA}      % Creates space in set definitions.
+
+\def\relcompact{\mathrel{\subset\subset}}    % Relatively compact relation.
+\def\subsetneqsym{%
+ \lower1.5pt\vbox{\offinterlineskip\lineskip-1pt\halign{%
+ \hfil$\scriptstyle##$\hfil\cr\subset\cr\neq\cr}}}
+\def\supsetneqsym{%
+ \lower1.5pt\vbox{\offinterlineskip\lineskip-1.4pt\halign{%
+ \hfil$\scriptstyle##$\hfil\cr%
+ \supset\cr=\llap{$\scriptstyle\backslash$\kern1.4pt}\cr}}}
+\def\subsetneq{\mathrel{\subsetneqsym}}
+\def\supsetneq{\mathrel{\supsetneqsym}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\def\text#1{\hbox{\rm#1}}
+\def\textsp#1{\hbox{\rm\space#1\space}}
+\def\textspl#1{\hbox{\rm\space#1}}
+\def\textspr#1{\hbox{\rm#1\space}}
+\def\textquad#1{\hbox{\rm\quad#1\quad}}
+\def\textSP[#1]#2{\hbox{\rm\hskip#1\relax#2\hskip#1\relax}}
+\def\textS#1{\hbox{\sevenrm#1}}
+
+\let\gp\text            % Classical Lie group.
+\let\gpS\textS          % Classical Lie group in a subscript or superscript.
+% \let\gpl\uline          % Lie algebra of a classical Lie group.
+\def\gpl#1{\uline{#1}}  % Lie algebra of a classical Lie group.
+\def\ts{\ifmmode\,\else\thinspace\fi}
+\def\tsland{\ts\land\ts}
+\def\tslor{\ts\lor\ts}
+
+% \cdot needs more space around it when used as function parameter place-holder.
+\def\cdotsp{\,\cdot\,}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Physical units:
+\def\tsx#1{\thinspace\text{#1}}
+
+\def\nS{\tsx{nS}}
+\def\uS{\tsx{$\mu$S}}
+\def\mS{\tsx{mS}}
+\def\cS{\tsx{cS}}
+\def\Sec{\tsx{S}}
+
+\def\Gbps{\tsx{Gbps}}
+\def\Mbps{\tsx{Mbps}}
+\def\kbps{\tsx{kbps}}
+\def\bps{\tsx{bps}}
+
+\def\GHz{\tsx{GHz}}
+\def\MHz{\tsx{MHz}}
+\def\kHz{\tsx{kHz}}
+\def\Hz{\tsx{Hz}}
+
+\def\GB{\tsx{GB}}
+\def\MB{\tsx{MB}}
+\def\kB{\tsx{kB}}
+\def\frac#1#2{{#1\over#2}}
+\def\pfrac#1#2{{\partial#1\over\partial#2}}
+\def\tfrac#1#2{{\textstyle{{#1}\over{#2}}}}
+\def\dfrac#1#2{{\displaystyle{{#1}\over{#2}}}}
+
+% Copied from TeX book, page 311.
+\def\slashfrac#1/#2{%
+ \leavevmode\kern.1em\raise.5ex\hbox{\the\scriptfont0 #1}%
+ \kern-0.1em/\kern-0.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+
+% \def\dl#1#2{\delta^{#1}_{#2}}
+% \def\dl#1#2{\delta_{#1#2}}
+\def\dl#1#2{\delta_{#1}^{#2}}
+\def\Dl#1#2{\delta^{#1}_{#2}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\def\csmash#1{\hbox to0pt{\hss#1\hss}}
+
+% Top-only and bottom-only versions of \smash. See plain.tex.
+\def\tsmash{\relax % \relax, in case this comes first in \halign
+  \ifmmode\def\next{\mathpalette\mathtsmash}\else\let\next\maketsmash%
+  \fi\next}
+\def\maketsmash#1{\setbox0\hbox{#1}\fintsmash}
+\def\mathtsmash#1#2{\setbox0\hbox{$\mathsurround0pt#1{#2}$}\fintsmash}
+\def\fintsmash{\ht0=0pt \box0}
+
+\def\bsmash{\relax % \relax, in case this comes first in \halign
+  \ifmmode\def\next{\mathpalette\mathbsmash}\else\let\next\makebsmash%
+  \fi\next}
+\def\makebsmash#1{\setbox0\hbox{#1}\finbsmash}
+\def\mathbsmash#1#2{\setbox0\hbox{$\mathsurround0pt#1{#2}$}\finbsmash}
+\def\finbsmash{\dp0=0pt \box0}
+
+%------------------------------------------------------------------------------
+% Should change the font from 7 to 8 pt (for display style).
+\def\restrictDD#1{\Bigr\vert_{#1}}
+\def\restrictD#1{\bigr\vert_{#1}}
+\def\restrictT#1{\bigr\vert_{#1}}
+\def\restrictS#1{\vert_{#1}}
+\def\restrictSS#1{\vert_{#1}}
+\def\restrict#1{%
+ \mathchoice{\restrictD{#1}}{\restrictT{#1}}{\restrictS{#1}}{\restrictSS{#1}}}
+
+\def\restrictDDp#1#2{\Bigr\vert_{#1}^{#2}}
+\def\restrictDp#1#2{\bigr\vert_{#1}^{#2}}
+\def\restrictTp#1#2{\bigr\vert_{#1}^{#2}}
+\def\restrictSp#1#2{\vert_{#1}^{#2}}
+\def\restrictSSp#1#2{\vert_{#1}^{#2}}
+\def\restrictp#1#2{% Takes subscript, then superscript.
+ \mathchoice{\restrictDp{#1}{#2}}{\restrictTp{#1}{#2}}%
+ {\restrictSp{#1}{#2}}{\restrictSSp{#1}{#2}}}
+
+% \restrictq is a version of \restrictp which lowers the superscript a bit.
+\def\restrictq#1#2{% Takes subscript, then superscript.
+ \mathchoice{\Bigr\vert_{#1}^{#2}}{\bigr\vert{}_{#1}^{#2}}%
+ {\vert_{#1}^{#2}}{\vert_{#1}^{#2}}}
+
+% A really crummy 2-parameter version of \restrict. Needs fixing.
+\def\restrictt#1#2{% Sort of puts one parameter above the other.
+ \restrict{\vbox{\baselineskip0pt \parskip0pt %
+ \hbox{$\scriptstyle#1$}\hbox{$\scriptstyle#2$}}}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\def\lv{\left\vert}
+\def\rv{\right\vert}
+
+\def\delperp{\Delta\kern-1.6pt^\perp}  % \Delta superscript \perp.
+
+%------------------------------------------------------------------------------
+% \supsubcent. Centre superscript above subscript.
+% #1    Superscript.
+% #2    Subscript.
+\def\supsubcent[#1#2]{{%
+ % Set dimen 0 to the width of #1 in script style.
+ \setbox0\hbox{$\scriptstyle#1$}\dimen0\wd0 %
+ % Subtract from dimen 0 the width of #2 in script style.
+ \setbox0\hbox{$\scriptstyle#2$}\advance\dimen0 by-\wd0 %
+ % Set dimen 0 to (width(#1) - width(#2))/2.
+ \divide\dimen0 by2 %
+ \ifnum\dimen0>0 %
+  \dimen1=0pt %
+  \dimen2=\dimen0 %
+ \else%
+  \dimen1=0pt %
+  \advance\dimen1 by-\dimen0 %
+  \dimen2=0pt %
+  \fi%
+ {}^{\kern\dimen1{#1}}_{\kern\dimen2{#2}}%
+ }}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Christoffel-symbol style macro to balance superscripts and subscripts.
+% \def\crfl[#1#2#3]{{\Gamma^{\kern1pt{#1}}_{\kern-1pt{#2}{#3}}}}
+% Draw the character #5 with superscript #1 and subscript #2, #3, #4.
+\def\crfldg[#1#2#3#4#5]{%
+ {% Set dimen 0 to the width of #1 in script style.
+ \setbox0\hbox{$\scriptstyle#1$}\dimen0\wd0 %
+ % Subtract from dimen 0 the width of #2 #3 in script style.
+ \setbox0\hbox{$\scriptstyle{#2}{#3}$}\advance\dimen0-\wd0 %
+ % Set dimen 0 to (width(#1) - width(#2) - width(#3))/2.
+ \divide\dimen0 by2 %
+ % The lr-indent into the lower right of the Gamma.
+ \dimen1=-2pt %
+ % General shift of everything to the right.
+ \dimen4=0.5pt %
+ \ifnum\dimen0>\dimen1 %
+  % Top kern = 0. Bottom kern = (width(#1) - width(#2) - width(#3))/2.
+  \dimen2=0pt \dimen3=\dimen0 %
+ \else%
+  % Top kern = lr-indent + (width(#2) + width(#3) - width(#1))/2.
+  % Bottom kern = lr-indent.
+  \dimen2=\dimen1 \advance\dimen2-\dimen0 \dimen3=\dimen1 %
+  \fi%
+ {{#5}^{\kern\dimen4\kern\dimen2{#1}}%
+      _{\kern\dimen4\kern\dimen3{#2}{#3}{#4}}}%
+% \hbox{[\the\dimen0,\the\dimen1,\the\dimen2,\the\dimen3]}%
+ }}
+\def\crfld[#1#2#3#4]{\crfldg[{#1}{#2}{#3}{#4}\Gamma]}
+\def\crfl[#1#2#3]{\crfld[{#1}{#2}{#3}\relax]}
+\def\crfltilde[#1#2#3]{\crfldg[{#1}{#2}{#3}\relax{\tilde\Gamma}]}
+\def\crflchart[#1#2#3#4]{\crfldg[{#1}{#2}{#3}\relax{\Gamma(#4)}]}
+\def\crfldchart[#1#2#3#4#5]{\crfldg[{#1}{#2}{#3}{#4}{\Gamma(#5)}]}
+
+%------------------------------------------------------------------------------
+% Combination-symbol style-macro to balance superscripts and subscripts.
+% Draw the character #3 with superscript #1 and subscript #2.
+\def\CombXYZ[#1#2#3]{{%
+ % Set dimen 0 to the width of #1 in script style.
+ \setbox0\hbox{$\scriptstyle#1$}\dimen0\wd0 %
+ % Subtract from dimen 0 the width of #2 in script style.
+ \setbox0\hbox{$\scriptstyle#2$}\advance\dimen0-\wd0 %
+ % Set dimen 0 to (width(#1) - width(#2))/2.
+ \divide\dimen0 by2 %
+ % The lr-indent into the lower right of the 'C'.
+ \dimen1=-2pt %
+ \ifnum\dimen0>0 %
+  \dimen2=0pt \dimen3=0pt
+ \else
+  \ifnum\dimen0>\dimen1 %
+   % Top kern = 0. Bottom kern = (width(#1) - width(#2))/2.
+   \dimen2=0pt \dimen3=\dimen0 %
+  \else%
+   % Top kern = lr-indent + (width(#2) - width(#1))/2.
+   % Bottom kern = lr-indent.
+%   \dimen2=\dimen1 \advance\dimen2-\dimen0 \dimen3=\dimen1 %
+   % Top kern = 0.
+   % Bottom kern = lr-indent.
+   \dimen2=0pt \dimen3=\dimen1 %
+   \fi%
+  \fi%
+ % General shift of everything to the right.
+ \dimen4=0pt %
+ {#3{}^{\kern\dimen4\kern\dimen2{#1}}%
+      _{\kern\dimen4\kern\dimen3{#2}}}%
+ }}
+\def\CombXY[#1#2]{\CombXYZ[{#1}{#2}C]}
+\def\CombX#1#2{\CombXY[{#1}{#2}]}
+
+% Combination/permutation symbols for use in math mode.
+% \def\Comb#1#2{C{}^{#1}_{#2}}
+\let\Comb\CombX
+% Maybe should upgrade the \Perm macro like the \Comb macro?
+\def\Perm#1#2{P{}^{#1}_{#2}}
+
+%------------------------------------------------------------------------------
+\def\pdv#1#2{\frac{\partial#1}{\partial#2}}
+\def\pdl#1#2{\partial#1/\partial#2}
+\def\pd#1#2{%
+ \mathchoice{\pdv{#1}{#2}}{\pdl{#1}{#2}}{\pdv{#1}{#2}}{\pdv{#1}{#2}}}
+\def\ebold{\bold{e}}
+\def\smallhalf{{\textstyle\frac12}}
+\def\longto{\mathop{\longrightarrow}\limits}
+\def\longfrom{\mathop{\longleftarrow}\limits}
+\def\rlmap{\mathop{\normalbaselines\vcenter{\hbox{$\longrightarrow$}%
+ \kern-7pt\hbox{$\longleftarrow$}}}\limits}
+
+% Colon to separate a function name from a following domain symbol.
+\def\from{\mathop{:}}
+
+\def\komb#1{\left\{\vcenter{\halign{##\hfil\cr#1\crcr}}\right.}
+\def\Komb#1{$\komb{#1}$}
+\def\Prob{\mathop{\rm Prob}}
+
+% \def\conv{\mathop{\rm conv}}
+% \def\conv{\mathop{\eusm C}\nolimits}
+\def\conv{\mathord{\eusm C}}
+\def\codim{\textop{codim}}
+\def\sign{\textop{sign}}
+\def\diam{\textop{diam}}
+\def\floor{\textop{floor}}
+\def\fracpart{\textop{frac}}
+\def\ceiling{\textop{ceiling}}
+\def\round{\textop{round}}
+\def\length{\textop{length}}
+\def\cosec{\textop{cosec}}
+
+\def\opgcd{\textop{gcd}}
+\def\opparity{\textop{parity}}
+\def\opperm{\textop{perm}}
+
+% Functions.
+\def\Image{\textop{Img}}
+\def\Dom{\textop{Dom}}
+\let\Domain\Dom
+\def\Range{\textop{Range}}
+
+% Support of a function.
+% The closure of the subset of the domain where the function is non-zero.
+\def\supp{\textop{supp}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Lists.
+\def\concat{\textop{concat}}
+
+% \def\opinsert{\mathop{\rm insert}\nolimits}
+\def\opinsert{\textopdl{insert}}
+% \def\opomit{\mathop{\rm omit}\nolimits}
+\def\opomit{\textopdl{omit}}
+\def\opsubs{\textopdl{subs}}
+\def\opsubseq{\textopdl{subseq}}
+\def\opswap{\textopdl{swap}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Set-morphisms and cardinality.
+\def\Inj{\textop{Inj}}
+\def\Sur{\textop{Surj}}
+\def\Bij{\textop{Bij}}
+\def\Enum{\textop{Enum}}
+
+% Algebra.
+\def\Tr{\textop{Tr}}
+\def\ad{\textop{ad}}    % Adjoint.
+
+\def\Hom{\textop{Hom}}  % Space of homomorphisms. (X -> Y)
+\def\End{\textop{End}}  % Space of endomorphisms. (X -> X)
+\def\Iso{\textop{Iso}}  % Space of isomorphisms. (bijective X -> Y)
+\def\Aut{\textop{Aut}}  % Space of automorphisms. (bijective X -> X)
+\def\Mon{\textop{Mon}}  % Space of monomorphisms. (injective X -> Y)
+\def\Epi{\textop{Epi}}  % Space of epimorphisms. (surjective X -> Y)
+
+% Linear spaces.
+\def\Lin{\textop{Lin}}
+% \let\lin\Lin
+\def\Span{\textop{span}}
+
+% Topology.
+\def\Top{\textop{Top}}
+\def\Nbhd{\textop{Nbhd}}
+\def\Int{\textop{Int}}
+\def\Clos{\textop{Clos}}
+\def\Ext{\textop{Ext}}
+\def\Bdy{\textop{Bdy}}
+% Topological separation classes.
+\def\tc{{\bf T}}
+
+% Manifolds.
+\def\atlas{\textop{atlas}}
+\def\atlasbar{\textop{\smash{\overline{\vphantom{t}\smash{\rm atlas}}}}}
+% \def\atlasbar{\textop{\smash{\overline{\rm atlas}}}}
+% \def\atlasbar{\textop{\overline{\rm atlas}}}
+% \def\atlasbarx{\smash{\textop{\overline{\rm atlas}}}}
+
+\def\id{\textord{id}}       % Ordinary to fix spacing for following \circ.
+\def\pound{{\it\$}}
+\def\mlin{{\rsfs L}}        % Set of multilinear maps. Needs font rsfs10.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Characters with skewed (shifted) accents.
+\def\hatphi{\skew5\hat\phi}
+\def\checkphi{\skew5\check\phi}
+\def\tildephi{\skew5\tilde\phi}
+
+% Negative skew for accents. Adapted from TeXbook, page 359.
+\def\skewNEG#1#2#3{{#2{#3\mkern-#1mu}\mkern#1mu}{}}
+
+% This is what is in the TeXbook.
+% \def\skew#1#2#3{{#2{#3\mkern#1mu}\mkern-#1mu}{}}
+
+% This is what I found in plain.tex.
+% \def\skew#1#2#3{{\muskip\z@#1mu\divide\muskip\z@\tw@ \mkern\muskip\z@
+%     #2{\mkern-\muskip\z@{#3}\mkern\muskip\z@}\mkern-\muskip\z@}{}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Miscellaneous things.
+\def\Cpp/{{\rm C\raise.2ex\hbox{++}}}   % C++ programming language.
+
+% North-eastern square for use as a NOT-operator (maybe).
+\def\nboxitNE#1#2{% This is a crummy macro because of unknown TeX box padding.
+ \vbox{\hrule height#2 \kern-#2\hbox{\vbox{#1}\vrule width#2}}}
+\def\squareNE{\nboxitNE{\hbox{\vbox{\kern6pt}\kern6pt}}{0.25pt}}
+\def\squareNEsmall{\nboxitNE{\hbox{\vbox{\kern4pt}\kern4pt}}{0.2pt}}
+% Substitute for logical negation operator symbol.
+\let\Lnot\squareNE
+\let\Lnotsmall\squareNEsmall
+
+% Superimposed \land and \lor to get an exclusive OR symbol candidate.
+\def\lorand{\mathbin{\lor{\setbox0\hbox{$\land$}\hskip-\wd0}\land}}%
+\def\tslorand{\ts\lorand\ts}
+
+% A V-bar macro for exclusive OR.
+\def\lbarvee{\mathbin{\bar\vee}}
+\def\tslbarvee{\ts\lbarvee\ts}
+
+% Medium size wedge and vee. Very kludgy!
+\def\opmedwedge{\mathop{\hbox{\eusm\char"5E}}\limits}
+\def\opmedvee{\mathop{\hbox{\eusm\char"5F}}\limits}
+% An atom-version with zero space on the right.
+\def\medwedge{\hbox{\eusm\char"5E}}
+\def\medvee{\hbox{\eusm\char"5F}}
+
+% 2009-2-4: Moved to akfont.tex.
+% \let\lxor\lbarvee
+% \let\tslxor\tslbarvee
+
+% Symmetric set difference. (Corresponds to logical exclusive OR.)
+\def\setdiff{\mathbin{\bigtriangleup}}
+\def\tssetdiff{\ts\mathbin{\bigtriangleup}\ts}
+
+% Some logical operators.
+\def\sstroke{\mathbin{|}}           % Sheffer stroke.
+\def\arrownand{\mathbin{\uparrow}}  % Alternative symbol for Sheffer stroke.
+\def\Qarrow{\mathbin{\downarrow}}   % Quine arrow.
+
+% \let\lnand\sstroke
+\let\lnand\arrownand
+\let\lnor\Qarrow
+
+\def\tslnand{\ts\lnand\ts}
+\def\tslnor{\ts\lnor\ts}

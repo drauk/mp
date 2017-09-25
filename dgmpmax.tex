@@ -1,0 +1,458 @@
+% tex/conc/dgmpmax.tex   2017-7-2   Alan U. Kennington.
+% $Id: tex/conc/dgmpmax.tex 9162242ded 2017-07-02 19:31:27Z Alan U. Kennington $
+% Some macros for use in the DG book and MetaPost files.
+% General mathematics things should go in akmath.tex.
+% The macros in _this_ file are mostly not standard enough for akmath.tex.
+% In other words, most of these definitions are specific to my DG book.
+
+% This file is needed because MetaPost doesn't inherit verbatimtex includes
+% from included MetaPost macro files.
+% This TeX macro file must be included in each mp file where it is needed.
+% MetaPost also doesn't seem to like `%' comments in a verbatimtex block.
+
+%------------------------------------------------------------------------------
+% Prevent double loading:
+\ifx\dgmpmaxtexloaded\relax\endinput\else\let\dgmpmaxtexloaded\relax\fi
+
+% \emat: eqalign version.
+\def\emat#1{$\displaystyle\eqalign{#1}$}
+
+% \mmat: Matrix version.
+\def\mmat#1{$\displaystyle\matrix{#1}$}
+
+% \tmat: Plain text version. Remember "btex" starts in TeX horizontal mode.
+% These are used only in metapost diagrams.
+\def\tmat#1{% Single column per row, left justified.
+ \vbox{\halign{##\hfil\cr#1\crcr}}}
+\def\tmatB#1{% Two or more columns per row, all centred.
+ \vbox{\halign{\hfil##\hfil&&\hfil##\hfil\cr#1\crcr}}}
+\def\tmatLRSF#1#2#3#4#5{% Centred ten-point table.
+ {\baselineskip#4\vbox{\halign{#2#5\vphantom{fy}###3\cr#1\crcr}}}}
+
+\def\tmatseven#1{% Centred seven-point table.
+ \tmatLRSF{#1}{\hfil}{\hfil}{9pt}{\sevenrm}}
+
+\def\tmatten#1{% Centred ten-point table.
+ \tmatLRSF{#1}{\hfil}{\hfil}{11pt}{\tenrm}}
+\def\tmattenL#1{% Left justified ten-point table.
+ \tmatLRSF{#1}{}{\hfil}{11pt}{\tenrm}}
+\def\tmattenR#1{% Left justified ten-point table.
+ \tmatLRSF{#1}{\hfil}{}{11pt}{\tenrm}}
+
+% Special symbol for matrix for change of coordinate chart.
+% \def\ccmat{Z}
+\def\ccmat{J}
+
+\def\opT{\overcirc T}       % Untagged tangent operators.
+\def\tagT{\hat T}           % Tagged tangent operators.
+\def\velT{\check T}         % Tagged tangent velocities.
+
+% Ad-hoc notation for useless "tangent field covector" spaces.
+\def\Thatbar{\skew3\hat{\bar T}}
+% Ad-hoc \hat\bar notations for coordinates changes for mixed tensors.
+\def\Bhatbar{\skew3\hat{\bar B}}
+\def\ehatbar{\skew2\hat{\bar e}}
+\def\Yhatbar{\hat{\bar Y}}
+
+\def\opP{\overcirc P}       % Untagged tangent operator frames.
+\def\tagP{\hat P}           % Tagged tangent operator frames.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% More than 3 dots in the \dots macro.
+{\catcode`@=11
+% Four lower dots.
+\gdef\ldotsIV{\mathinner{\ldotp\ldotp\ldotp\ldotp}}
+\gdef\dotss{\relax\ifmmode\ldotsIV\else$\m@th\ldotsIV\,$\fi}
+% Four centred dots.
+\gdef\cdotsIV{\mathinner{\cdotp\cdotp\cdotp\cdotp}}
+\gdef\cdotss{\relax\ifmmode\cdotsIV\else$\m@th\cdotsIV\,$\fi}
+}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\def\Xstyle{3}
+
+\ifcase\Xstyle
+% 0. Plain X definition.
+\gdef\XX{X}                     % Space of cross-sections.
+\gdef\XXo{\overcirc\XX}         % Space of local/partial cross-sections.
+\gdef\XXhat{\hat\XX}            % De-tagged covariant form cross-sections?
+\gdef\XXchk{\check\XX}          % De-tagged covariant form cross-sections?
+\or
+% 1. Squiggly X definition.
+\gdef\XX{{\eusm X}}             % Space of cross-sections.
+\gdef\XXo{\skew2\overcirc\XX}   % Space of local/partial cross-sections.
+\gdef\XXhat{\skew{1.5}\hat\XX}  % De-tagged covariant form cross-sections?
+\gdef\XXchk{\skew{1.5}\check\XX} % De-tagged covariant form cross-sections?
+\or
+% 2. Bold X definition.
+\gdef\XX{{\bf X}}               % Space of cross-sections.
+\gdef\XXo{\skew2\overcirc\XX}   % Space of local/partial cross-sections.
+\gdef\XXhat{\skew{1.5}\hat\XX}  % De-tagged covariant form cross-sections?
+\gdef\XXchk{\skew{1.5}\check\XX} % De-tagged covariant form cross-sections?
+\or
+% 3. Italic bold X definition.
+\gdef\XX{{\cmmib X}}            % Space of cross-sections.
+\gdef\XXo{\skew3\overcirc\XX}   % Space of local/partial cross-sections.
+\gdef\XXhat{\skew{2.5}\hat\XX}  % De-tagged covariant form cross-sections?
+\gdef\XXchk{\skew{2.5}\check\XX} % De-tagged covariant form cross-sections?
+\fi
+
+% 2017-7-2. Probably the \overlineright macro should be in akmath.tex.
+% Could also define \overlineleftright and \overlineleft etc.?
+\def\overlineright#1#2{%
+ {\setbox0\hbox{$#2$}\hbox to\wd0{\hss$\overline{\hbox to#1{\hss$#2$}}$}}}
+\def\XXoline{\overlineright{9pt}{\XX}{}}
+
+\let\XXcut\XXoline              % Short-cut de-tagged form cross-sections.
+
+% 2016-12-11. The notations \XXo and \XXloc need further study!
+\def\XXloc{\XX_{\rm loc}}       % Local cross-sections with open domain.
+
+% \gdef\vertXX{\,\bigr\vert\,}    % Restriction of space of cross-sections.
+\gdef\vertXX{\,\vert\,}         % Restriction of space of cross-sections.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\def\tagpartial{\hat\partial} % Tagged partial-symbol.
+\def\tagD{\hat D}            % Tagged tangent operator for given tangent vector.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% True and false propositions. (Tautologies and contradictions.)
+% \def\propT{{\bf T}}
+% \def\propF{{\bf F}}
+\def\propT{\top}
+\def\propF{\bot}
+\def\valF{{\bf F}}
+\def\valT{{\bf T}}
+\def\valU{{\bf U}}
+
+\def\valO{{\bf O}}
+\def\valX{{\bf X}}
+
+% \def\tval{\textop{Val}}
+\def\tval{\mathop{\hbox{\bf t}}}    % This improves the vertical offset.
+\def\tvalx{\textop{\bf\tau}}        % Note: There is no bold maths font!
+
+% Bar-vee logic operator symbol (to be used in maths mode).
+\def\barlor{\overline{\hbox to4.5pt{\hss$\vee$\hss}}}
+\def\barlorW{\overline{\hbox to6.0pt{\hss$\vee$\hss}}}  % Wider bar.
+
+% The but-not and not-but binary logical operators.
+% \def\butnot{\mathbin{\hbox{\rlap{\kern2.5pt$|$}\hbox{\sybx\char"1B}}}}
+% \def\notbut{\mathbin{\hbox{\rlap{\kern3.5pt$|$}\hbox{\sybx\char"1A}}}}
+\def\butnot{%
+ \mathbin{\hbox{\rlap{\kern2.3pt\sybx\char"6A}\hbox{\sybx\char"1B}}}}
+\def\notbut{%
+ \mathbin{\hbox{\rlap{\kern3.5pt\sybx\char"6A}\hbox{\sybx\char"1A}}}}
+
+% Logic machine notation.
+\def\LMput{\rightarrow}
+
+%------------------------------------------------------------------------------
+% Name map for a logical abstraction.
+\def\Tnamemap{\mu}
+% Name space for a logical abstraction.
+\def\Tnamespace{{\cal N}}
+
+% Sets of truth values.
+\def\Tvalspace{\{\valF,\valT\}}
+\def\TvalspaceU{\{\valF,\valT,\valU\}}
+
+% Sets of exclusion values.
+\def\Xvalspace{\{\valX,\valO\}}
+\def\XvalspaceU{\{\valX,\valO,\valU\}}
+
+% Map from concrete proposition space to truth values.
+\def\Tvalmap{\tau}
+
+% Concrete space for truth values.
+\def\Ttruthspace{{\cal T}}
+\def\Ttruthnamespace{\Tnamespace_\Ttruthspace}
+\def\Ttruthnamemap{\Tnamemap_\Ttruthspace}
+
+% Concrete space for a logical abstraction.
+\def\Tpropspace{{\cal P}}
+\def\Tpropnamespace{\Tnamespace_\Tpropspace}
+\def\Tpropnamemap{\Tnamemap_\Tpropspace}
+
+% Predicate calculus spaces: predicates, variables (objects), and object-maps.
+\def\Tpredspace{{\cal Q}}
+\def\Tprednamespace{\Tnamespace_\Tpredspace}
+\def\Tprednamemap{\Tnamemap_\Tpredspace}
+
+\def\Tvarspace{{\cal V}}
+\def\Tvarnamespace{\Tnamespace_\Tvarspace}
+\def\Tvarnamemap{\Tnamemap_\Tvarspace}
+
+% Maps from objects to objects.
+\def\Tfnspace{{\cal F}}
+\def\Tfnnamespace{\Tnamespace_\Tfnspace}
+\def\Tfnnamemap{\Tnamemap_\Tfnspace}
+
+% Symbol for logical operations (truth functions).
+\let\logop\theta
+
+% Ad-hoc letters for spaces of operators and parentheses.
+\def\opspace{{\cal O}}
+\def\parenspace{{\cal B}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Quoted math-mode text within the math context.
+\def\hboxq#1{\hbox{``#1''}}
+\def\hboxqm#1{\hbox{``$#1$''}}
+
+% Quoted mathematical expression with extra space within text context.
+\def\hboxqs#1{\hbox{``\ts#1\ts''}}
+\def\hboxqsm#1{\hbox{``\ts$#1$\ts''}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Substitution of logical expressions into a logical expression.
+\def\Subs{\hbox{Subs}}
+
+% List of dependencies at the end of a line of formal logical argument.
+\def\bhyp#1{${}\dashv{}$(#1)}           % List of dependencies.
+\def\bhypz{${}\dashv\emptyset$}         % Empty list of dependencies.
+
+% Accents to indicate universal and existential variables.
+\let\uhat\hat
+\let\ehat\check
+
+%------------------------------------------------------------------------------
+% General construction of math symbol or text over an equality symbol.
+\def\eqmath#1{\buildrel#1\over=}
+\def\eqrm#1{\buildrel\rm#1\over=}
+% Concrete equality relation.
+\def\eqconc{\eqrm{c}}
+
+% Wff name space and postfix/prefix spaces.
+\def\WFF{{\rsfs W}}
+\def\WFFpost{\WFF^-}
+\def\WFFpre{\WFF^+}
+\def\WFFin{\WFF^0}
+
+\def\Tinterp{{\cal I}}
+% \def\Tinterp{\textop{\hbox{\sybx I}}}
+\def\Tnamemappost{\Tinterp^-}
+\def\Tnamemappre{\Tinterp^+}
+\def\Tnamemapin{\Tinterp^0}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% The cardinality map and the "beth-cardinality" map.
+\def\beth{\textop{beth}}
+\def\card{\textop{card}}
+\def\rank{\textop{rank}}
+\def\betabar{\bar\beta}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Left and right element extraction operations for general ordered pairs.
+\def\Left{\textop{Left}}
+\def\Right{\textop{Right}}
+
+% Real and imaginary parts of complex numbers.
+% The customary gothic notations for real/imaginary parts are too ugly!
+\def\Real{\textop{Re}}
+\def\Imag{\textop{Im}}
+
+%==============================================================================
+% Tangent vectors and tangent operators.
+\def\tang#1{t_{#1}}                     % Tangent vector.
+\def\cotang#1{\tang{#1}^*}              % Tangent covector.
+\def\tangtensor#1#2{\tang{#1}^{#2}}     % Tangent tensor.
+\def\tangtwo#1{\tang{#1}^{[2]}}         % Second-order operator-like tangent.
+\def\tangtang#1{\tang{#1}^{(2)}}        % Second-level tangent of a tangent.
+
+\def\tangop#1{\partial_{#1}}
+\def\tangoptwo#1{\partial_{#1}^{[2]}}   % Second-order operator.
+\def\tangoptang#1{\partial_{#1}^{(2)}}  % Second-level tangent of tangent.
+
+\def\tangvel#1{\check t_{#1}}           % Velocity vector.
+
+% Left and right translation operators for tangent vectors.
+\def\Lcirc{\overcirc L}
+\def\Rcirc{\overcirc R}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Ricci curvature tensor, scalar curvature.
+% \def\Ricci{\textord{Rc}}
+\def\Ricci{\textord{\cal R}}
+\def\scurv{\textord{\bf R}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Matrix classes.
+% \def\Msym#1{S_{#1}(\reals)} % Real symmetric matrices.
+% \def\Msymnn#1{S_{#1}^+(\reals)} % Positive semi-def. real symmetric matrices.
+% \def\Msymp#1{S_{#1}^{++}(\reals)} % Positive definite real symmetric matrices.
+% \def\Msymnp#1{S_{#1}^-(\reals)} % Negative semi-def. real symmetric matrices.
+% \def\Msymn#1{S_{#1}^{--}(\reals)} % Negative definite real symmetric matrices.
+
+\def\MsymKs#1#2#3{\textop{Sym}#3({#1},{#2})} % Symmetric matrices template.
+\def\MsymK#1#2{\MsymKs{#1}{#2}{}}        % Symmetric matrices.
+\def\Msym#1{\MsymK{#1}{\reals}}          % Real symmetric matrices.
+\def\Msymnn#1{\MsymKs{#1}{\reals}{^\szs{+}_0}} % Pos semi-def. symm matrices.
+\def\Msymnp#1{\MsymKs{#1}{\reals}{^\szs{-}_0}} % Neg semi-def. symm matrices.
+\def\Msymp#1{\MsymKs{#1}{\reals}{^\szs{+}}}    % Pos def. symmetric matrices.
+\def\Msymn#1{\MsymKs{#1}{\reals}{^\szs{-}}}    % Pos def. symmetric matrices.
+
+% Upper norm and lower norm of a matrix or linear map.
+\def\lambdap{\lambda^\szs{+}}
+\def\lambdan{\lambda^\szs{-}}
+\def\mup{\mu^{+}}
+\def\mun{\mu^{-}}
+
+% Multi-dimensional matrices.
+% \def\mmatrix{{\rsfs M}}
+% \def\mmatrix{{\cal M}}
+\def\mmatrix{{\cal A}}
+% \def\mmatrix{{\rsfs A}}
+% \def\mmatrix{{\eusm M}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% General ad hoc stuff local to dg.tex and conc.tex:
+\def\Wedg#1{{\textstyle\bigwedge}^{\!#1}}   % Contravariant.
+% \def\Wedg#1{{\textstyle\bigwedge}\!{}^{#1}}   % Contravariant.
+\def\Lambb#1{\Lambda^{\!#1}}                % Contravariant with Lambda.
+\def\Lamb#1{\Lambda_{#1}}                   % Covariant.
+% \def\TLamb#1{{T\!\Lamb{#1}}}      % Tangent bundle of alternating tensors.
+% \def\TWedg#1{{T\!\Wedg{#1}}}      % Tangent bundle of alternating tensors.
+% \def\TLamb#1{\Lamb{#1}T}        % Tangent bundle of alternating tensors.
+% \def\TWedg#1{\Wedg{#1}T}        % Tangent bundle of alternating tensors.
+\def\wedgel{\mathop{\wedge}\limits}
+\def\wedgedl{\mathop{\wedge}\displaylimits}
+% \def\condep#1#2{\par\noindent\hangindent1cm #1\quad$\longrightarrow$\quad#2}
+\def\condep#1#2{\par\noindent\hangindent1cm #2\quad$\longrightarrow$\quad#1}
+\def\Topbar{\overline{\rm Top}}
+
+% Triangle pointing down.
+\mathchardef\triangledown="0235
+
+% Textual functions and operators.
+\def\Reg{\mathord{\cal K}}          % Other possibilities are F, S, X, Z.
+\def\uls{\textop{UL}}               % Unrestricted linear space.
+\def\fls{\textop{FL}}               % Free linear space.
+\def\Fin{\textop{Fin}}              % Underlying set of a free linear space.
+\def\FinConv{\textop{Fin}_0^1}      % Convex combinations in free linear space.
+
+\def\Lip{\textop{Lip}}              % Lipschitz function space.
+\def\Inc{\textop{Inc}}              % Space of increasing functions.
+\def\Dec{\textop{Dec}}              % Space of decreasing functions.
+\def\NonInc{\textop{NonInc}}        % Space of non-increasing functions.
+\def\NonDec{\textop{NonDec}}        % Space of non-decreasing functions.
+\def\Tree{\textop{Tree}}            % Space of trees.
+
+\def\graph{\textop{graph}}          % Graph of a function.
+% \def\loc{\textop{loc}}              % For integrability class subscripts.
+\def\loc{\textord{loc}}             % For integrability class subscripts.
+
+% \def\ddd{\hbox{\rsfs D}\,{}}      % A space of operators.
+\def\ddd{{\rsfs D}\,{}}             % A space of operators.
+\def\dbarf{\skew6\bar{\bar f}}      % Double bar over an f.
+\def\dottimes{\mathbin{\dot\times}} % Common-domain function direct product.
+\def\ddottimes{\mathbin{\ddot\times}} % Double-domain function direct product.
+
+% Symbols for curves and paths.
+\def\curves{{\rsfs C}}      % Curves.
+\def\paths{{\rsfs P}}       % Paths.
+% \def\paths{{\rsfs Q}}       % Paths.
+% \def\path{\zeta}            % Generic symbol for path (equiv class of curves).
+\def\path{Q}                % Generic symbol for path (equiv class of curves).
+
+% Frame bundle.
+\def\Frame{\textop{\cal F}} % Frame bundle. E.g. F_p^r(M).
+% The set of all linearly independent $r$-tuples in R^n.
+\def\fnr#1#2{F_{#1,#2}}
+% Dual frame cross-section. (Coframe forms. Dual 1-forms.)
+\let\dframe\sigma
+
+% Velocity chart map for tangent spaces of Cartesian spaces.
+% Possibilities: \xi, \kappa, \beta, \rho, etc.
+\let\Vel\beta
+
+% Lie groups.
+\def\Adj{\textop{Adj}}      % Adjoint representation of Lie group.
+
+% Symbols for connections and parallelism.
+\let\konv\theta             % Connection on an OFB. T(M)->(E->T(E)).
+\def\konz{{\bar\theta}}     % Connection on an OFB. E->(T(M)->T(E)).
+\let\konV\beta              % Connection on an PFB. T(M)->(P->T(P)).
+\def\konZ{{\bar\beta}}      % Connection on an PFB. P->(T(M)->T(P)).
+\let\ppara\Theta            % Pathwise (topological) parallelism.
+
+% Drop function and swap function for tangent bundle of a tangent bundle.
+\let\dropf\varpi            % Drop function from vertical vectors to base space.
+\let\swapf\Xi               % Swap function between identified vectors.
+
+% Alternative quote style for Russian, German and French in the olden days.
+% Requires the cyrillic font. The math versions come out too low.
+% \def\llcyr{$\scriptscriptstyle\ll$}
+% \def\ggcyr{$\scriptscriptstyle\gg$}
+\def\llcyr{{\cyr<}}
+\def\ggcyr{{\cyr>}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Convex span (i.e. hull) of a set.
+\def\convspan{\textop{conv}}
+
+% Set of connected components of a subset of a topological space.
+\def\ConnComp{\textop{ConnSet}}
+
+% Total variation of a function.
+\def\Var{\textop{Var}}
+
+% Oscillation of a function.
+\def\osc{\textord{osc}}
+
+\def\On{\textord{On}}
+
+% Levi-Civita alternating symbol. Could change this to \varepsilon some day?
+\let\LCepsilon\epsilon
+
+% Set of letterbox fits.
+\def\lbfits{W}
+% Letterbox envelope function.
+\def\lbenv{\eta}
+
+% Superscript perpendicular symbol to indicate a perpendicular spacing.
+\def\perpsp#1{#1^\perp}
+\def\perpspX#1{#1\rlap{${}^\perp$}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Dini derivatives.
+\def\Dur{\mathord{D^+_r}}
+\def\Dlr{\mathord{D^-_r}}
+\def\Dul{\mathord{D^+_\ell}}
+\def\Dll{\mathord{D^-_\ell}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% The unit interval of a particular representation of the real numbers.
+\def\Uint{\mathord{\bbm U}}
+\def\Zbin{\mathord{\bbm V}}
+% The floor/fraction representation of the real numbers.
+\def\FFreals{\mathord{\bbm F}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Ad-hoc notation for the connected component of an open set containing a point.
+\def\Conn{\textop{Conn}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Ad-hoc minus-spacing in \matrix for columns with \llap{$-{}$} before an entry.
+\def\MinSp{\null\kern2pt}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Notation for the characteristic of a non-trivial unitary ring or field.
+\def\Char{\textop{char}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Rows and columns of matrices.
+\def\Row{\textop{Row}}
+\def\Col{\textop{Col}}
+\def\Rowspan{\textop{Rowspan}}
+\def\Colspan{\textop{Colspan}}
+\def\Rowrank{\textop{Rowrank}}
+\def\Colrank{\textop{Colrank}}
+
+\def\nullity{\textop{nullity}}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Ad-hoc macro for the "slice" construction for Cartesian set-products.
+\def\Slice{\textop{Slice}}
+\def\Subst{\textop{Subst}}
+\def\opLift{\textop{Lift}} % Not to be confused with \lift.

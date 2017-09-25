@@ -1,0 +1,367 @@
+% tex/conc/dgspell.tex   2017-8-7   Alan U. Kennington.
+% $Id: tex/conc/dgspell.tex 22ea4064db 2017-08-06 15:22:51Z Alan U. Kennington $
+% Macros for some contentious spelling variants.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Macros to define spelling-portability macros.
+% Query whether a macro is already defined.
+\def\SPnamexdef#1{\expandafter\xdef\csname #1\endcsname/}
+\def\SPnameuse#1{\csname #1\endcsname/} % Not used.
+\def\IFundefSP#1{%
+ \expandafter\ifx\csname#1\endcsname\relax}
+
+\def\defSP[#1=#2]{%
+ \IFundefSP{#1}\else\message{REDEFINED SPELLING RULE: #1.}\fi%
+ \SPnamexdef{#1}{#2}% Define it globally.
+ }
+
+% 2013-4-21. It took about 50 attempts to get the test in \SP to work.
+% See the TeXbook page 210 for the incomprehensible explanation of this.
+% I still don't have a clue why it works, or why other attempts did not work.
+% TeX is still the most painful programming language in the known universe!!!
+\def\SPlocaleUK{\SPlocUK}
+\def\SPlocaleUS{\SPlocUS}
+% Set this macro to determine the locale.
+\let\SPlocale\SPlocaleUK
+\def\SP#1#2#3{%
+ \ifx\SPlocale\SPlocaleUS%
+  \defSP[#1=#3]%        % US spelling.
+ \else%
+  \defSP[#1=#2]%        % UK spelling (default).
+ \fi%
+ }
+
+% Spelling rules.
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% S/Z variations.
+
+\SP{analys}{analys}{analyz}
+\SP{Analys}{Analys}{Analyz}
+
+\SP{arithmetis}{arithmetis}{arithmetiz}
+\SP{Arithmetis}{Arithmetis}{Arithmetiz}
+
+\SP{atomis}{atomis}{atomiz}
+\SP{Atomis}{Atomis}{Atomiz}
+
+\SP{axiomatis}{axiomatis}{axiomatiz}
+\SP{Axiomatis}{Axiomatis}{Axiomatiz}
+
+\SP{capitalis}{capitalis}{capitaliz}
+\SP{Capitalis}{Capitalis}{Capitaliz}
+
+\SP{centralis}{centralis}{centraliz}
+\SP{Centralis}{Centralis}{Centraliz}
+
+\SP{categoris}{categoris}{categoriz}
+\SP{Categoris}{Categoris}{Categoriz}
+
+% The 1992 OED has "characterize".
+% Crampin/Pirani: characterisation p.86, characterising p.95,97,98,100,141,142
+\SP{characteris}{characteris}{characteriz}
+\SP{Characteris}{Characteris}{Characteriz}
+
+\SP{civilis}{civilis}{civiliz}
+\SP{Civilis}{Civilis}{Civiliz}
+
+\SP{computeris}{computeris}{computeriz}
+\SP{Computeris}{Computeris}{Computeriz}
+
+\SP{conceptualis}{conceptualis}{conceptualiz}
+\SP{Conceptualis}{Conceptualis}{Conceptualiz}
+
+\SP{coordinatis}{coordinatis}{coordinatiz}
+\SP{Coordinatis}{Coordinatis}{Coordinatiz}
+
+\SP{crystallis}{crystallis}{crystalliz}
+\SP{Crystallis}{Crystallis}{Crystalliz}
+
+\SP{diagonalis}{diagonalis}{diagonaliz}
+\SP{Diagonalis}{Diagonalis}{Diagonaliz}
+
+\SP{economis}{economis}{economiz}
+\SP{Economis}{Economis}{Economiz}
+
+% Only the verb, not the noun "emphasis" of course.
+\SP{emphasis}{emphasis}{emphasiz}
+\SP{Emphasis}{Emphasis}{Emphasiz}
+
+\SP{existentialis}{existentialis}{existentializ}
+\SP{Existentialis}{Existentialis}{Existentializ}
+
+\SP{extremis}{extremis}{extremiz}
+\SP{Extremis}{Extremis}{Extremiz}
+
+\SP{factoris}{factoris}{factoriz}
+\SP{Factoris}{Factoris}{Factoriz}
+
+\SP{familiaris}{familiaris}{familiariz}
+\SP{Familiaris}{Familiaris}{Familiariz}
+
+\SP{fantasis}{fantasis}{fantasiz}
+
+\SP{formalis}{formalis}{formaliz}
+\SP{Formalis}{Formalis}{Formaliz}
+
+% Crampin/Pirani: generalisation p.8, generalises p.132
+\SP{generalis}{generalis}{generaliz}
+\SP{Generalis}{Generalis}{Generaliz}
+
+\SP{geometris}{geometris}{geometriz}
+\SP{Geometris}{Geometris}{Geometriz}
+
+\SP{globalis}{globalis}{globaliz}
+\SP{Globalis}{Globalis}{Globaliz}
+
+\SP{harmonis}{harmonis}{harmoniz}
+\SP{Harmonis}{Harmonis}{Harmoniz}
+
+% Only for the verb, not for the noun "hypothesis".
+\SP{hypothesis}{hypothesis}{hypothesiz}
+\SP{Hypothesis}{Hypothesis}{Hypothesiz}
+
+\SP{idealis}{idealis}{idealiz}
+\SP{Idealis}{Idealis}{Idealiz}
+
+\SP{italicis}{italicis}{italiciz}
+\SP{Italicis}{Italicis}{Italiciz}
+
+\SP{itemis}{itemis}{itemiz}
+\SP{Itemis}{Itemis}{Itemiz}
+
+\SP{linearis}{linearis}{lineariz}
+\SP{Linearis}{Linearis}{Lineariz}
+
+\SP{localis}{localis}{localiz}
+\SP{Localis}{Localis}{Localiz}
+
+\SP{logicis}{logicis}{logiciz}
+\SP{Logicis}{Logicis}{Logiciz}
+
+\SP{majoris}{majoris}{majoriz}
+\SP{Majoris}{Majoris}{Majoriz}
+
+\SP{materialis}{materialis}{materializ}
+\SP{Materialis}{Materialis}{Materializ}
+
+% This word is probably not in the dictionary!
+\SP{maximalis}{maximalis}{maximaliz}
+\SP{Maximalis}{Maximalis}{Maximaliz}
+
+% Crampin/Pirani: maximise p.187
+\SP{maximis}{maximis}{maximiz}
+\SP{Maximis}{Maximis}{Maximiz}
+
+\SP{mechanis}{mechanis}{mechaniz}
+\SP{Mechanis}{Mechanis}{Mechaniz}
+
+\SP{memoris}{memoris}{memoriz}
+\SP{Memoris}{Memoris}{Memoriz}
+
+% Don't use prefixes with this one, like parametrise, symmetrise etc.
+\SP{metris}{metris}{metriz}
+\SP{Metris}{Metris}{Metriz}
+
+% The 1992 OED has "minimize" and "minimization".
+% Crampin/Pirani: minimise p.187
+\SP{minimis}{minimis}{minimiz}
+\SP{Minimis}{Minimis}{Minimiz}
+
+\SP{modernis}{modernis}{moderniz}
+\SP{Modernis}{Modernis}{Moderniz}
+
+\SP{naturalis}{naturalis}{naturaliz}
+\SP{Naturalis}{Naturalis}{Naturaliz}
+
+% The 1992 OED has "normalize" and "normalization".
+\SP{normalis}{normalis}{normaliz}
+\SP{Normalis}{Normalis}{Normaliz}
+
+\SP{numericis}{numericis}{numericiz}
+\SP{Numericis}{Numericis}{Numericiz}
+
+\SP{optimis}{optimis}{optimiz}
+\SP{Optimis}{Optimis}{Optimiz}
+
+\SP{organis}{organis}{organiz}
+\SP{Organis}{Organis}{Organiz}
+
+\SP{orthogonalis}{orthogonalis}{orthogonaliz}
+\SP{Orthogonalis}{Orthogonalis}{Orthogonaliz}
+
+% Crampin/Pirani: parametrise, parametrisation
+\SP{parametris}{parametris}{parametriz}
+\SP{Parametris}{Parametris}{Parametriz}
+
+% Only for the verb, not for the noun "parenthesis".
+\SP{parenthesis}{parenthesis}{parenthesiz}
+\SP{Parenthesis}{Parenthesis}{Parenthesiz}
+
+\SP{philosophis}{philosophis}{philosophiz}
+\SP{Philosophis}{Philosophis}{Philosophiz}
+
+\SP{polaris}{polaris}{polariz}
+\SP{Polaris}{Polaris}{Polariz}
+
+% Quantize seems to be better than "quantise", even in British spelling.
+% So use \quantiz/ instead of \quantis/.
+\SP{quantis}{quantis}{quantiz}
+\SP{Quantis}{Quantis}{Quantiz}
+\SP{quantiz}{quantiz}{quantiz}
+\SP{Quantiz}{Quantiz}{Quantiz}
+
+\SP{rasteris}{rasteris}{rasteriz}
+\SP{Rasteris}{Rasteris}{Rasteriz}
+
+\SP{rationalis}{rationalis}{rationaliz}
+\SP{Rationalis}{Rationalis}{Rationaliz}
+
+\SP{realis}{realis}{realiz}
+\SP{Realis}{Realis}{Realiz}
+
+\SP{recognis}{recognis}{recogniz}
+\SP{Recognis}{Recognis}{Recogniz}
+
+\SP{regularis}{regularis}{regulariz}
+\SP{Regularis}{Regularis}{Regulariz}
+
+\SP{scrutinis}{scrutinis}{scrutiniz}
+\SP{Scrutinis}{Scrutinis}{Scrutiniz}
+
+% Crampin/Pirani: specialisation p.217
+\SP{specialis}{specialis}{specializ}
+\SP{Specialis}{Specialis}{Specializ}
+
+\SP{stabilis}{stabilis}{stabiliz}
+\SP{Stabilis}{Stabilis}{Stabiliz}
+
+\SP{standardis}{standardis}{standardiz}
+\SP{Standardis}{Standardis}{Standardiz}
+
+\SP{strategis}{strategis}{strategiz}
+\SP{Strategis}{Strategis}{Strategiz}
+
+\SP{summaris}{summaris}{summariz}
+\SP{Summaris}{Summaris}{Summariz}
+
+\SP{symbolis}{symbolis}{symboliz}
+\SP{Symbolis}{Symbolis}{Symboliz}
+
+\SP{symmetris}{symmetris}{symmetriz}
+\SP{Symmetris}{Symmetris}{Symmetriz}
+
+\SP{synchronis}{synchronis}{synchroniz}
+\SP{Synchronis}{Synchronis}{Synchroniz}
+
+% Only for the verb, not for the noun "synthesis".
+\SP{synthesis}{synthesis}{synthesiz}
+\SP{Synthesis}{Synthesis}{Synthesiz}
+
+\SP{systematis}{systematis}{systematiz}
+\SP{Systematis}{Systematis}{Systematiz}
+
+\SP{tensoris}{tensoris}{tensoriz}
+\SP{Tensoris}{Tensoris}{Tensoriz}
+
+\SP{theoris}{theoris}{theoriz}
+\SP{Theoris}{Theoris}{Theoriz}
+
+\SP{trivialis}{trivialis}{trivializ}
+\SP{Trivialis}{Trivialis}{Trivializ}
+
+\SP{universalis}{universalis}{universaliz}
+\SP{Universalis}{Universalis}{Universaliz}
+
+\SP{utilis}{utilis}{utiliz}
+\SP{Utilis}{Utilis}{Utiliz}
+
+\SP{vectoris}{vectoris}{vectoriz}
+\SP{Vectoris}{Vectoris}{Vectoriz}
+
+\SP{verbalis}{verbalis}{verbaliz}
+\SP{Verbalis}{Verbalis}{Verbaliz}
+
+\SP{verticalis}{verticalis}{verticaliz}
+\SP{Verticalis}{Verticalis}{Verticaliz}
+
+\SP{visualis}{visualis}{visualiz}
+\SP{Visualis}{Visualis}{Visualiz}
+
+\SP{vocalis}{vocalis}{vocaliz}
+\SP{Vocalis}{Vocalis}{Vocaliz}
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Last-letter doubling in past and present participles.
+\SP{benefit}{benefit}{benefitt}
+\SP{Benefit}{Benefit}{Benefitt}
+
+\SP{cancell}{cancell}{cancel}
+\SP{Cancell}{Cancell}{Cancel}
+
+\SP{funnell}{funnell}{funnel}
+\SP{Funnell}{Funnell}{Funnel}
+
+\SP{labell}{labell}{label}
+\SP{Labell}{Labell}{Label}
+
+\SP{modell}{modell}{model}
+\SP{Modell}{Modell}{Model}
+
+%==============================================================================
+% Other spelling variations between Britain and North America.
+
+\SP{analogue}{analogue}{analog}
+\SP{Analogue}{Analogue}{Analog}
+
+\SP{behaviour}{behaviour}{behavior}
+\SP{Behaviour}{Behaviour}{Behavior}
+
+\SP{catalogue}{catalogue}{catalog}
+\SP{Catalogue}{Catalogue}{catalog}
+
+% For use in words like "centred", "centring".
+\SP{centr}{centr}{center}
+\SP{Centr}{Centr}{Center}
+
+% For use in words like "centre", "centres".
+\SP{centre}{centre}{center}
+\SP{Centre}{Centre}{Center}
+
+\SP{colour}{colour}{color}
+\SP{Colour}{Colour}{Color}
+
+\SP{dialogue}{dialogue}{dialog}
+\SP{Dialogue}{Dialogue}{dialog}
+
+\SP{endeavour}{endeavour}{endeavor}
+\SP{Endeavour}{Endeavour}{Endeavor}
+
+\SP{favour}{favour}{favor}
+\SP{Favour}{Favour}{Favor}
+
+% Only use for the noun, not for the past participle "fibred", for example.
+% 2014-7-4. Currently only "fibre" and "fibres" are used in the DG book.
+\SP{fibre}{fibre}{fiber}
+\SP{Fibre}{Fibre}{Fiber}
+
+\SP{flavour}{flavour}{flavor}
+\SP{Flavour}{Flavour}{Flavor}
+
+% Note that the adjective is "glamorous" in both dialects.
+\SP{glamour}{glamour}{glamor}
+\SP{Glamour}{Glamour}{Glamor}
+
+% Also for neighbourhood etc.
+\SP{neighbour}{neighbour}{neighbor}
+\SP{Neighbour}{Neighbour}{Neighbor}
+
+% Note that "rigorous" is spelled correctly in both dialects!
+\SP{rigour}{rigour}{rigor}
+\SP{Rigour}{Rigour}{Rigor}
+
+\SP{sceptic}{sceptic}{skeptic}
+\SP{Sceptic}{Sceptic}{Skeptic}
+
+% Alternative: zeroes??
+% \def\zeros/{zeros}
+% \def\Zeros/{Zeros}

@@ -1,0 +1,4522 @@
+% tex/conc/mp/mpdemo.tex   2017-9-23   Alan U. Kennington.
+% $Id: tex/conc/mp/mpdemo.tex 631e2d0fd4 2017-09-23 03:47:28Z Alan U. Kennington $
+% Copyright (C) 2016, Alan U. Kennington.
+% Demo document for differential geometry diagrams created using MetaPost.
+
+% See this link for info on displaying MetaPost with Ghostcript:
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?keyword=&question=76
+
+\input akmath
+\input dgspell
+\input epsf
+
+%==============================================================================
+\parindent0pt
+% Adjust the printing area for A4 paper.
+\hoffset=-2.838mm
+\vsize=29.73017788cm
+\advance\vsize by-2.54cm            % Top margin
+\advance\vsize by-2.54cm            % Bottom margin
+\advance\vsize by-0.9cm             % Allowance for page number in footer.
+
+% Calculate the number of hours and number of minutes (24 hour format):
+\newcount\inthour
+\newcount\inthoursixty
+\newcount\intminute
+\inthour=\time
+\divide\inthour60
+\intminute=\time
+\inthoursixty=\inthour
+\multiply\inthoursixty60
+\advance\intminute-\inthoursixty
+
+% Text representations of hours and minutes (24 hour format):
+\def\zmonth{\ifnum\month<10\relax0\fi\number\month}
+\def\zday{\ifnum\day<10\relax0\fi\number\day}
+\def\zhour{\ifnum\inthour<10\relax0\fi\number\inthour}
+\def\zminute{\ifnum\intminute<10\relax0\fi\number\intminute}
+
+% Plain TeX hyperlinks.
+{\catcode`\^=6 \catcode`\#=12 \gdef\PreHatch^1{#^1}}
+\def\LinkName#1{\special{html:<a name="#1">}\special{html:</a>}}
+\def\LinkHref#1#2{\special{html:<a href="\PreHatch{#1}">}#2\special{html:</a>}}
+\def\LinkHrefExt#1#2{\special{html:<a href="#1">}#2\special{html:</a>}}
+
+%==============================================================================
+This is Alan U.\ Kennington's little gallery of MetaPost diagrams, created for
+\LinkHrefExt{http://www.geometry.org/tex/conc/dg.html}{my differential geometry
+book}. These diagrams demonstrate the capabilities of MetaPost, a graphics tool
+which combines mathematical specification of graphical elements (based on Donald
+E.\ Knuth's MetaFont) with text specified in plain \TeX\ (Donald E.\ Knuth's
+state-of-the-art typesetting system). This is exactly what every mathematician
+needs for illustrations. Many thanks to John D.\ Hobby, the creator of MetaPost.
+
+Source files for all diagrams in this document are available at:
+\LinkHrefExt{http://www.geometry.org/tex/conc/mp/}{{\tt
+http://www.geometry.org/tex/conc/mp/}}
+\hfill\break
+Gaps in the diagram numbering scheme are due to filename changes,
+not due to omissions.
+\hfill\break
+Typesetting date/time (local) of this document:
+{\tt \number\year-\zmonth-\zday\space\zhour:\zminute}.
+
+% Local macros.
+\def\secteject{\vfill\eject}
+\def\filleject{\vfill\eject}
+% Temp:
+% \def\filleject{}
+% \raggedbottom is not very good. It turns 78 pages into 80 pages somehow.
+% \raggedbottom
+
+\vskip2mm
+%==============================================================================
+\edef\SECTarrow{\the\pageno}\LinkName{arrow}
+
+Diagram arrow1. Tensor product and multilinear maps.
+$$
+\centerline{\epsfbox{arrow1.1}}
+$$
+
+Diagram arrow2. Uniqueness of tensor product.
+$$
+\centerline{\epsfbox{arrow2.1}}
+$$
+
+Diagram arrow3. Map between tensor product spaces.
+$$
+\centerline{\epsfbox{arrow3.1}}
+$$
+
+Diagram arrow4. Transformation of tangent vectors of curves under
+diffeomorphisms.
+$$
+\centerline{\epsfbox{arrow4.1}}
+$$
+
+Diagram arrow5. Transformation of differentials of functions under
+diffeomorphisms.
+$$
+\centerline{\epsfbox{arrow5.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow6. Tensor product metadefinition and multilinear maps.
+$$
+\centerline{\epsfbox{arrow6.1}}
+$$
+
+Diagram arrow7. Relations between tensor spaces.
+$$
+\centerline{\epsfbox{arrow7.1}}
+$$
+
+Diagram arrow8. Relations between antisymmetric tensor spaces.
+$$
+\centerline{\epsfbox{arrow8.1}}
+$$
+
+Diagram arrow9. Relations between tensor spaces for linear space families.
+$$
+\centerline{\epsfbox{arrow9.1}}
+$$
+
+Diagram arrow10. Row and column vector maps.
+$$
+\centerline{\epsfbox{arrow10.1}}
+$$
+
+Diagram arrow11. Universal \factoris/ation map for tensor spaces.
+$$
+\centerline{\epsfbox{arrow11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow12. Maps for curves and real functions on a differentiable
+manifold.
+$$
+\centerline{\epsfbox{arrow12.1}}
+$$
+
+Diagram arrow13. Universal \factoris/ation dual map for multilinear functions.
+$$
+\centerline{\epsfbox{arrow13.1}}
+$$
+
+Diagram arrow14. Application of universal \factoris/ation dual map.
+$$
+\centerline{\epsfbox{arrow14.1}}
+$$
+
+Diagram arrow15. Isomorphisms and canonical multilinear maps for tensor spaces
+for linear space families.
+$$
+\centerline{\epsfbox{arrow15.1}}
+$$
+
+Diagram arrow16. Application of universal \factoris/ation dual map transpose.
+$$
+\centerline{\epsfbox{arrow16.1}}
+$$
+
+Diagram arrow17. Application of universal \factoris/ation dual map for
+multilinear functions.
+$$
+\centerline{\epsfbox{arrow17.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow18. Canonical multilinear map domains and ranges.
+$$
+\centerline{\epsfbox{arrow18.1}}
+$$
+
+Diagram arrow19. Canonical multilinear map domains and ranges. Plus
+isomorphisms.
+$$
+\centerline{\epsfbox{arrow19.1}}
+$$
+
+Diagram arrow20. Tensor space duals, including canonical multilinear maps.
+$$
+\centerline{\epsfbox{arrow20.1}}
+$$
+
+Diagram arrow21. Norm on a module over a ring.
+$$
+\centerline{\epsfbox{arrow21.1}}
+$$
+
+Diagram arrow22. Spaces and maps for function order definition for module over a
+ring.
+$$
+\centerline{\epsfbox{arrow22.1}}
+$$
+
+Diagram arrow23. Spaces and maps for function order definition for linear
+spaces.
+$$
+\centerline{\epsfbox{arrow23.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow24. Norm on a linear space over a field.
+$$
+\centerline{\epsfbox{arrow24.1}}
+$$
+
+Diagram arrow25. Sets and operations for modules.
+$$
+\centerline{\epsfbox{arrow25.1}}
+$$
+
+Diagram arrow26. Sets and operations for affine spaces over modules.
+$$
+\centerline{\epsfbox{arrow26.1}}
+$$
+
+Diagram arrow27. Sets and operations for affine spaces over modules, showing
+lines.
+$$
+\centerline{\epsfbox{arrow27.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow28. Maps for curves and real functions on a differentiable
+manifold. Based on arrow12.
+$$
+\centerline{\epsfbox{arrow28.1}}
+$$
+
+Diagram arrow29. Sets and operations for single-set algebraic structures and
+modules.
+$$
+\centerline{\epsfbox{arrow29.1}}
+$$
+
+Diagram arrow30. Mixed tensor product space definition.
+$$
+\centerline{\epsfbox{arrow30.1}}
+$$
+
+Diagram arrow31. Mixed tensor product spaces isomorphism.
+$$
+\centerline{\epsfbox{arrow31.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow32. Notations for spaces of multilinear maps.
+$$
+\centerline{\epsfbox{arrow32.1}}
+$$
+
+Diagram arrow33. Notations for spaces of multilinear functions.
+$$
+\centerline{\epsfbox{arrow33.1}}
+$$
+
+Diagram arrow34. Notations for tensor spaces.
+$$
+\centerline{\epsfbox{arrow34.1}}
+$$
+
+Diagram arrow35. Abbreviated diagrams for notations for tensor spaces.
+$$
+\centerline{\epsfbox{arrow35.1}}
+$$
+
+Diagram arrow36. Tensor space duals and canonical multilinear maps.
+$$
+\centerline{\epsfbox{arrow36.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow37. Tensor space duals and canonical multilinear maps. Showing
+isomorphisms.
+$$
+\centerline{\epsfbox{arrow37.1}}
+$$
+
+Diagram arrow38. Tensor spaces based on a single linear space.
+$$
+\centerline{\epsfbox{arrow38.1}}
+$$
+
+Diagram arrow39. Riemann curvature tensor spaces/maps for an affine connection.
+$$
+\centerline{\epsfbox{arrow39.1}}
+$$
+
+Diagram arrow40. Riemann curvature tensor spaces/maps for an affine connection.
+Two representations.
+$$
+\centerline{\epsfbox{arrow40.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram arrow41. Riemann curvature tensor spaces/maps for a Riemannian manifold.
+$$
+\centerline{\epsfbox{arrow41.1}}
+$$
+
+Diagram arrow42. Entity-relationship model for elementary category theory.
+$$
+\centerline{\epsfbox{arrow42.1}}
+$$
+
+Diagram arrow52. Isomorphism between left actions on points and right actions on
+the group.
+$$
+\centerline{\epsfbox{arrow52.1}}
+$$
+
+Diagram arrow53. Dualities and isomorphisms between antisymmetric tensor spaces.
+$$
+\centerline{\epsfbox{arrow53.1}}
+$$
+
+Diagram arrow54. Dualities between antisymmetric tensor spaces.
+$$
+\centerline{\epsfbox{arrow54.1}}
+$$
+
+Diagram arrow55. Dualities and isomorphisms between antisymmetric tensor spaces.
+$$
+\centerline{\epsfbox{arrow55.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% \filleject
+
+%==============================================================================
+\secteject
+\edef\SECTaxiom{\the\pageno}\LinkName{axiom}
+
+Diagram axiom1. ZF set theory axiom of regularity.
+$$
+\centerline{\epsfbox{axiom1.1}}
+$$
+
+Diagram axiom2. Axiom of choice. Choice of function values from a relation.
+$$
+\centerline{\epsfbox{axiom2.1}}
+$$
+
+Diagram axiom3. Axiom of choice. Function choosing elements of subsets of a set.
+$$
+\centerline{\epsfbox{axiom3.1}}
+$$
+
+Diagram axiom4. Axiom of choice. Choice of elements of sets of a disjoint
+collection.
+$$
+\centerline{\epsfbox{axiom4.1}}
+$$
+
+Diagram axiom5. ZF axiom of replacement.
+$$
+\centerline{\epsfbox{axiom5.1}}
+$$
+
+Diagram axiom6. ZF axiom of extension.
+$$
+\centerline{\epsfbox{axiom6.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram axiom7. ZF axiom of union. Two sets only.
+$$
+\centerline{\epsfbox{axiom7.1}}
+$$
+
+Diagram axiom8. ZF axiom of union. General case.
+$$
+\centerline{\epsfbox{axiom8.1}}
+$$
+
+Diagram axiom9. Impossible axiom-of-choice set $C$ if $A_1\bcap A_2=\emptyset$
+and~$A_1\bcup A_2\subseteq A_3$. (Based on axiom3.)
+$$
+\centerline{\epsfbox{axiom9.1}}
+$$
+
+Diagram axiom10. ZF axioms of regularity and infinity bounding the finite
+ordinal numbers.
+$$
+\centerline{\epsfbox{axiom10.1}}
+$$
+
+Diagram axiom11. The ZF regularity axiom versus Russell's paradox.
+$$
+\centerline{\epsfbox{axiom11.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTbox{\the\pageno}\LinkName{box}
+
+Diagram box1. Medieval trivium and quadrivium.
+$$
+\centerline{\epsfbox{box1.1}}
+$$
+
+Diagram box2. Magma, bedrock and sedimentary layers.
+$$
+\centerline{\epsfbox{box2.1}}
+$$
+
+Diagram box3. Medieval trivium and quadrivium. Inverted order to box1.
+$$
+\centerline{\epsfbox{box3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram box4. Finite naive mathematics and infinite rigorous mathematics.
+$$
+\centerline{\epsfbox{box4.1}}
+$$
+
+Diagram box5. Universe set interpreted in context of computer
+directories/folders.
+$$
+\centerline{\epsfbox{box5.1}}
+$$
+
+Diagram box6. The Russell's paradox set interpreted as computer
+directories/folders.
+$$
+\centerline{\epsfbox{box6.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTcalc{\the\pageno}\LinkName{calc}
+
+Diagram calc1. Inverse function theorem. Proof that the inverse is
+differentiable.
+$$
+\centerline{\epsfbox{calc1.1}}
+$$
+
+Diagram calc2. Chain rule for partial derivatives.
+$$
+\centerline{\epsfbox{calc2.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTchart{\the\pageno}\LinkName{chart}
+
+Diagram chart1. Chart for a topological manifold.
+$$
+\centerline{\epsfbox{chart1.1}}
+$$
+
+Diagram chart2. Transition map for two coordinate maps for a differentiable
+manifold.
+$$
+\centerline{\epsfbox{chart2.1}}
+$$
+
+Diagram chart3. Definition of differentiability of $\reals^m$-valued functions
+on a manifold.
+$$
+\centerline{\epsfbox{chart3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram chart4. Definition of differentiability of $\reals^m$-valued functions
+on a manifold.
+$$
+\centerline{\epsfbox{chart4.1}}
+$$
+
+Diagram chart5. Definition of tangent vectors on manifolds.
+$$
+\centerline{\epsfbox{chart5.1}}
+$$
+
+Diagram chart6. Charts for a topological manifold.
+$$
+\centerline{\epsfbox{chart6.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram chart7. Atlas for a topological manifold.
+$$
+\centerline{\epsfbox{chart7.1}}
+$$
+
+Diagram chart8. Map for the collage of two charts of a manifold.
+$$
+\centerline{\epsfbox{chart8.1}}
+$$
+
+Diagram chart9. Map for the collage of two charts of a manifold, with collage
+set.
+$$
+\centerline{\epsfbox{chart9.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram chart10. Modified version of chart4. Differentiability of
+$\reals^m$-valued function on a manifold.
+$$
+\centerline{\epsfbox{chart10.1}}
+$$
+
+Diagram chart11. Modified version of chart10. Differentiability of
+$\reals$-valued function on a manifold.
+$$
+\centerline{\epsfbox{chart11.1}}
+$$
+
+Diagram chart12. Chart-dependence of rectifiability in topological manifolds.
+$$
+\centerline{\epsfbox{chart12.1}}
+$$
+
+Diagram chart13. Maps for tangent vector and covector.
+$$
+\centerline{\epsfbox{chart13.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram chart14. Maps for a curve in a differentiable manifold.
+$$
+\centerline{\epsfbox{chart14.1}}
+$$
+
+Diagram chart15. Comparison of Cartesian charts for Euclidean space and
+differentiable manifolds.
+$$
+\centerline{\epsfbox{chart15.1}}
+$$
+
+Diagram chart16. Chart transition rules for bidirectional and unidirectional
+tangent line vectors.
+$$
+\centerline{\epsfbox{chart16.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram chart17. Chart transition rules for tangent line vectors on $C^1$
+differentiable manifolds.
+$$
+\centerline{\epsfbox{chart17.1}}
+$$
+
+Diagram chart18. Tangent vector field of a differentiable curve.
+$$
+\centerline{\epsfbox{chart18.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTclass{\the\pageno}\LinkName{class}
+
+Diagram class1. Figures 88 and 89 from Euler's ``Introductio in analysin
+infinitorum'', 1748.
+$$
+\centerline{\epsfbox{class1.1}}
+$$
+
+Diagram class2. Classical definitions of sine, cosine and tangent.
+$$
+\centerline{\epsfbox{class2.1}}
+$$
+
+Diagram class3. Tangent to Archimedes spiral.
+$$
+\centerline{\epsfbox{class3.1}}
+$$
+
+Diagram class4. Chords approximating a tangent in the limit.
+$$
+\centerline{\epsfbox{class4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram class5. Comparison of differential quotient and absolute value
+approaches.
+$$
+\centerline{\epsfbox{class5.1}}
+$$
+
+Diagram class6. Construction of Cartesian coordinates in Euclidean geometry.
+$$
+\centerline{\epsfbox{class6.1}}
+$$
+
+Diagram class7. Interpretation of a parallelogram law.
+$$
+\centerline{\epsfbox{class7.1}}
+$$
+
+Diagram class8. Division of a line segment in a given ratio using rule and
+compass.
+$$
+\centerline{\epsfbox{class8.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram class9. Construction of contravariant and covariant coordinates in
+Euclidean geometry.
+$$
+\centerline{\epsfbox{class9.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTconnmap{\the\pageno}\LinkName{connmap}
+
+Diagram connmap1. Connection maps.
+$$
+\centerline{\epsfbox{connmap1.1}}
+$$
+
+Diagram connmap2. Lift of a vector field by a connection.
+$$
+\centerline{\epsfbox{connmap2.1}}
+$$
+
+Diagram connmap3. Connection maps, including direction $v$.
+$$
+\centerline{\epsfbox{connmap3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram connmap4. Subtraction of connection from second derivative to give a
+vertical vector.
+$$
+\centerline{\epsfbox{connmap4.1}}
+$$
+
+Diagram connmap5. Subtraction of connection from derivative of vector field to
+give a vertical vector.
+$$
+\centerline{\epsfbox{connmap5.1}}
+$$
+
+Diagram connmap6. Connection on an ordinary \fibre/ bundle.
+$$
+\centerline{\epsfbox{connmap6.1}}
+$$
+
+Diagram connmap7. Maps for connection on ordinary \fibre/ bundle.
+$$
+\centerline{\epsfbox{connmap7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram connmap8. Copying a parallelism between associated \fibre/ bundles.
+$$
+\centerline{\epsfbox{connmap8.1}}
+$$
+
+Diagram connmap9. Flow of vector $V$ for a vector field $X$.
+$$
+\centerline{\epsfbox{connmap9.1}}
+$$
+
+Diagram connmap10. Lie derivative of vector field $Y$ with respect to vector
+field~$X$.
+$$
+\centerline{\epsfbox{connmap10.1}}
+$$
+
+Diagram connmap11. Right action of structure group on a principal \fibre/
+bundle.
+$$
+\centerline{\epsfbox{connmap11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram connmap12. Torsion definition difficulty on an abstract ordinary \fibre/
+bundle. Based on connmap6.
+$$
+\centerline{\epsfbox{connmap12.1}}
+$$
+
+Diagram connmap13. Torsion definition difficulty on an abstract ordinary \fibre/
+bundle.
+$$
+\centerline{\epsfbox{connmap13.1}}
+$$
+
+Diagram connmap14. Affine connection on a tangent bundle.
+$$
+\centerline{\epsfbox{connmap14.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram connmap15. Affine connection on a vector bundle.
+$$
+\centerline{\epsfbox{connmap15.1}}
+$$
+
+Diagram connmap16. Infinitesimal action of general linear Lie transformation
+group.
+$$
+\centerline{\epsfbox{connmap16.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfibdiag{\the\pageno}\LinkName{fibdiag}
+
+Diagram fibdiag1. Maps for non-topological fibrations, and ordinary and
+principal \fibre/ bundles.
+$$
+\centerline{\epsfbox{fibdiag1.1}}
+$$
+
+Diagram fibdiag2. Maps and spaces for tangent bundles from the \fibre/ bundle
+perspective.
+$$
+\centerline{\epsfbox{fibdiag2.1}}
+$$
+
+Diagram fibdiag3. Cyclic construction of tangent bundles and structure groups
+on manifolds.
+$$
+\centerline{\epsfbox{fibdiag3.1}}
+$$
+
+Diagram fibdiag4. Spaces and maps for baseless figure bundles.
+$$
+\centerline{\epsfbox{fibdiag4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibdiag5. Spaces and maps for baseless figure bundles. Multiple
+ordinary bundles.
+$$
+\centerline{\epsfbox{fibdiag5.1}}
+$$
+
+Diagram fibdiag6. Spaces and maps for induced map of a differentiable \fibre/
+bundle.
+$$
+\centerline{\epsfbox{fibdiag6.1}}
+$$
+
+Diagram fibdiag7. Spaces and maps for combined topological figure/frame bundles.
+$$
+\centerline{\epsfbox{fibdiag7.1}}
+$$
+
+Diagram fibdiag8. Combined topological figure/frame bundles for multiple
+ordinary bundles.
+$$
+\centerline{\epsfbox{fibdiag8.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibdiag9. Maps/spaces for topological \fibre/ bundle
+group/observer/observation/state.
+$$
+\centerline{\epsfbox{fibdiag9.1}}
+$$
+
+Diagram fibdiag10. Primal and dual vector bundle association.
+$$
+\centerline{\epsfbox{fibdiag10.1}}
+$$
+
+Diagram fibdiag11. Maps and spaces for linearity of connections on vector
+bundles.
+$$
+\centerline{\epsfbox{fibdiag11.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfibmap{\the\pageno}\LinkName{fibmap}
+
+Diagram fibmap1. Vector bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap1.1}}
+$$
+
+Diagram fibmap2. Ordinary \fibre/ bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap2.1}}
+$$
+
+Diagram fibmap3. Principal \fibre/ bundle maps and spaces. Adapted from fibmap9.
+$$
+\centerline{\epsfbox{fibmap3.1}}
+$$
+
+Diagram fibmap7. \Fibre/ bundle maps, including product of projection and
+coordinate map.
+$$
+\centerline{\epsfbox{fibmap7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap8. Principal \fibre/ bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap8.1}}
+$$
+
+Diagram fibmap9. Principal \fibre/ bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap9.1}}
+$$
+
+Diagram fibmap10. Group invariance of \fibre/ chart transition maps.
+$$
+\centerline{\epsfbox{fibmap10.1}}
+$$
+
+Diagram fibmap11. \Fibre/ bundle map -- between two \fibre/ bundles.
+$$
+\centerline{\epsfbox{fibmap11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap12. Maps for groupless \fibre/ bundle.
+$$
+\centerline{\epsfbox{fibmap12.1}}
+$$
+
+Diagram fibmap13. Maps for groupless \fibre/ bundle with \fibre/ $F$.
+$$
+\centerline{\epsfbox{fibmap13.1}}
+$$
+
+Diagram fibmap14. Transition maps for groupless \fibre/ bundle with \fibre/ $F$.
+$$
+\centerline{\epsfbox{fibmap14.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap15. Transition maps for groupless \fibre/ bundle with \fibre/ $F$.
+Mirror image of fibmap14.
+$$
+\centerline{\epsfbox{fibmap15.1}}
+$$
+
+Diagram fibmap16. Principal \fibre/ bundle maps and spaces. Adapted from
+fibmap3.
+$$
+\centerline{\epsfbox{fibmap16.1}}
+$$
+
+Diagram fibmap17. \Fibre/ bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap17.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap18. Projection maps and charts for \fibre/ bundles.
+$$
+\centerline{\epsfbox{fibmap18.1}}
+$$
+
+Diagram fibmap19. Maps/spaces for \fibre/ bundle homomorphism. Based on
+connmap7.
+$$
+\centerline{\epsfbox{fibmap19.1}}
+$$
+
+Diagram fibmap20. Maps/spaces for \fibre/ bundle association. Based on fibmap19.
+$$
+\centerline{\epsfbox{fibmap20.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap21. Maps/spaces for $C^0$ associated \fibre/ bundles. Based on
+fibmap20.
+$$
+\centerline{\epsfbox{fibmap21.1}}
+$$
+
+Diagram fibmap22. Associated \fibre/ bundle construction, orbit space method.
+Based on fibmap21.
+$$
+\centerline{\epsfbox{fibmap22.1}}
+$$
+
+Diagram fibmap24. Chart styles for the definition of a groupless \fibre/ bundle
+with \fibre/~$F$.
+$$
+\centerline{\epsfbox{fibmap24.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap25. Combined \fibre//frame bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap25.1}}
+$$
+
+Diagram fibmap26. Maps for differentiable groupless \fibre/ bundle. Based on
+fibmap12.
+$$
+\centerline{\epsfbox{fibmap26.1}}
+$$
+
+Diagram fibmap27. Maps for differentiable groupless \fibre/ bundle with
+\fibre/~$F$. Based on fibmap13.
+$$
+\centerline{\epsfbox{fibmap27.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap28. Differentiable \fibre/ bundle maps, including product of
+projection and coordinate map.
+$$
+\centerline{\epsfbox{fibmap28.1}}
+$$
+
+Diagram fibmap29. Differentiable principal \fibre/ bundle maps and spaces. Based
+on fibmap16.
+$$
+\centerline{\epsfbox{fibmap29.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap30. Differentiable \fibre/ bundle maps for a tangent bundle.
+$$
+\centerline{\epsfbox{fibmap30.1}}
+$$
+
+Diagram fibmap31. Correspondence between connection on fibration and vector
+field on fibre space.
+$$
+\centerline{\epsfbox{fibmap31.1}}
+$$
+
+Diagram fibmap32. Principal \fibre/ bundle maps and spaces.
+$$
+\centerline{\epsfbox{fibmap32.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap33. Maps and spaces for associated topological fibre bundle
+collage construction.
+$$
+\centerline{\epsfbox{fibmap33.1}}
+$$
+
+Diagram fibmap34. Maps and spaces for associated topological fibre bundle
+orbit-space construction.
+$$
+\centerline{\epsfbox{fibmap34.1}}
+$$
+
+Diagram fibmap35. Maps for differentiable fibration with \fibre/ space~$F$.
+(Based on fibmap27.)
+$$
+\centerline{\epsfbox{fibmap35.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap36. Differentiable fibration with implicit \fibre/ space. (Based
+on fibmap26.)
+$$
+\centerline{\epsfbox{fibmap36.1}}
+$$
+
+Diagram fibmap37. Horizontal lift function, horizontal component map, and
+horizontal subspace.
+$$
+\centerline{\epsfbox{fibmap37.1}}
+$$
+
+Diagram fibmap38. Horizontal lift/component/subspace, connection form and
+infinitesimal group action.
+$$
+\centerline{\epsfbox{fibmap38.1}}
+$$
+
+Diagram fibmap39. Horizontal and vertical components of vectors on \fibre/
+bundles.
+$$
+\centerline{\epsfbox{fibmap39.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap40. Horizontal and vertical components of vectors on principal
+\fibre/ bundles.
+$$
+\centerline{\epsfbox{fibmap40.1}}
+$$
+
+Diagram fibmap41. Left action map by a principal bundle element.
+$$
+\centerline{\epsfbox{fibmap41.1}}
+$$
+
+Diagram fibmap42. Differential of left action map by a principal bundle element.
+$$
+\centerline{\epsfbox{fibmap42.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap43. Maps and spaces for associated topological tangent vector and
+covector bundles.
+$$
+\centerline{\epsfbox{fibmap43.1}}
+$$
+
+Diagram fibmap44. Maps and spaces for associated topological tangent vector and
+vector-tuple bundles.
+$$
+\centerline{\epsfbox{fibmap44.1}}
+$$
+
+Diagram fibmap45. Maps and spaces for associated topological tangent vector and
+vector-frame bundles.
+$$
+\centerline{\epsfbox{fibmap45.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap46. Identity cross-sections for principal bundles.
+$$
+\centerline{\epsfbox{fibmap46.1}}
+$$
+
+Diagram fibmap47. Identity charts for principal bundles.
+$$
+\centerline{\epsfbox{fibmap47.1}}
+$$
+
+Diagram fibmap48. Connection form \localis/ation via local principal bundle
+cross-sections.
+$$
+\centerline{\epsfbox{fibmap48.1}}
+$$
+
+Diagram fibmap49. Connection form \localis/ation component function.
+$$
+\centerline{\epsfbox{fibmap49.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibmap50. Short-cut cross-sections for form-style non-topological
+fibrations.
+$$
+\centerline{\epsfbox{fibmap50.1}}
+$$
+
+Diagram fibmap51. Form-style non-topological fibrations.
+$$
+\centerline{\epsfbox{fibmap51.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfibre{\the\pageno}\LinkName{fibre}
+
+Diagram fibre1. \Fibre/ bundle map for the M\"obius strip.
+$$
+\centerline{\epsfbox{fibre1.1}}
+$$
+
+Diagram fibre2. \Fibre/ bundle chart for the M\"obius strip.
+$$
+\centerline{\epsfbox{fibre2.1}}
+$$
+
+Diagram fibre3. Two \fibre/ bundle charts for the M\"obius strip.
+$$
+\centerline{\epsfbox{fibre3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre4. Direction-dependent parallelism example.
+$$
+\centerline{\epsfbox{fibre4.1}}
+$$
+
+Diagram fibre5. Direction-dependent connection example.
+$$
+\centerline{\epsfbox{fibre5.1}}
+$$
+
+Diagram fibre6. Map for the collage of three charts of a \fibre/ space.
+$$
+\centerline{\epsfbox{fibre6.1}}
+$$
+
+Diagram fibre7. Partitioning of a set by an inverse function.
+$$
+\centerline{\epsfbox{fibre7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre8. Partitioning of a set by an inverse function. Variant of fibre7.
+$$
+\centerline{\epsfbox{fibre8.1}}
+$$
+
+Diagram fibre9. Partition of total space of \fibre/ bundle into \fibre/s.
+$$
+\centerline{\epsfbox{fibre9.1}}
+$$
+
+Diagram fibre10. Continuity of local chart.
+$$
+\centerline{\epsfbox{fibre10.1}}
+$$
+
+Diagram fibre11. Map for construction of a set collage.
+$$
+\centerline{\epsfbox{fibre11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre12. Map for construction of a set collage, showing glued set.
+$$
+\centerline{\epsfbox{fibre12.1}}
+$$
+
+Diagram fibre13. \Fibre/ chart for \fibre/ bundle.
+$$
+\centerline{\epsfbox{fibre13.1}}
+$$
+
+Diagram fibre14. \Fibre/ bundle with absolute parallelism.
+$$
+\centerline{\epsfbox{fibre14.1}}
+$$
+
+Diagram fibre15. \Fibre/ bundle with pathwise parallelism.
+$$
+\centerline{\epsfbox{fibre15.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre16. Continuity of section of topological fibration. Based on
+fibre10.
+$$
+\centerline{\epsfbox{fibre16.1}}
+$$
+
+Diagram fibre17. Porting parallelism between associated topological \fibre/
+bundles.
+$$
+\centerline{\epsfbox{fibre17.1}}
+$$
+
+Diagrams fibre18. Parallelism on topological \fibre/ bundles.
+$$
+\centerline{\epsfbox{fibre18.1}}
+$$
+
+Diagrams fibre19. Parallelism on topological \fibre/ bundles. \Colour/ed version
+of fibre18.mp.
+$$
+\centerline{\epsfbox{fibre19.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre20. \Fibre/ set isomorphisms through the charts. Based on fibre14.
+$$
+\centerline{\epsfbox{fibre20.1}}
+$$
+
+Diagram fibre21. \Fibre/ set automorphisms through the charts. Based on fibre20.
+$$
+\centerline{\epsfbox{fibre21.1}}
+$$
+
+Diagram fibre22. Topological parallelism structure.
+$$
+\centerline{\epsfbox{fibre22.1}}
+$$
+
+Diagram fibre23. Deviation from parallelism in \fibre/ bundle.
+$$
+\centerline{\epsfbox{fibre23.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre24. Curvature of connection on an ordinary \fibre/ bundle.
+$$
+\centerline{\epsfbox{fibre24.1}}
+$$
+
+Diagram fibre25. \Fibre/ bundle with parallelism bijection.
+$$
+\centerline{\epsfbox{fibre25.1}}
+$$
+
+Diagram fibre26. Parallelism lift function.
+$$
+\centerline{\epsfbox{fibre26.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre27. Parallel transport by an affine connection.
+$$
+\centerline{\epsfbox{fibre27.1}}
+$$
+
+Diagram fibre28. Estimating Riemann curvature by parallel transport around a
+loop.
+$$
+\centerline{\epsfbox{fibre28.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fibre29. Defining Riemann curvature of a horizontal lift function using
+a total-space curve-family.
+$$
+\centerline{\epsfbox{fibre29.1}}
+$$
+
+Diagram fibre30. Riemann curvature of parallel transport is a kind of ``exterior
+derivative''.
+$$
+\centerline{\epsfbox{fibre30.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfield{\the\pageno}\LinkName{field}
+
+Diagram field1. DG level 0. Points without attributes.
+$$
+\centerline{\epsfbox{field1.1}}
+$$
+
+Diagram field2. DG level 2. Charts and differentiable structure.
+$$
+\centerline{\epsfbox{field2.1}}
+$$
+
+Diagram field3. DG level 3. Parallel transport.
+$$
+\centerline{\epsfbox{field3.1}}
+$$
+
+Diagram field4. DG level 4. Construction of geodesics with a Riemannian metric.
+$$
+\centerline{\epsfbox{field4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram field5. DG level 4. Global Riemannian metric.
+$$
+\centerline{\epsfbox{field5.1}}
+$$
+
+Diagram field6. DG level 2. Charts and differentiable structure. Affine version.
+$$
+\centerline{\epsfbox{field6.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfn{\the\pageno}\LinkName{fn}
+
+Diagram fn1. Step functions.
+$$
+\centerline{\epsfbox{fn1.1}}
+$$
+
+Diagram fn2. Functions $\arctan(x)$, $\arcsin(x)$, $\arccos(x)$.
+$$
+\centerline{\epsfbox{fn2.1}}
+$$
+
+Diagram fn3. Function $g:\reals\to\reals$ with $g:t\mapsto t\exp(-t^2)$.
+$$
+\centerline{\epsfbox{fn3.1}}
+$$
+
+Diagram fn4. Function $g:\reals\to\reals$ with $g:t\mapsto t\exp((1-t^2)/2)$.
+$$
+\centerline{\epsfbox{fn4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn6. A $C^\infty$ function in the range $[0,1]$.
+$$
+\centerline{\epsfbox{fn6.1}}
+$$
+
+Diagram fn15. $C^\infty$ function on $\reals^n$ with compact support~$B_R(x_0)$.
+$$
+\centerline{\epsfbox{fn15.1}}
+$$
+
+Diagram fn16. Modified from fn6. Two $C^\infty$ functions which are constant
+outside~$[0,1]$.
+$$
+\centerline{\epsfbox{fn16.1}}
+$$
+
+Diagram fn17. A $C^\infty$ function which is zero outside~$B_{0,R}$,
+$r=1$, $R=2$.
+$$
+\centerline{\epsfbox{fn17.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn18. The functions $f(x)=\exp(-x^{-1})$ and
+$g_R(x)=\exp((x^2-R^2)^{-1})$, $R=1$.
+$$
+\centerline{\epsfbox{fn18.1}}
+$$
+
+Diagram fn19. Left translation operators for Lie groups.
+$$
+\centerline{\epsfbox{fn19.1}}
+$$
+
+Diagram fn20. Right translation operators for Lie groups.
+$$
+\centerline{\epsfbox{fn20.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn28. Subset of $\reals^2$ which is connected but not locally connected.
+$$
+\centerline{\epsfbox{fn28.1}}
+$$
+
+Diagram fn31. A $C^{0,1}$ transition map for an embedded manifold.
+$$
+\centerline{\epsfbox{fn31.1}}
+$$
+
+Diagram fn32. Projection maps for a $C^{0,1}$ manifold embedded
+in~$\reals^{n+1}$.
+$$
+\centerline{\epsfbox{fn32.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn35. A Lipschitz function with no one-sided derivatives at the origin.
+$$
+\centerline{\epsfbox{fn35.1}}
+$$
+
+Diagram fn36. Fractional powers $f(x)=\vert x\vert^\alpha$.
+$$
+\centerline{\epsfbox{fn36.1}}
+$$
+
+Diagram fn37. Definition of derivative of real-valued function of real variable.
+$$
+\centerline{\epsfbox{fn37.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn38. Absolute value and sign (signum) functions.
+$$
+\centerline{\epsfbox{fn38.1}}
+$$
+
+Diagram fn39. Gradient of a function (or a Viking opera house).
+$$
+\centerline{\epsfbox{fn39.1}}
+$$
+
+Diagram fn44. Modulo (``relaxation oscillator'') functions.
+$$
+\centerline{\epsfbox{fn44.1}}
+$$
+
+Diagram fn45. Sawtooth functions.
+$$
+\centerline{\epsfbox{fn45.1}}
+$$
+
+Diagram fn46. Square functions.
+$$
+\centerline{\epsfbox{fn46.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn47. Heaviside function multiplied by monomial.
+$$
+\centerline{\epsfbox{fn47.1}}
+$$
+
+Diagram fn48. Higher derivatives of functions may be partially defined
+functions.
+$$
+\centerline{\epsfbox{fn48.1}}
+$$
+
+Diagram fn49. Function $u(x)=\exp(-x^{-2}/2)$ with $u''(x)+b(x)u'(x)=0$.
+$$
+\centerline{\epsfbox{fn49.1}}
+$$
+
+Diagram fn50. Function $u(x)=\vert x\vert^k$ for $k=2.1$.
+$$
+\centerline{\epsfbox{fn50.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn54. Cone-shaped \neighbour/hood for defining the derivative of a real
+function.
+$$
+\centerline{\epsfbox{fn54.1}}
+$$
+
+Diagram fn55. Definition of right derivative of real-valued function of real
+variable.
+$$
+\centerline{\epsfbox{fn55.1}}
+$$
+
+Diagram fn56. Fractional-part and rounding functions.
+$$
+\centerline{\epsfbox{fn56.1}}
+$$
+
+Diagram fn59. Bases for free linear space on $\intsge$ over~$\reals$.
+$$
+\centerline{\epsfbox{fn59.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn60. Component maps for free linear space on $\intsge$ over~$\reals$.
+$$
+\centerline{\epsfbox{fn60.1}}
+$$
+
+Diagram fn61. Zooming in on a differentiable function.
+$$
+\centerline{\epsfbox{fn61.1}}
+$$
+
+Diagram fn68. Joining two points in~$\reals^2$.
+$$
+\centerline{\epsfbox{fn68.1}}
+$$
+
+Diagram fn69. Joining two points in~$\ints^2$.
+$$
+\centerline{\epsfbox{fn69.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn70. Noise on the real line.
+$$
+\centerline{\epsfbox{fn70.1}}
+$$
+
+Diagram fn71. Bound on differential quotient for a noise function.
+$$
+\centerline{\epsfbox{fn71.1}}
+$$
+
+Diagram fn72. Bound on alternative differential quotient for a noise function.
+$$
+\centerline{\epsfbox{fn72.1}}
+$$
+
+Diagram fn73. Letterbox bounds for real-valued function of real variable.
+$$
+\centerline{\epsfbox{fn73.1}}
+$$
+
+Diagram fn74. Letterbox bounds for real-valued function of real variable.
+Higher resolution.
+$$
+\centerline{\epsfbox{fn74.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn75. Letterbox parameters $(u,v)$.
+$$
+\centerline{\epsfbox{fn75.1}}
+$$
+
+Diagram fn76. Function with divergent letterbox aspect ratio.
+$$
+\centerline{\epsfbox{fn76.1}}
+$$
+
+Diagram fn77. Discontinuous function satisfying $\forall
+S\in\powerset(Y),\,\Int(S)\subseteq f(\Int(f^{-1}(S)))$.
+$$
+\centerline{\epsfbox{fn77.1}}
+$$
+
+Diagram fn78. Function $f:\reals\to\reals$ with
+$\liminf_{x\to0}f(x)<\limsup_{x\to0}f(x)$.
+$$
+\centerline{\epsfbox{fn78.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn79. Geodesics in terrestrial coordinates on the two-sphere.
+$$
+\centerline{\epsfbox{fn79.1}}
+$$
+
+Diagram fn80. Definition of derivative of real-valued function of real variable.
+Based on fn37.
+$$
+\centerline{\epsfbox{fn80.1}}
+$$
+
+Diagram fn81. Some integral and fractional powers of~$x\in\reals$. (An
+accidentally interesting-looking diagram.)
+$$
+\centerline{\epsfbox{fn81.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn82. Integral powers of~$x\in\reals$.
+$$
+\centerline{\epsfbox{fn82.1}}
+$$
+
+Diagram fn84. Explicit $\delta(\varepsilon)$ for given~$\varepsilon$.
+$$
+\centerline{\epsfbox{fn84.1}}
+$$
+
+Diagram fn85. Definition of Dini derivatives of real-valued function of real
+variable.
+$$
+\centerline{\epsfbox{fn85.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn86. Shadow-set lemma for proving the Lebesgue differentiation theorem.
+(Riesz 1932.)
+$$
+\centerline{\epsfbox{fn86.1}}
+$$
+
+Diagram fn87. Map $x\mapsto(1+x/(1+\vert x\vert))/2$ from $\rats$ to
+$\rats(0,1)$.
+$$
+\centerline{\epsfbox{fn87.1}}
+$$
+
+Diagram fn90. Double shadow-set lemma for proving the Lebesgue differentiation
+theorem. (Riesz 1932.)
+$$
+\centerline{\epsfbox{fn90.1}}
+$$
+
+Diagram fn91. Enumeration of gradient pairs for double shadow set procedure.
+$$
+\centerline{\epsfbox{fn91.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn94. Functions $(\frac12(1+a^2))^{1/3}+2((1+a)/(1+a^2))^{1/3}$ and
+$9a^{1/3}/(2+a)$.
+$$
+\centerline{\epsfbox{fn94.1}}
+$$
+
+Diagram fn96. Function which is forward-connected, but not weakly connected.
+$$
+\centerline{\epsfbox{fn96.1}}
+$$
+
+Diagram fn97. Function with infinitely many limit points at the origin.
+$$
+\centerline{\epsfbox{fn97.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn98. Divergent function with singleton limit set.
+$$
+\centerline{\epsfbox{fn98.1}}
+$$
+
+Diagram fn99. Graph of continuous curve with infinitely many constant stretches.
+$$
+\centerline{\epsfbox{fn99.1}}
+$$
+
+Diagram fn100. Function which is very weakly Lipschitz continuous.
+$$
+\centerline{\epsfbox{fn100.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn101. Rational powers of non-negative real numbers.
+$$
+\centerline{\epsfbox{fn101.1}}
+$$
+
+Diagram fn102. Lower bound for a seminorm~$\psi$.
+$$
+\centerline{\epsfbox{fn102.1}}
+$$
+
+Diagram fn103. Non-regular inclusion of submanifold in $\reals^2$.
+$$
+\centerline{\epsfbox{fn103.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfnmap{\the\pageno}\LinkName{fnmap}
+
+Diagram fnmap1. Composition of functions yields a partially defined function.
+$$
+\centerline{\epsfbox{fnmap1.1}}
+$$
+
+Diagram fnmap2. Multilinear map with 3 source spaces.
+$$
+\centerline{\epsfbox{fnmap2.1}}
+$$
+
+Diagram fnmap3. Trilinear map definition. Based on fn34.
+$$
+\centerline{\epsfbox{fnmap3.1}}
+$$
+
+Diagram fnmap4. Domain and range of composite of two local transformations.
+$$
+\centerline{\epsfbox{fnmap4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fnmap5. \Generalis/ed right inverse function.
+$$
+\centerline{\epsfbox{fnmap5.1}}
+$$
+
+Diagram fnmap6. Set map between power sets.
+$$
+\centerline{\epsfbox{fnmap6.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTfnTWOd{\the\pageno}\LinkName{fnTWOd}
+
+Diagram fn2d1. Range of exponential map.
+$$
+\centerline{\epsfbox{fn2d1.1}}
+$$
+
+Diagram fn2d2. Ranges of exponential maps.
+$$
+\centerline{\epsfbox{fn2d2.1}}
+$$
+
+Diagram fn2d3. Ranges of exponential maps.
+$$
+\centerline{\epsfbox{fn2d3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d4. Range of terrestrial coordinates for $S^2$.
+$$
+\centerline{\epsfbox{fn2d4.1}}
+$$
+
+Diagram fn2d5. Gradient of a parabolic function.
+$$
+\centerline{\epsfbox{fn2d5.1}}
+$$
+
+Diagram fn2d6. Effect of diffeomorphism on the gradient of a quadratic function.
+$$
+\centerline{\epsfbox{fn2d6.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d7. Real-valued multilinear function of two real variables.
+$$
+\centerline{\epsfbox{fn2d7.1}}
+$$
+
+Diagram fn2d8. Stokes theorem on a rectangle.
+$$
+\centerline{\epsfbox{fn2d8.1}}
+$$
+
+Diagram fn2d9. Level curves of real-valued function $f:\reals^2\to\reals$,
+$f:x\mapsto2x_1x_2/(x_1^2+x_2^2)$ which is partially differentiable on
+$\reals^2$, but not continuous at~$x=(0,0)$.
+$$
+\centerline{\epsfbox{fn2d9.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d10. Level curves of real-valued function $f:\reals^2\to\reals$,
+$f:x\mapsto x_1^2 x_1^{-1}\exp\bigl((1-x_2^{4}x_1^{-2})/2\bigr)$ which is
+directionally differentiable on $\reals^2$, but not continuous at~$x=(0,0)$.
+$$
+\centerline{\epsfbox{fn2d10.1}}
+$$
+
+Diagram fn2d11. Level curves of real-valued function $f:\reals^2\to\reals$,
+$f:x\mapsto g(x_1^2 x_1^{-1})$, $g:\reals\to\reals$, $g:t\mapsto
+t\exp((1-t^2)/2)$ which is directionally differentiable on $\reals^2$, but not
+continuous at~$x=(0,0)$.
+$$
+\centerline{\epsfbox{fn2d11.1}}
+$$
+
+Diagram fn2d12. Graph suggesting the existence of complex pole for
+$(1+x^2)^{-1}$.
+$$
+\centerline{\epsfbox{fn2d12.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d13. Chart for Lipschitz manifold. Non-differentiable on the axes.
+$$
+\centerline{\epsfbox{fn2d13.1}}
+$$
+
+Diagram fn2d14. Chart for Lipschitz manifold. Non-differentiable at the origin.
+$$
+\centerline{\epsfbox{fn2d14.1}}
+$$
+
+Diagram fn2d15. Chart for Lipschitz manifold. Non-differentiable at the origin.
+$$
+\centerline{\epsfbox{fn2d15.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d16. Distinction between restricted point-maps and restricted-set
+maps.
+$$
+\centerline{\epsfbox{fn2d16.1}}
+$$
+
+Diagram fn2d17. Geodesic curves for a slightly non-Riemannian manifold:
+$g_{ij}(x)=9x_1^4\delta_{i1}\delta_{j1}+\delta_{i2}\delta_{j2}$.
+$$
+\centerline{\epsfbox{fn2d17.1}}
+$$
+
+Diagram fn2d18. Graph of Picard iterants for uniform orthogonal translation.
+$$
+\centerline{\epsfbox{fn2d18.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d19. Topological space which is connected, but not locally connected.
+$$
+\centerline{\epsfbox{fn2d19.1}}
+$$
+
+Diagram fn2d20. Topological space which is neither connected nor locally
+connected.
+$$
+\centerline{\epsfbox{fn2d20.1}}
+$$
+
+Diagram fn2d21. Graph of Peano space-filling curve.
+$$
+\centerline{\epsfbox{fn2d21.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d22. $f:(0,2\pi)\to\reals^2$ with $f:t\mapsto(\sin t,\sin 2t)$. Not a
+topological manifold embedding.
+$$
+\centerline{\epsfbox{fn2d22.1}}
+$$
+
+Diagram fn2d23. Level curves of function which is not totally differentiable.
+$$
+\centerline{\epsfbox{fn2d23.1}}
+$$
+
+Diagram fn2d24. Unit level curves of $p$-norms for~$\reals^2$.
+$$
+\centerline{\epsfbox{fn2d24.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram fn2d25. Unit level curves of norms $x\mapsto\max(k\vert
+x_1+x_2\vert,x_1-x_2\vert)$ for~$\reals^2$.
+$$
+\centerline{\epsfbox{fn2d25.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTgrid{\the\pageno}\LinkName{grid}
+
+Diagram grid1. Testing the {\tt S\_lingrid} macro for linear grid interpolation.
+$$
+\centerline{\epsfbox{grid1.1}}
+$$
+
+Diagram grid2. Testing the {\tt S\_grid} macro for curvilinear grid
+interpolation.
+$$
+\centerline{\epsfbox{grid2.1}}
+$$
+
+Diagram grid3. Testing the {\tt S\_grid} macro for curvilinear grid
+interpolation.
+$$
+\centerline{\epsfbox{grid3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram grid4. A family of curves.
+$$
+\centerline{\epsfbox{grid4.1}}
+$$
+
+Diagram grid5. A vector field on a manifold.
+$$
+\centerline{\epsfbox{grid5.1}}
+$$
+
+Diagram grid6. A vector field inside a manifold.
+$$
+\centerline{\epsfbox{grid6.1}}
+$$
+
+Diagram grid7. Parallel transport of a vector over a family of curves.
+$$
+\centerline{\epsfbox{grid7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram grid8. Parallel transport of a vector over a family of curves.
+$$
+\centerline{\epsfbox{grid8.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTint{\the\pageno}\LinkName{int}
+
+Diagram int1. The first seven ordinal numbers.
+$$
+\centerline{\epsfbox{int1.1}}
+$$
+
+Diagram int2. The ordinal number 10, compact version. Based on int5.
+$$
+\centerline{\epsfbox{int2.1}}
+$$
+
+Diagram int3. Iteration of universe sets.
+$$
+\centerline{\epsfbox{int3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram int4. The ordinal number 10.
+$$
+\centerline{\epsfbox{int4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram int5. The ordinal number 12.
+$$
+\centerline{\epsfbox{int5.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram int6. Proof strategy to show total order of finite ordinals.
+$$
+\centerline{\epsfbox{int6.1}}
+$$
+
+Diagram int7. The first five von Neumann universes. (Actually published by
+Zermelo in 1930.)
+$$
+\centerline{\epsfbox{int7.1}}
+$$
+
+Diagram int9. Enumeration of an arbitrary subset of~$\omega$.
+$$
+\centerline{\epsfbox{int9.1}}
+$$
+
+Diagram int10. Proof that an injective finite set endomorphism is a bijection.
+$$
+\centerline{\epsfbox{int10.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram int11. Construction of rational numbers from integers.
+$$
+\centerline{\epsfbox{int11.1}}
+$$
+
+Diagram int12. Construction of signed integers from pairs of unsigned integers.
+$$
+\centerline{\epsfbox{int12.1}}
+$$
+
+Diagram int13. Definition of signed integers in terms of integers and a ``sign
+bit''.
+$$
+\centerline{\epsfbox{int13.1}}
+$$
+
+Diagram int14. Addition of finite ordinal numbers.
+$$
+\centerline{\epsfbox{int14.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram int15. Application of ZF regularity (well-foundedness) to an ordinal
+number.
+$$
+\centerline{\epsfbox{int15.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTire{\the\pageno}\LinkName{ire}
+
+Diagram ire1. Topology of the counties of Ireland.
+$$
+\centerline{\epsfbox{ire1.1}}
+$$
+
+Diagram ire2. Topology of the counties of Ireland using atlas coordinates.
+$$
+\centerline{\epsfbox{ire2.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram ire3. Topology of the counties of Ireland in Irish language.
+$$
+\centerline{\epsfbox{ire3.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTlinmap{\the\pageno}\LinkName{linmap}
+
+Diagram linmap1. Maps for duals of tensor spaces.
+$$
+\centerline{\epsfbox{linmap1.1}}
+$$
+
+Diagram linmap2. Conversion of linear map to matrix multiplication.
+$$
+\centerline{\epsfbox{linmap2.1}}
+$$
+
+Diagram linmap3. Conversion of bilinear map to matrix multiplication.
+$$
+\centerline{\epsfbox{linmap3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram linmap4. Transpose map of a linear space monomorphism.
+$$
+\centerline{\epsfbox{linmap4.1}}
+$$
+
+Diagram linmap5. Component maps for linear spaces.
+$$
+\centerline{\epsfbox{linmap5.1}}
+$$
+
+Diagram linmap6. Transition maps between component maps for linear spaces.
+$$
+\centerline{\epsfbox{linmap6.1}}
+$$
+
+Diagram linmap7. Transition maps between component maps for linear spaces with
+indexed bases.
+$$
+\centerline{\epsfbox{linmap7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram linmap8. Component transition maps for a linear map.
+$$
+\centerline{\epsfbox{linmap8.1}}
+$$
+
+Diagram linmap9. Maps and spaces for a linear space quotient.
+$$
+\centerline{\epsfbox{linmap9.1}}
+$$
+
+Diagram linmap10. Maps and spaces for an isomorphism for the dual of a subspace
+of a linear space.
+$$
+\centerline{\epsfbox{linmap10.1}}
+$$
+
+Diagram linmap11. Maps and spaces for an isomorphism for the dual of a subspace
+of a dual space.
+$$
+\centerline{\epsfbox{linmap11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram linmap12. Maps and spaces for an isomorphism for the dual of a subspace
+of a tensor space.
+$$
+\centerline{\epsfbox{linmap12.1}}
+$$
+
+Diagram linmap13. Maps and spaces for an isomorphism for the dual of
+antisymmetric multilinear functions.
+$$
+\centerline{\epsfbox{linmap13.1}}
+$$
+
+Diagram linmap14. Maps and spaces for a linear space quotient of the kernel of a
+linear map.
+$$
+\centerline{\epsfbox{linmap14.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTlog{\the\pageno}\LinkName{log}
+
+Diagram log1. Reduction of geometry and arithmetic to symbolic logic, then
+interpretation.
+$$
+\centerline{\epsfbox{log1.1}}
+$$
+
+Diagram log2. Processing of logical propositions into ``true'' and ``false''.
+$$
+\centerline{\epsfbox{log2.1}}
+$$
+
+Diagram log3. Processing of logical propositions into ``true'' and ``false''.
+$$
+\centerline{\epsfbox{log3.1}}
+$$
+
+Diagram log4. Equivalence for conjunction of propositions.
+$$
+\centerline{\epsfbox{log4.1}}
+$$
+
+Diagram log5. Equivalence for disjunction of propositions?
+$$
+\centerline{\epsfbox{log5.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log6. Equivalence for conjunction of propositions. Inversion of
+log4.
+$$
+\centerline{\epsfbox{log6.1}}
+$$
+
+Diagram log7. Equivalence for disjunction of propositions? Inversion of
+log5.
+$$
+\centerline{\epsfbox{log7.1}}
+$$
+
+Diagram log8. Object spaces for propositional calculus.
+$$
+\centerline{\epsfbox{log8.1}}
+$$
+
+Diagram log9. Object spaces and name spaces for propositional calculus. (See
+log43.)
+$$
+\centerline{\epsfbox{log9.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log10. Meaning of propositions: description versus prescription.
+$$
+\centerline{\epsfbox{log10.1}}
+$$
+
+Diagram log11. Mapping meta-meta-propositions to meta-propositions, and then to
+concrete propositions.
+$$
+\centerline{\epsfbox{log11.1}}
+$$
+
+Diagram log12. The relation of ideas to \verbalis/ation, both spoken and
+written.
+$$
+\centerline{\epsfbox{log12.1}}
+$$
+
+Diagram log13. The relation of ideas to spoken \verbalis/ation.
+$$
+\centerline{\epsfbox{log13.1}}
+$$
+
+Diagram log14. Abstract logic in relation to concrete applications.
+$$
+\centerline{\epsfbox{log14.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log15. Decision-making for mammoth hunters.
+$$
+\centerline{\epsfbox{log15.1}}
+$$
+
+Diagram log16. Definition of proposition name space and concrete proposition
+domain.
+$$
+\centerline{\epsfbox{log16.1}}
+$$
+
+Diagram log17. Concrete proposition domains and truth value maps.
+$$
+\centerline{\epsfbox{log17.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log18. Single proposition name space with multiple concrete proposition
+domains.
+$$
+\centerline{\epsfbox{log18.1}}
+$$
+
+Diagram log19. Parsing a logical expression.
+$$
+\centerline{\epsfbox{log19.1}}
+$$
+
+Diagram log20. World-model ontology for logical negation.
+$$
+\centerline{\epsfbox{log20.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log21. Abstract/concrete predicates, variables and propositions.
+$$
+\centerline{\epsfbox{log21.1}}
+$$
+
+Diagram log22. Ontology of unknown truth values.
+$$
+\centerline{\epsfbox{log22.1}}
+$$
+
+Diagram log23. Ontology of unknown truth values. Two modelled logic machines.
+$$
+\centerline{\epsfbox{log23.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log24. Ontology of unknown truth values. Second-order modelling of
+unknowns.
+$$
+\centerline{\epsfbox{log24.1}}
+$$
+
+Diagram log25. Modelling of modelling.
+$$
+\centerline{\epsfbox{log25.1}}
+$$
+
+Diagram log26. Meta-modelling within one machine (or mind).
+$$
+\centerline{\epsfbox{log26.1}}
+$$
+
+Diagram log27. Recursive modelling of a machine by a second machine.
+$$
+\centerline{\epsfbox{log27.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log28. Recursive modelling within one mind.
+$$
+\centerline{\epsfbox{log28.1}}
+$$
+
+Diagram log29. Simulation of a computer simulating a computer.
+$$
+\centerline{\epsfbox{log29.1}}
+$$
+
+Diagram log30. Classes and objects in multiple machines.
+$$
+\centerline{\epsfbox{log30.1}}
+$$
+
+Diagram log31. Classes and objects in multiple machines. Recursive.
+$$
+\centerline{\epsfbox{log31.1}}
+$$
+
+Diagram log32. Classes and objects in multiple machines. Unbounded class nesting
+depth.
+$$
+\centerline{\epsfbox{log32.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log33. Parsing a quantified logic expression.
+$$
+\centerline{\epsfbox{log33.1}}
+$$
+
+Diagram log34. Set membership tree for the set of finite ordinal numbers.
+$$
+\centerline{\epsfbox{log34.1}}
+$$
+
+Diagram log35. Real world, probabilistic model, logical model and current
+knowledge.
+$$
+\centerline{\epsfbox{log35.1}}
+$$
+
+Diagram log36. The analysis-synthesis reductionism loop.
+$$
+\centerline{\epsfbox{log36.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log37. Open subbase for a topology.
+$$
+\centerline{\epsfbox{log37.1}}
+$$
+
+Diagram log38. Minimal and maximal elements for a partially ordered set.
+$$
+\centerline{\epsfbox{log38.1}}
+$$
+
+Diagram log39. Arrow diagram for a totally ordered set.
+$$
+\centerline{\epsfbox{log39.1}}
+$$
+
+Diagram log40. Inclusion relation on power set. Partial orders which are not
+total orders.
+$$
+\centerline{\epsfbox{log40.1}}
+$$
+
+Diagram log41. Inclusion relation on power set of four letters.
+$$
+\centerline{\epsfbox{log41.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log42. Different ways of viewing the logical operation $A\imprel B$.
+$$
+\centerline{\epsfbox{log42.1}}
+$$
+
+Diagram log43. Object spaces and name spaces for propositional calculus. (Based
+on log9.)
+$$
+\centerline{\epsfbox{log43.1}}
+$$
+
+Diagram log44. Representations of an example logical expression.
+$$
+\centerline{\epsfbox{log44.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log45. Bracket-level diagram for an infix logical expression.
+$$
+\centerline{\epsfbox{log45.1}}
+$$
+
+Diagram log46. Possible origin of single-model and multi-model logical
+languages.
+$$
+\centerline{\epsfbox{log46.1}}
+$$
+
+Diagram log47. The ``shim'' concept for connecting ZF+AC theorems to ZF
+theorems.
+$$
+\centerline{\epsfbox{log47.1}}
+$$
+
+Diagram log48. Classes of cardinality of finite, mediate and infinite sets.
+$$
+\centerline{\epsfbox{log48.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log49. Eight independent definitions for a finite set.
+$$
+\centerline{\epsfbox{log49.1}}
+$$
+
+Diagram log50. Object spaces and name spaces for predicate calculus. (Based on
+log9.)
+$$
+\centerline{\epsfbox{log50.1}}
+$$
+
+Diagram log51. Set membership tree for the set of finite ordinal numbers. (Based
+on log34.)
+$$
+\centerline{\epsfbox{log51.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram log52. Inclusion relation on power set of two, three or four letters.
+(See log40 and log41.)
+$$
+\centerline{\epsfbox{log52.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTlogmap{\the\pageno}\LinkName{logmap}
+
+Diagram logmap1. Contradictory logic.
+$$
+\centerline{\epsfbox{logmap1.1}}
+$$
+
+Diagram logmap2. Commutative diagram for socio-mathematical \synchronis/ation.
+$$
+\centerline{\epsfbox{logmap2.1}}
+$$
+
+Diagram logmap3. Sensor/motor loop between mind and matter.
+$$
+\centerline{\epsfbox{logmap3.1}}
+$$
+
+Diagram logmap4. Correspondence between concrete relations and abstract
+relations.
+$$
+\centerline{\epsfbox{logmap4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram logmap5. Abstract and concrete equality relations.
+$$
+\centerline{\epsfbox{logmap5.1}}
+$$
+
+Diagram logmap6. The naming bottleneck and dark numbers.
+$$
+\centerline{\epsfbox{logmap6.1}}
+$$
+
+Diagram logmap7. Constant names for fixed concrete objects.
+$$
+\centerline{\epsfbox{logmap7.1}}
+$$
+
+Diagram logmap8. The naming bottleneck and dark numbers.
+$$
+\centerline{\epsfbox{logmap8.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram logmap9. Real numbers exist only in observers, not in the observed
+physical systems.
+$$
+\centerline{\epsfbox{logmap9.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTmap{\the\pageno}\LinkName{map}
+
+Diagram map5. The intersection of two subsets of a set~$S$.
+$$
+\centerline{\epsfbox{map5.1}}
+$$
+
+Diagram map85. Example of transformation group homomorphism.
+$$
+\centerline{\epsfbox{map85.1}}
+$$
+
+Diagram map86. Maps/spaces for a transformation group homomorphism.
+$$
+\centerline{\epsfbox{map86.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% \filleject
+
+Diagram map103. Group conjugation interpreted as parallel transport.
+$$
+\centerline{\epsfbox{map103.1}}
+$$
+
+Diagram map145. Relation between real geometry, Euclidean geometry and Cartesian
+geometry.
+$$
+\centerline{\epsfbox{map145.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTmat{\the\pageno}\LinkName{mat}
+
+Diagram mat1. Component transition matrices for particular bases of a linear
+space.
+$$
+\centerline{\epsfbox{mat1.1}}
+$$
+
+Diagram mat2. Two enumeration styles for the set $\omega\times\omega$.
+$$
+\centerline{\epsfbox{mat2.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTmetric{\the\pageno}\LinkName{metric}
+
+Diagram metric1. Radii of open balls within the intersection of two given balls.
+$$
+\centerline{\epsfbox{metric1.1}}
+$$
+
+Diagram metric2. Open and closed balls in a metric space.
+$$
+\centerline{\epsfbox{metric2.1}}
+$$
+
+Diagram metric3. Equivalents to triangle inequality. Outer bounds.
+$$
+\centerline{\epsfbox{metric3.1}}
+$$
+
+Diagram metric4. Equivalents to triangle inequality. Inner bounds.
+$$
+\centerline{\epsfbox{metric4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram metric5. Distance function on a torus $[0,4)\times[0,3)$.
+$$
+\centerline{\epsfbox{metric5.1}}
+$$
+
+Diagram metric6. Pseudo-distance function on a torus $[0,4)\times[0,3)$.
+$$
+\centerline{\epsfbox{metric6.1}}
+$$
+
+Diagram metric7. Pseudo-distance function on~$\reals^2$.
+$$
+\centerline{\epsfbox{metric7.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTmisc{\the\pageno}\LinkName{misc}
+
+Diagram misc1. The \parametris/ation of the circle.
+$$
+\centerline{\epsfbox{misc1.1}}
+$$
+
+Diagram misc2. Processes in writing a book on the net.
+$$
+\centerline{\epsfbox{misc2.1}}
+$$
+
+Diagram misc3. Processes in writing a book on the net. Adapted from misc2.
+$$
+\centerline{\epsfbox{misc3.1}}
+$$
+
+Diagram misc4. Cycle of dependencies of disciplines.
+$$
+\centerline{\epsfbox{misc4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram misc5. MSC\ts 2000 subject list.
+$$
+\centerline{\epsfbox{misc5.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram misc7. MSC\ts 2000 subject list with extra labels.
+$$
+\centerline{\epsfbox{misc7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram misc6. A rectangle with dotted line.
+$$
+\centerline{\epsfbox{misc6.1}}
+$$
+
+Diagram misc14. Proof of the Schr\"oder-Bernstein theorem.
+$$
+\centerline{\epsfbox{misc14.1}}
+$$
+
+Diagram misc15. Cross product of two sets.
+$$
+\centerline{\epsfbox{misc15.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram misc16. Cycle of dependencies of disciplines. Based on misc4.
+$$
+\centerline{\epsfbox{misc16.1}}
+$$
+
+Diagram misc18. Classification of entities in the environment.
+$$
+\centerline{\epsfbox{misc18.1}}
+$$
+
+Diagram misc20. The non-applicability of truth tables to predicate logic.
+$$
+\centerline{\epsfbox{misc20.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram misc19. MSC\ts 2010 subject list with two labels and Australian
+spelling.
+$$
+\centerline{\epsfbox{misc19.1}}
+$$
+
+Diagram misc21. Finite, infinite, Dedekind-finite and Dedekind-infinite sets.
+$$
+\centerline{\epsfbox{misc21.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram misc22. MSC\ts 2010 subject list with Australian spelling and clockwise
+orientation.
+$$
+\centerline{\epsfbox{misc22.1}}
+$$
+
+Diagram misc23. Crazy order of week-day names.
+Day-name$[n]={}$Planet-name$[24n\bmod 7]$, $n=0\dots6$.
+$$
+\centerline{\epsfbox{misc23.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTprodmap{\the\pageno}\LinkName{prodmap}
+
+Diagram prodmap1. Homeomorphism for subset for product topology.
+$$
+\centerline{\epsfbox{prodmap1.1}}
+$$
+
+Diagram prodmap2. Maps and spaces for the pointwise Cartesian product of two
+functions.
+$$
+\centerline{\epsfbox{prodmap2.1}}
+$$
+
+Diagram prodmap3. Homeomorphism for subset for product topology. Adapted from
+prodmap1.
+$$
+\centerline{\epsfbox{prodmap3.1}}
+$$
+
+Diagram prodmap4. Cartesian product of two topological spaces.
+$$
+\centerline{\epsfbox{prodmap4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram prodmap5. Homeomorphism for subset for product topology. Adapted from
+prodmap3.
+$$
+\centerline{\epsfbox{prodmap5.1}}
+$$
+
+Diagram prodmap6. Direct product of diffeomorphisms between Cartesian space
+regions.
+$$
+\centerline{\epsfbox{prodmap6.1}}
+$$
+
+Diagram prodmap7. Direct product of continuous maps between Cartesian space
+regions.
+$$
+\centerline{\epsfbox{prodmap7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram prodmap8. Diffeomorphism between slice of set diffeomorphic to product
+of sets.
+$$
+\centerline{\epsfbox{prodmap8.1}}
+$$
+
+Diagram prodmap9. The ``partial maps'' of $C^k$ map $\phi:M_1\times M_2\to M_0$.
+$$
+\centerline{\epsfbox{prodmap9.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTreal{\the\pageno}\LinkName{real}
+
+Diagram real1. Proof of Heine-Borel theorem.
+$$
+\centerline{\epsfbox{real1.1}}
+$$
+
+Diagram real2. Non-Hausdorff locally Cartesian space example.
+$$
+\centerline{\epsfbox{real2.1}}
+$$
+
+Diagram real3. Ambiguity of determination of curve by set and end-points.
+$$
+\centerline{\epsfbox{real3.1}}
+$$
+
+Diagram real4. Contrast between curve map and 1-manifold maps.
+$$
+\centerline{\epsfbox{real4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram real5. Inverse manifold atlas for a path.
+$$
+\centerline{\epsfbox{real5.1}}
+$$
+
+Diagram real9. Addition of vectors in the free linear space over the reals.
+$$
+\centerline{\epsfbox{real9.1}}
+$$
+
+Diagram real11. Concatenation of curves using domain interval translations.
+$$
+\centerline{\epsfbox{real11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram real12. Concatenation of curves using domain interval continuous
+transformations.
+$$
+\centerline{\epsfbox{real12.1}}
+$$
+
+Diagram real13. Concatenation of curves to prove transitivity of pathwise
+connectedness.
+$$
+\centerline{\epsfbox{real13.1}}
+$$
+
+Diagram real14. Showing that the rationals have measure zero.
+$$
+\centerline{\epsfbox{real14.1}}
+$$
+
+Diagram real15. The real line with two origins.
+$$
+\centerline{\epsfbox{real15.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram real16. The real line with two closed unit intervals.
+$$
+\centerline{\epsfbox{real16.1}}
+$$
+
+Diagram real17. A double real line with four origins.
+$$
+\centerline{\epsfbox{real17.1}}
+$$
+
+Diagram real18. Topology of a double real line with four origins.
+$$
+\centerline{\epsfbox{real18.1}}
+$$
+
+Diagram real19. Uneven distribution of rational numbers with
+denominator${}\le25$.
+$$
+\centerline{\epsfbox{real19.1}}
+$$
+
+Diagram real20. The ``stages'' of an enumeration of the rational numbers.
+$$
+\centerline{\epsfbox{real20.1}}
+$$
+
+Diagram real21. Refinement of an interval partition.
+$$
+\centerline{\epsfbox{real21.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTtangmap{\the\pageno}\LinkName{tangmap}
+
+Diagram tangmap1. Charts and projection maps for tangent vector and covector
+spaces.
+$$
+\centerline{\epsfbox{tangmap1.1}}
+$$
+
+Diagram tangmap2. Charts for tangent space of a tangent space.
+$$
+\centerline{\epsfbox{tangmap2.1}}
+$$
+
+Diagram tangmap3. Maps and spaces for differentials, both vectors and operators.
+$$
+\centerline{\epsfbox{tangmap3.1}}
+$$
+
+Diagram tangmap4. Maps and spaces for differentials.
+$$
+\centerline{\epsfbox{tangmap4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap5. Tangent space maps.
+$$
+\centerline{\epsfbox{tangmap5.1}}
+$$
+
+Diagram tangmap6. Differential of a map between two manifolds.
+$$
+\centerline{\epsfbox{tangmap6.1}}
+$$
+
+Diagram tangmap7. Differential of a map between two manifolds.
+$$
+\centerline{\epsfbox{tangmap7.1}}
+$$
+
+Diagram tangmap8. Tangent bundle maps.
+$$
+\centerline{\epsfbox{tangmap8.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap9. Spaces and maps for the tangent vector bundle.
+$$
+\centerline{\epsfbox{tangmap9.1}}
+$$
+
+Diagram tangmap10. Spaces and maps for a tangent bundle.
+$$
+\centerline{\epsfbox{tangmap10.1}}
+$$
+
+Diagram tangmap11. Spaces and maps for the total tangent $r$-frame space.
+$$
+\centerline{\epsfbox{tangmap11.1}}
+$$
+
+Diagram tangmap12. Differentiability of a map between manifolds.
+$$
+\centerline{\epsfbox{tangmap12.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap13. Differentiability of a map between manifolds.
+$$
+\centerline{\epsfbox{tangmap13.1}}
+$$
+
+Diagram tangmap14. Differential of real-valued function for second-order tangent
+operators.
+$$
+\centerline{\epsfbox{tangmap14.1}}
+$$
+
+Diagram tangmap15. Differential of a differentiable map for first-order
+operators.
+$$
+\centerline{\epsfbox{tangmap15.1}}
+$$
+
+Diagram tangmap16. Differential of a differentiable map for second-order
+operators.
+$$
+\centerline{\epsfbox{tangmap16.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap17. Differential of a differentiable map for second-order vectors
+and operators.
+$$
+\centerline{\epsfbox{tangmap17.1}}
+$$
+
+Diagram tangmap18. Induced map for a manifold map.
+$$
+\centerline{\epsfbox{tangmap18.1}}
+$$
+
+Diagram tangmap19. Diffeomorphism acting on a space of operators.
+$$
+\centerline{\epsfbox{tangmap19.1}}
+$$
+
+Diagram tangmap20. Transition maps for tangent space of a tangent space.
+$$
+\centerline{\epsfbox{tangmap20.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap21. Tangent space metadefinition transition maps.
+$$
+\centerline{\epsfbox{tangmap21.1}}
+$$
+
+Diagram tangmap22. Tangent space metadefinition. Based on tangmap21.
+$$
+\centerline{\epsfbox{tangmap22.1}}
+$$
+
+Diagram tangmap23. Maps for the tangent bundle of a tangent bundle.
+$$
+\centerline{\epsfbox{tangmap23.1}}
+$$
+
+Diagram tangmap24. Standard atlas for a tangent bundle.
+$$
+\centerline{\epsfbox{tangmap24.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap25. Tangent space metadefinition. Based on tangmap22.
+$$
+\centerline{\epsfbox{tangmap25.1}}
+$$
+
+Diagram tangmap26. Second-order tangent space definition. Based on tangmap25.
+$$
+\centerline{\epsfbox{tangmap26.1}}
+$$
+
+Diagram tangmap27. Invariance of tangent vector under a pseudogroup of
+diffeomorphisms.
+$$
+\centerline{\epsfbox{tangmap27.1}}
+$$
+
+Diagram tangmap28. Transformation of second-order operators without a
+connection. Based on tangmap19.
+$$
+\centerline{\epsfbox{tangmap28.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap29. Mixed tensors on manifolds and Cartesian charts.
+$$
+\centerline{\epsfbox{tangmap29.1}}
+$$
+
+Diagram tangmap30. Maps and spaces for a continuous embedding of a topological
+manifold.
+$$
+\centerline{\epsfbox{tangmap30.1}}
+$$
+
+Diagram tangmap31. Regular embedding of a submanifold of a topological manifold.
+$$
+\centerline{\epsfbox{tangmap31.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap32. Charts and projection maps for tangent and covector bundles.
+$$
+\centerline{\epsfbox{tangmap32.1}}
+$$
+
+Diagram tangmap33. Composition of curves and real-valued functions on a
+differentiable manifold.
+$$
+\centerline{\epsfbox{tangmap33.1}}
+$$
+
+Diagram tangmap34. Double differential of a map between two manifolds.
+$$
+\centerline{\epsfbox{tangmap34.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap35. Covariant double differential of a map between two manifolds.
+$$
+\centerline{\epsfbox{tangmap35.1}}
+$$
+
+Diagram tangmap36. Covariant double differential of real-valued function on a
+manifold.
+$$
+\centerline{\epsfbox{tangmap36.1}}
+$$
+
+Diagram tangmap37. Differentiability test for a vector field.
+$$
+\centerline{\epsfbox{tangmap37.1}}
+$$
+
+Diagram tangmap38. Differentiability test for a tensor field.
+$$
+\centerline{\epsfbox{tangmap38.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap39. Drop function for the tangent bundle of a linear space.
+$$
+\centerline{\epsfbox{tangmap39.1}}
+$$
+
+Diagram tangmap40. Maps and spaces for a tangent vector $r$-frame bundle.
+$$
+\centerline{\epsfbox{tangmap40.1}}
+$$
+
+Diagram tangmap41. Maps and spaces for a tangent vector $r$-tuple bundle.
+$$
+\centerline{\epsfbox{tangmap41.1}}
+$$
+
+Diagram tangmap42. Pull-back differential of a map between two manifolds,
+vector-valued.
+$$
+\centerline{\epsfbox{tangmap42.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap43. Pull-back differential of a map between two manifolds,
+real-valued.
+$$
+\centerline{\epsfbox{tangmap43.1}}
+$$
+
+Diagram tangmap44. Pointwise differential of a map between two manifolds.
+$$
+\centerline{\epsfbox{tangmap44.1}}
+$$
+
+Diagram tangmap45. Exterior derivative of differential forms on manifolds.
+$$
+\centerline{\epsfbox{tangmap45.1}}
+$$
+
+Diagram tangmap46. Exterior derivative of differential forms on manifolds,
+without and with the ``short-cut''.
+$$
+\centerline{\epsfbox{tangmap46.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tangmap47. Differential forms on manifolds, without and with the
+``short-cut''.
+$$
+\centerline{\epsfbox{tangmap47.1}}
+$$
+
+Diagram tangmap48. Differential forms on manifolds, without and with the
+``short-cut''.
+$$
+\centerline{\epsfbox{tangmap48.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTtopo{\the\pageno}\LinkName{topo}
+
+Diagram topo1. $\tc_0$ and $\tc_1$ topological spaces.
+$$
+\centerline{\epsfbox{topo1.1}}
+$$
+
+Diagram topo2. Hausdorff ($\tc_2$) topological space.
+$$
+\centerline{\epsfbox{topo2.1}}
+$$
+
+Diagram topo3. $\tc_4$ topological space.
+$$
+\centerline{\epsfbox{topo3.1}}
+$$
+
+Diagram topo4. $\tc_4$ topological space.
+$$
+\centerline{\epsfbox{topo4.1}}
+$$
+
+Diagram topo5. Definition of connected set in a topological space.
+$$
+\centerline{\epsfbox{topo5.1}}
+$$
+
+Diagram topo6. Completely regular space. Existence of function in range~$[0,1]$.
+$$
+\centerline{\epsfbox{topo6.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo7. DG level 1. Connectedness of point sets.
+$$
+\centerline{\epsfbox{topo7.1}}
+$$
+
+Diagram topo8. DG level 1. Define continuity of a function as preservation of
+connectivity.
+$$
+\centerline{\epsfbox{topo8.1}}
+$$
+
+Diagram topo9. DG level 1. Define continuity of a function as inverse
+preservation of disconnectivity.
+$$
+\centerline{\epsfbox{topo9.1}}
+$$
+
+Diagram topo10. DG level 1. \Neighbour/hoods around each point of two sets.
+$$
+\centerline{\epsfbox{topo10.1}}
+$$
+
+Diagram topo11. DG level 1. Union of \neighbour/hoods around points of two sets.
+$$
+\centerline{\epsfbox{topo11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo12. Topological limit point of a set.
+$$
+\centerline{\epsfbox{topo12.1}}
+$$
+
+Diagram topo13. Topological limit point of a set.
+$$
+\centerline{\epsfbox{topo13.1}}
+$$
+
+Diagram topo14. Topological interior, exterior and boundary of a set.
+$$
+\centerline{\epsfbox{topo14.1}}
+$$
+
+Diagram topo15. Open and closed portions of the boundary of a set.
+$$
+\centerline{\epsfbox{topo15.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo16. The difference between weakly and strongly separated set-pairs.
+$$
+\centerline{\epsfbox{topo16.1}}
+$$
+
+Diagram topo17. The influence of topology strength on boundary thickness.
+$$
+\centerline{\epsfbox{topo17.1}}
+$$
+
+Diagram topo18. Relation between topology strength and
+interior/boundary/exterior of sets.
+$$
+\centerline{\epsfbox{topo18.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo19. Interior/boundary/exterior of sets including trivial and
+discrete extremes.
+$$
+\centerline{\epsfbox{topo19.1}}
+$$
+
+Diagram topo20. Relations between interior, closure, boundary and exterior of a
+set.
+$$
+\centerline{\epsfbox{topo20.1}}
+$$
+
+Diagram topo21. Inverse set-maps of interior, exterior and boundary for a
+continuous function.
+$$
+\centerline{\epsfbox{topo21.1}}
+$$
+
+Diagram topo22. Least upper bound and greatest lower bound.
+$$
+\centerline{\epsfbox{topo22.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo27. Projection of open set in Cartesian product of topological
+spaces.
+$$
+\centerline{\epsfbox{topo27.1}}
+$$
+
+Diagram topo28. Topological space of class~$\tc_3$. $K$~closed, $x\notin K$,
+$K\subseteq\Omega_1$, $x\in\Omega_2$, $\Omega_1\bcap\Omega_2=\emptyset$.
+$$
+\centerline{\epsfbox{topo28.1}}
+$$
+
+Diagram topo29. $\tc_5$ topological space. Weak separation of set-pairs
+$(S_1,S_2)$ implies strong separation.
+$$
+\centerline{\epsfbox{topo29.1}}
+$$
+
+Diagram topo30. $\tc_6$ topological space.
+$$
+\centerline{\epsfbox{topo30.1}}
+$$
+
+Diagram topo31. Compare/contrast limit points, isolated points and
+interior/boundary for~$\textop{iso}(X)=\emptyset$.
+$$
+\centerline{\epsfbox{topo31.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo32. Compare and contrast limit points, isolated points and
+interior/boundary/exterior.
+$$
+\centerline{\epsfbox{topo32.1}}
+$$
+
+Diagram topo33. Relations between interior and closure of a set.
+$$
+\centerline{\epsfbox{topo33.1}}
+$$
+
+Diagram topo35. A topological manifold chart for a torus.
+$$
+\centerline{\epsfbox{topo35.1}}
+$$
+
+Diagram topo39. Equivalent nested open/closed condition for a $\tc_3$ space.
+$$
+\centerline{\epsfbox{topo39.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topo40. Compare and constrast atlas-collages and identification spaces.
+$$
+\centerline{\epsfbox{topo40.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTtopofin{\the\pageno}\LinkName{topofin}
+
+Diagram topofin1. Non-discrete $T_1$ topology on a countably infinite set.
+$$
+\centerline{\epsfbox{topofin1.1}}
+$$
+
+Diagram topofin2. The set of all possible topologies on the set~$\{1,2\}$.
+$$
+\centerline{\epsfbox{topofin2.1}}
+$$
+
+Diagram topofin3. The set of unique topologies on the set~$\{1,2,3\}$.
+$$
+\centerline{\epsfbox{topofin3.1}}
+$$
+
+Diagram topofin4. Counterexamples for weakly and strongly connected function
+conjectures.
+$$
+\centerline{\epsfbox{topofin4.1}}
+$$
+
+Diagram topofin5. Weakly connected function with non-$\tc_1$ target space which
+is not continuous.
+$$
+\centerline{\epsfbox{topofin5.1}}
+$$
+
+Diagram topofin6. Two topologies on the set~$\{1,2,3\}$. Adapted from topofin3.
+$$
+\centerline{\epsfbox{topofin6.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% \filleject
+
+%==============================================================================
+\secteject
+\edef\SECTtopomap{\the\pageno}\LinkName{topomap}
+
+Diagram topomap1. Re\parametris/ation of a rectifiable curve.
+$$
+\centerline{\epsfbox{topomap1.1}}
+$$
+
+Diagram topomap2. Re\parametris/ation of two curves:
+$\gamma_1=\gamma_3\circ\beta_1$, $\gamma_2=\gamma_3\circ\beta_2$.
+$$
+\centerline{\epsfbox{topomap2.1}}
+$$
+
+Diagram topomap3. Effect of an atlas chart-transition map on an open set.
+$$
+\centerline{\epsfbox{topomap3.1}}
+$$
+
+Diagram topomap4. Relations between sets, topologies and atlases.
+$$
+\centerline{\epsfbox{topomap4.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topomap5. Continuity of composition of partially defined functions.
+$$
+\centerline{\epsfbox{topomap5.1}}
+$$
+
+Diagram topomap6. Re\parametris/ation of curve $\gamma_1$ to remove constant
+stretches.
+$$
+\centerline{\epsfbox{topomap6.1}}
+$$
+
+Diagram topomap7. Equivalence of curves $\gamma_1$ and $\gamma_2$ via
+re\parametris/ations $\beta_1$ and~$\beta_2$.
+$$
+\centerline{\epsfbox{topomap7.1}}
+$$
+
+Diagram topomap8. Re-reparametrisation of curves to use open-interval domains.
+$$
+\centerline{\epsfbox{topomap8.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram topomap9. Method of proof of transitivity of the path-equivalence
+relation.
+$$
+\centerline{\epsfbox{topomap9.1}}
+$$
+
+Diagram topomap10. Path-equivalence of two curves via a never-constant curve.
+$$
+\centerline{\epsfbox{topomap10.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTtree{\the\pageno}\LinkName{tree}
+
+Diagram tree1. Just testing\dots
+$$
+\centerline{\epsfbox{tree1.1}}
+$$
+
+Diagram tree2. A family tree of modules and algebras.
+$$
+\centerline{\epsfbox{tree2.1}}
+$$
+
+Diagram tree3. A family tree of groups, rings and fields. See also tree18 and
+tree39.
+$$
+\centerline{\epsfbox{tree3.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree4. A family tree of (compact) topological spaces.
+$$
+\centerline{\epsfbox{tree4.1}}
+$$
+
+Diagram tree5. Family tree of topological and Lie transformation groups.
+$$
+\centerline{\epsfbox{tree5.1}}
+$$
+
+Diagram tree6. Topological and Lie transformation groups. Rearangement and
+augmentation of tree5.
+$$
+\centerline{\epsfbox{tree6.1}}
+$$
+
+Diagram tree7. Topological and Lie groups.
+$$
+\centerline{\epsfbox{tree7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree8. Compactness and separation classes. (Variant of diagram tree4.)
+$$
+\centerline{\epsfbox{tree8.1}}
+$$
+
+Diagram tree9. Connectivity and separation classes. (See tree14.)
+$$
+\centerline{\epsfbox{tree9.1}}
+$$
+
+Diagrams tree10 (left) and tree11 (right). Dependencies of chapters.
+$$
+\centerline{\epsfbox{tree10.1}\hss\epsfbox{tree11.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagrams tree12 (left) and tree16 (right). Reverse-time and forward-time arrows.
+$$
+\centerline{\epsfbox{tree12.1}\hss\epsfbox{tree16.1}}
+$$
+
+Diagram tree13. Topological \fibre/ bundles.
+$$
+\centerline{\epsfbox{tree13.1}}
+$$
+
+Diagram tree14. Connectivity classes and topological manifolds. (Based on
+tree9.)
+$$
+\centerline{\epsfbox{tree14.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree15. Differentiable \fibre/ bundles.
+$$
+\centerline{\epsfbox{tree15.1}}
+$$
+
+Diagram tree16. See tree12.
+
+Diagram tree17. Topological \fibre/ bundles.
+$$
+\centerline{\epsfbox{tree17.1}}
+$$
+
+Diagram tree18. Semigroups, groups, rings and fields. Adapted from tree3.
+$$
+\centerline{\epsfbox{tree18.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree19. Separation classes of topologies.
+$$
+\centerline{\epsfbox{tree19.1}}
+$$
+
+Diagram tree20. \Fibre/ bundles.
+$$
+\centerline{\epsfbox{tree20.1}}
+$$
+
+Diagram tree21. Functions and relations.
+$$
+\centerline{\epsfbox{tree21.1}}
+$$
+
+Diagram tree22. Mathematicians, physicists and reality.
+$$
+\centerline{\epsfbox{tree22.1}}
+$$
+
+Diagram tree23. Levels of structure on manifolds.
+$$
+\centerline{\epsfbox{tree23.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree24. Family tree for \fibre/ bundles, tangent bundles and tensor
+bundles.
+$$
+\centerline{\epsfbox{tree24.1}}
+$$
+
+Diagram tree25. Relations between tangent bundles, Lie groups and differentiable
+\fibre/ bundles.
+$$
+\centerline{\epsfbox{tree25.1}}
+$$
+
+Diagram tree26. Family tree for sets of matrices.
+$$
+\centerline{\epsfbox{tree26.1}}
+$$
+
+Diagram tree27. Family tree for relations, functions and order relations.
+$$
+\centerline{\epsfbox{tree27.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree28. Family tree for DG topics. Based on tree16.
+$$
+\centerline{\epsfbox{tree28.1}}
+$$
+
+Diagram tree29. Differentiability properties for real functions of multiple
+variables. (Probably wrong!)
+$$
+\centerline{\epsfbox{tree29.1}}
+$$
+
+Diagram tree30. Differentiability properties for real functions of multiple
+variables.
+$$
+\centerline{\epsfbox{tree30.1}}
+$$
+
+Diagram tree31. Classification of differential equations.
+$$
+\centerline{\epsfbox{tree31.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree32. Family tree of topology separation classes.
+$$
+\centerline{\epsfbox{tree32.1}}
+$$
+
+Diagram tree33. Conjectural family tree for certain primates.
+$$
+\centerline{\epsfbox{tree33.1}}
+$$
+
+Diagram tree34. Family tree of linear algebra definitions.
+$$
+\centerline{\epsfbox{tree34.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree35. Relations between \fibre/ bundles and tensor bundles.
+$$
+\centerline{\epsfbox{tree35.1}}
+$$
+
+Diagram tree36. Tree of definitions of classes of subsets of a power set.
+$$
+\centerline{\epsfbox{tree36.1}}
+$$
+
+Diagram tree37. Tree of definitions of classes and $\sigma$-classes of subsets
+of a power set.
+$$
+\centerline{\epsfbox{tree37.1}}
+$$
+
+Diagram tree38. Family tree for relations, functions and order relations. Based
+on tree27.
+$$
+\centerline{\epsfbox{tree38.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree39. Semigroups, groups, rings and fields. Adapted from tree18.
+$$
+\centerline{\epsfbox{tree39.1}}
+$$
+
+Diagram tree40. Semigroups, groups, transformation groups, etc. (From tree39.)
+$$
+\centerline{\epsfbox{tree40.1}}
+$$
+
+Diagram tree41. A family tree of affine spaces.
+$$
+\centerline{\epsfbox{tree41.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree42. Family tree for order relations. Based on tree38.
+$$
+\centerline{\epsfbox{tree42.1}}
+$$
+
+Diagram tree43. Classes of bounds for a subset $A$ of a partially orderered
+set~$X$.
+$$
+\centerline{\epsfbox{tree43.1}}
+$$
+
+Diagram tree44. Family tree for order relations, including various
+well-orderings.
+$$
+\centerline{\epsfbox{tree44.1}}
+$$
+
+Diagram tree45. Family tree for order relations, including global and local
+well-orderings.
+$$
+\centerline{\epsfbox{tree45.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree46. Family tree for order relations, including global and local
+well-orderings.
+$$
+\centerline{\epsfbox{tree46.1}}
+$$
+
+Diagram tree47. Family tree for semigroups, groups, rings and fields. Based on
+tree39.
+$$
+\centerline{\epsfbox{tree47.1}}
+$$
+
+Diagram tree48. Family tree for non-topological fibrations and \fibre/ bundles.
+$$
+\centerline{\epsfbox{tree48.1}}
+$$
+
+Diagram tree49. Cycle of constructions of tangent bundles, \fibre/ atlases and
+structure groups.
+$$
+\centerline{\epsfbox{tree49.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree50. Topology separation classes, with and without~AC. (See also
+tree67.)
+$$
+\centerline{\epsfbox{tree50.1}}
+$$
+
+Diagram tree51. Family tree for Riemannian manifolds.
+$$
+\centerline{\epsfbox{tree51.1}}
+$$
+
+Diagram tree52. Family tree for locally connected and pathwise connected spaces.
+$$
+\centerline{\epsfbox{tree52.1}}
+$$
+
+Diagram tree53. Relations between definitions of ``infinity''.
+$$
+\centerline{\epsfbox{tree53.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree54. Relations between logical language, logical propositions and
+mathematical systems.
+$$
+\centerline{\epsfbox{tree54.1}}
+$$
+
+Diagram tree55. Relations between propositions and formulas, and language and
+interpretation.
+$$
+\centerline{\epsfbox{tree55.1}}
+$$
+
+Diagram tree56. Relations between propositions, logical expressions and
+knowledge sets.
+$$
+\centerline{\epsfbox{tree56.1}}
+$$
+
+Diagram tree57. Family tree for order relations, including various
+well-orderings. (Based on tree44.mp.)
+$$
+\centerline{\epsfbox{tree57.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree58. Deriving pseudo-Riemannian manifolds from Riemannian manifolds
+and Minkowski spaces.
+$$
+\centerline{\epsfbox{tree58.1}}
+$$
+
+Diagram tree59. Family tree for Riemannian manifolds. Based on tree51.
+$$
+\centerline{\epsfbox{tree59.1}}
+$$
+
+Diagram tree60. Family tree for Riemannian manifolds. Based on tree59.
+$$
+\centerline{\epsfbox{tree60.1}}
+$$
+
+Diagram tree61. Family tree for Riemannian manifolds. Based on tree60.
+$$
+\centerline{\epsfbox{tree61.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree62. Classes of logic systems.
+$$
+\centerline{\epsfbox{tree62.1}}
+$$
+
+Diagram tree63. Layer diagram for mathematics language and semantics.
+$$
+\centerline{\epsfbox{tree63.1}}
+$$
+
+Diagram tree64. Family tree for Riemannian manifolds. Based on tree60.
+$$
+\centerline{\epsfbox{tree64.1}}
+$$
+
+Diagram tree65. Family tree for topological linear spaces.
+$$
+\centerline{\epsfbox{tree65.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree66. Classes of finite and infinite sets. (See also tree69.)
+$$
+\centerline{\epsfbox{tree66.1}}
+$$
+
+Diagram tree67. Topology separation classes, without and with~AC. (Based on
+tree50.)
+$$
+\centerline{\epsfbox{tree67.1}}
+$$
+
+Diagram tree68. Relations between separable and second/first countable
+topological spaces.
+$$
+\centerline{\epsfbox{tree68.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree69. Classes of finite and infinite sets. (Based on tree66.)
+$$
+\centerline{\epsfbox{tree69.1}}
+$$
+
+Diagram tree70. Implications and impossible implications between some ZF choice
+axioms.
+$$
+\centerline{\epsfbox{tree70.1}}
+$$
+
+Diagram tree71. Family tree for classes of $\omega$-infinite, countable and
+uncountable sets.
+$$
+\centerline{\epsfbox{tree71.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree72. Classes of finite and infinite sets. (Based on tree69.)
+$$
+\centerline{\epsfbox{tree72.1}}
+$$
+
+Diagram tree73. Relations between countable compactness and some other
+properties.
+$$
+\centerline{\epsfbox{tree73.1}}
+$$
+
+Diagram tree74. Relations between limit-point compactness, countable compactness
+and other properties.
+$$
+\centerline{\epsfbox{tree74.1}}
+$$
+
+Diagram tree75. Relations between limit-point compactness, countable compactness
+and other properties.
+$$
+\centerline{\epsfbox{tree75.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree76. Relations between limit-point, countable and sequential
+compactness.
+$$
+\centerline{\epsfbox{tree76.1}}
+$$
+
+Diagram tree77. Lipschitz class relations.
+$$
+\centerline{\epsfbox{tree77.1}}
+$$
+
+Diagram tree78. Family tree for rings.
+$$
+\centerline{\epsfbox{tree78.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree79. Family tree for locally Cartesian spaces.
+$$
+\centerline{\epsfbox{tree79.1}}
+$$
+
+Diagram tree80. Family tree for locally Cartesian spaces with atlases.
+$$
+\centerline{\epsfbox{tree80.1}}
+$$
+
+Diagram tree81. Family tree for covers and relations.
+$$
+\centerline{\epsfbox{tree81.1}}
+$$
+
+Diagram tree82. The relation of mathematics foundations to quality of life.
+$$
+\centerline{\epsfbox{tree82.1}}
+$$
+
+Diagram tree83. Basic family tree for functions.
+$$
+\centerline{\epsfbox{tree83.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree84. Family tree for semigroups, groups, rings and integral systems.
+$$
+\centerline{\epsfbox{tree84.1}}
+$$
+
+Diagram tree85. Semigroups, groups, transformation groups, etc. (From tree40.)
+$$
+\centerline{\epsfbox{tree85.1}}
+$$
+
+Diagram tree86. Existence of non-decreasing continuous surjections between
+real-number intervals.
+$$
+\centerline{\epsfbox{tree86.1}}
+$$
+
+Diagram tree87. Lipschitz class relations.
+$$
+\centerline{\epsfbox{tree87.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram tree88. Differentiability classes for maps between Cartesian spaces.
+$$
+\centerline{\epsfbox{tree88.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTvec{\the\pageno}\LinkName{vec}
+
+Diagram vec1. Equivalent tensor products of vector pairs.
+$$
+\centerline{\epsfbox{vec1.1}}
+$$
+
+Diagram vec2. \Visualis/ation of tangent covector in flat space.
+$$
+\centerline{\epsfbox{vec2.1}}
+$$
+
+Diagram vec3. \Visualis/ation of tangent vectors and covectors in flat space.
+$$
+\centerline{\epsfbox{vec3.1}}
+$$
+
+Diagram vec4. Affine space transitivity.
+$$
+\centerline{\epsfbox{vec4.1}}
+$$
+
+Diagram vec5. Commutativity of linear space addition.
+$$
+\centerline{\epsfbox{vec5.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec6. Commutativity of linear space addition.
+$$
+\centerline{\epsfbox{vec6.1}}
+$$
+
+Diagram vec7. Parallel motion under a connection.
+$$
+\centerline{\epsfbox{vec7.1}}
+$$
+
+Diagram vec8. Parallel motion under a connection with group invariance.
+$$
+\centerline{\epsfbox{vec8.1}}
+$$
+
+Diagram vec9. Parallel translation of vector with respect to a chart.
+$$
+\centerline{\epsfbox{vec9.1}}
+$$
+
+Diagram vec10. Second differential of a path.
+$$
+\centerline{\epsfbox{vec10.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec11. Parallel transport of tangent vectors.
+$$
+\centerline{\epsfbox{vec11.1}}
+$$
+
+Diagram vec12. The difference between left and right conjugation for
+$\gp{GL}(2)$. Based on map85.
+$$
+\centerline{\epsfbox{vec12.1}}
+$$
+
+Diagram vec13. Transformation of tangent vector of curve under diffeomorphism.
+$$
+\centerline{\epsfbox{vec13.1}}
+$$
+
+Diagram vec14. Rate of change of a vector in flat space.
+$$
+\centerline{\epsfbox{vec14.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec15. Transformation of second-order tangent vector under
+diffeomorphism.
+$$
+\centerline{\epsfbox{vec15.1}}
+$$
+
+Diagram vec16. Two equivalent vector-pair tensor products. (Based on diagram
+vec1.)
+$$
+\centerline{\epsfbox{vec16.1}}
+$$
+
+Diagram vec17. Effect of rank-1 tensor on linear functionals. (Based on diagram
+vec2.)
+$$
+\centerline{\epsfbox{vec17.1}}
+$$
+
+Diagram vec18. Equivalent vector-pair tensor products. (Based on diagram
+vec16.)
+$$
+\centerline{\epsfbox{vec18.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec19. Level curves of dual space basis vector for varying primal basis.
+$$
+\centerline{\epsfbox{vec19.1}}
+$$
+
+Diagram vec20. \Parametris/ed lines in Cartesian space.
+$$
+\centerline{\epsfbox{vec20.1}}
+$$
+
+Diagram vec21. \Parametris/ed lines in Cartesian space. Addition operation.
+$$
+\centerline{\epsfbox{vec21.1}}
+$$
+
+Diagram vec22. Transformation of linear-trajectory velocity of curve under
+diffeomorphism.
+$$
+\centerline{\epsfbox{vec22.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec23. Invariance of affine space transitivity under affine
+transformations. (Work in progress.)
+$$
+\centerline{\epsfbox{vec23.1}}
+$$
+
+Diagram vec24. Span and independence of vectors in a linear space.
+$$
+\centerline{\epsfbox{vec24.1}}
+$$
+
+Diagram vec25. Components of second-level tangent vector in point/velocity form.
+$$
+\centerline{\epsfbox{vec25.1}}
+$$
+
+Diagram vec26. Components of second-level tangent vector in parametrised line
+form.
+$$
+\centerline{\epsfbox{vec26.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec27. Commutativity of derivatives of a $C^2$ family of curves in a
+manifold.
+$$
+\centerline{\epsfbox{vec27.1}}
+$$
+
+Diagram vec28. Proof that subspaces of finite-dimensional spaces are
+finite-dimensional.
+$$
+\centerline{\epsfbox{vec28.1}}
+$$
+
+Diagram vec29. Computation of the Levi-Civita connection from the metric
+function.
+$$
+\centerline{\epsfbox{vec29.1}}
+$$
+
+Diagram vec30. Computation of negative of the Levi-Civita connection from the
+metric function.
+$$
+\centerline{\epsfbox{vec30.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram vec31. The difference between left and right conjugation for
+$\gp{GL}(2)$. Mirror image of vec12.
+$$
+\centerline{\epsfbox{vec31.1}}
+$$
+
+%==============================================================================
+\secteject
+\edef\SECTthreeD{\the\pageno}\LinkName{threeD}
+
+Diagram 3d1. 3-d axes.
+$$
+\centerline{\epsfbox{3d1.1}}
+$$
+
+Diagram 3d2. Basic axes in $\reals^3$ with grid on the X-Y plane.
+$$
+\centerline{\epsfbox{3d2.1}}
+$$
+
+Diagram 3d3. Another perspective for diagram 3d2.
+$$
+\centerline{\epsfbox{3d3.1}}
+$$
+
+Diagram 3d4. Basis vector for constructing a tensor product.
+$$
+\centerline{\epsfbox{3d4.1}}
+$$
+
+Diagram 3d5. The indicator (characteristic) function of a single point.
+Long-distance shot.
+$$
+\centerline{\epsfbox{3d5.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d6. Transparent wire-frame sphere.
+$$
+\centerline{\epsfbox{3d6.1}}
+$$
+
+Diagram 3d7. Transparent wire-frame sphere with reflection.
+$$
+\centerline{\epsfbox{3d7.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d8. A wire-frame half-sphere.
+$$
+\centerline{\epsfbox{3d8.1}}
+$$
+
+Diagram 3d9. A wire-frame sphere with line hiding.
+$$
+\centerline{\epsfbox{3d9.1}}
+$$
+
+Diagram 3d10. A 2-sphere demonstrating path-dependent parallel transport.
+$$
+\centerline{\epsfbox{3d10.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d11. Same as Diagram~3d9, but tilted and with less longitudes.
+$$
+\centerline{\epsfbox{3d11.1}}
+$$
+
+Diagram 3d12. Free linear space construction: $e_u=\chi_{\{u\}}$ for $\alpha=2$,
+$V_1=V_2=K=\reals$, $u=(3,4)$.
+$$
+\centerline{\epsfbox{3d12.1}}
+$$
+
+Diagram 3d13. Free linear space construction: $e_u+e_v+e_w$ for $\alpha=2$,
+$V_1=V_2=K=\reals$.
+$$
+\centerline{\epsfbox{3d13.1}}
+$$
+
+Diagram 3d14. Element
+$\chi_{\{(3,3)\}}+2\chi_{\{(1,-4)\}}+(-3/2)\chi_{\{(-4,-1)\}}$ in free
+linear space on $S=\reals^2$ over~$K=\reals$.
+$$
+\centerline{\epsfbox{3d14.1}}
+$$
+
+Diagram 3d15. The indicator (characteristic) function of a single point.
+Close-up of 3d5.
+$$
+\centerline{\epsfbox{3d15.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d16. Path-dependent parallelism for triangular region with
+$\theta=30^\circ$ edge.
+$$
+\centerline{\epsfbox{3d16.1}}
+$$
+
+Diagram 3d17. Double perspective version of 3d10.
+$$
+\centerline{\epsfbox{3d17.1}}
+$$
+
+Diagram 3d18. Sphere $S^2$ orbits under rotation around axis.
+$$
+\centerline{\epsfbox{3d18.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d19. Definition of multlinear map.
+$$
+\centerline{\epsfbox{3d19.1}}
+$$
+
+Diagram 3d20. Stokes theorem for a cube.
+$$
+\centerline{\epsfbox{3d20.1}}
+$$
+
+Diagram 3d21. Kronecker delta function on the integers.
+$$
+\centerline{\epsfbox{3d21.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d22. Stokes theorem for a cube. Based on diagram 3d20.
+$$
+\centerline{\epsfbox{3d22.1}}
+$$
+
+Diagram 3d23. A bucket.
+$$
+\centerline{\epsfbox{3d23.1}}
+$$
+
+Diagram 3d24. Dimensions of King Khufu's burial chamber in about 2500\thinspace
+BC. 1\thinspace cubit = 0.523\thinspace m.
+$$
+\centerline{\epsfbox{3d24.1}}
+$$
+
+Diagram 3d25. Tangent line vectors in a Cartesian space. Space-time version of
+diagram vec20.
+$$
+\centerline{\epsfbox{3d25.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d26. Tangent line vectors in a Cartesian space. Time-space version of
+diagram 3d25.
+$$
+\centerline{\epsfbox{3d26.1}}
+$$
+
+Diagram 3d27. A slightly \colour/ful sphere $S^2\subseteq\reals^3$ in
+perspective.
+$$
+\centerline{\epsfbox{3d27.1}}
+$$
+
+Diagram 3d28. Sphere $S^2\subseteq\reals^3$ without and with local charts.
+$$
+\centerline{\epsfbox{3d28.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d29. Torsion of parallel transport in flat three-dimensional space.
+$$
+\centerline{\epsfbox{3d29.1}}
+$$
+
+Diagram 3d30. Infinitesimal transformations of 2-sphere generated by Lie algebra
+elements.
+$$
+\centerline{\epsfbox{3d30.1}}
+$$
+
+Diagram 3d31. Repeating pattern to be used for wild curve in $\reals^3$.
+$$
+\centerline{\epsfbox{3d31.1}}
+$$
+
+Diagram 3d32. Repeating pattern to be used for wild curve in $\reals^3$.
+Different to 3d31.
+$$
+\centerline{\epsfbox{3d32.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d33. Wild knot in $\reals^3$.
+$$
+\centerline{\epsfbox{3d33.1}}
+$$
+
+Diagram 3d34. Continuous deformation of repeating knot pattern in 3d31.
+$$
+\centerline{\epsfbox{3d34.1}}
+$$
+
+Diagram 3d35. Sphere $S^2$ orbits under rotation around axis.
+$$
+\centerline{\epsfbox{3d35.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\filleject
+
+Diagram 3d36. Lift map from $\reals$ to $\reals^3$ through a
+point~$p\in\reals^3$.
+$$
+\centerline{\epsfbox{3d36.1}}
+$$
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% \filleject
+
+\hbox to\hsize{%
+\vtop{%
+\halign{#\hfil&\space\hfil#\cr
+\multispan2 \hfil index\hfil\cr
+\noalign{\vskip3pt\hrule\vskip3pt}
+arrow&\LinkHref{arrow}{\SECTarrow}\cr
+axiom&\LinkHref{axiom}{\SECTaxiom}\cr
+box&\LinkHref{box}{\SECTbox}\cr
+calc&\LinkHref{calc}{\SECTcalc}\cr
+chart&\LinkHref{chart}{\SECTchart}\cr
+class&\LinkHref{class}{\SECTclass}\cr
+connmap&\LinkHref{connmap}{\SECTconnmap}\cr
+fibdiag&\LinkHref{fibdiag}{\SECTfibdiag}\cr
+fibmap&\LinkHref{fibmap}{\SECTfibmap}\cr
+fibre&\LinkHref{fibre}{\SECTfibre}\cr
+field&\LinkHref{field}{\SECTfield}\cr
+fn&\LinkHref{fn}{\SECTfn}\cr
+fnmap&\LinkHref{fnmap}{\SECTfnmap}\cr
+fn2d&\LinkHref{fnTWOd}{\SECTfnTWOd}\cr
+grid&\LinkHref{grid}{\SECTgrid}\cr
+int&\LinkHref{int}{\SECTint}\cr
+ire&\LinkHref{ire}{\SECTire}\cr
+\noalign{\vskip3pt\hrule\vskip3pt}
+} % End of \halign.
+} % End of \vbox.
+\hskip6mm
+\vtop{%
+\halign{#\hfil&\space\hfil#\cr
+\multispan2 \hfil index\hfil\cr
+\noalign{\vskip3pt\hrule\vskip3pt}
+linmap&\LinkHref{linmap}{\SECTlinmap}\cr
+log&\LinkHref{log}{\SECTlog}\cr
+logmap&\LinkHref{logmap}{\SECTlogmap}\cr
+map&\LinkHref{map}{\SECTmap}\cr
+mat&\LinkHref{mat}{\SECTmat}\cr
+metric&\LinkHref{metric}{\SECTmetric}\cr
+misc&\LinkHref{misc}{\SECTmisc}\cr
+prodmap&\LinkHref{prodmap}{\SECTprodmap}\cr
+real&\LinkHref{real}{\SECTreal}\cr
+tangmap&\LinkHref{tangmap}{\SECTtangmap}\cr
+topo&\LinkHref{topo}{\SECTtopo}\cr
+topofin&\LinkHref{topofin}{\SECTtopofin}\cr
+topomap&\LinkHref{topomap}{\SECTtopomap}\cr
+tree&\LinkHref{tree}{\SECTtree}\cr
+vec&\LinkHref{vec}{\SECTvec}\cr
+3d&\LinkHref{threeD}{\SECTthreeD}\cr
+\noalign{\vskip3pt\hrule\vskip3pt}
+} % End of \halign.
+} % End of \vbox.
+\hss} % End of \hbox.
+
+\bye
