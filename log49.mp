@@ -1,4 +1,4 @@
-% tex/conc/mp/log49.mp   2015-1-29   Alan U. Kennington.
+% tex/conc/mp/log49.mp   2017-12-25   Alan U. Kennington.
 % $Id: tex/conc/mp/log49.mp 2f2a127ff9 2015-01-29 07:27:00Z Alan U. Kennington $
 % Eight independent definitions for a finite set.
 
@@ -36,9 +36,10 @@ for i=0 upto nRows-1:
         zz3 := zz1 + (xI, 0);
         fill zz3--zz2--(zz2+(0,-bb))--(zz3+(0,-bb))--cycle
             withcolor colA;
-        draw zz3--(zz3+(0,-bb));
+%        draw zz3--(zz3+(0,-bb));
         zz4 := 0.5[zz3,zz2] + (0,-bb/2);
-        zz5 := zz3;
+%        zz5 := zz3;
+        zz5 := zz3 + (0, -bb);
         zz6 := zz0 + (xI, -bb);
         fi
     draw zz1--(zz1+(aa,0))--(zz1+(aa,-bb))--(zz1+(0,-bb))--cycle;

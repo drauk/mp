@@ -1,4 +1,4 @@
-# tex/conc/mp/makefile.pub   2017-9-23   Alan U. Kennington.
+# tex/conc/mp/makefile.pub   2017-12-21   Alan U. Kennington.
 # $Id: tex/conc/mp/makefile.pub 631e2d0fd4 2017-09-23 03:47:28Z Alan U. Kennington $
 # Makefile for:  http://www.topology.org/tex/conc/mp/
 #          and:  http://www.geometry.org/tex/conc/mp/
@@ -184,7 +184,7 @@ MPFILES     = \
 	    tree70.mp tree71.mp tree72.mp tree73.mp tree74.mp \
 	    tree75.mp tree76.mp tree77.mp tree78.mp tree79.mp \
 	    tree80.mp tree81.mp tree82.mp tree83.mp tree84.mp \
-	    tree85.mp tree86.mp tree87.mp tree88.mp \
+	    tree85.mp tree86.mp tree87.mp tree88.mp tree89.mp \
 	vec1.mp vec2.mp vec3.mp vec4.mp \
 	    vec5.mp vec6.mp vec7.mp vec8.mp vec9.mp \
 	    vec10.mp vec11.mp vec12.mp vec13.mp vec14.mp \
@@ -922,6 +922,7 @@ tree85.1: boxmax.mp $(DGMPTEX)
 tree86.1: boxmax.mp $(DGMPTEX)
 tree87.1: boxmax.mp $(DGMPTEX)
 tree88.1: boxmax.mp centmax.mp $(DGMPTEX)
+tree89.1: boxmax.mp $(DGMPTEX) $(DGSPELL)
 
 vec1.1:
 vec2.1:
