@@ -1,4 +1,4 @@
-% tex/conc/mp/tree72.mp   2014-11-21   Alan U. Kennington.
+% tex/conc/mp/tree72.mp   2017-12-28   Alan U. Kennington.
 % $Id: tex/conc/mp/tree72.mp eb9a01ef2b 2014-12-21 04:40:49Z Alan U. Kennington $
 % Family tree for classes of finite and infinite sets.
 
@@ -32,11 +32,15 @@ etex
 beginfig(1);
 numeric w[], h[];
 pair p[];
+color col[];
 
 w1 := 50pt;
 h1 := 32pt;
 % h2 := h1;
 h2 := h1 + 5pt;
+
+col1 := 0.3white;
+scA := 0.8;
 
 p1 := (0,0);
 p2 := p1 + (-w1,-h1);
@@ -73,11 +77,13 @@ B_draw(6, btex\baselineskip\blskip
 % Draw the arrows.
 B_margset(2pt, 2pt);
 B_arrow(1,2,1);
-B_arrow(2,6,1);
+% B_arrow(2,6,1);
+B_arrowcol(2, 6, 2, col1, evenly scaled scA);
 B_arrow(1,3,1);
 B_arrow(3,4,1);
 B_arrow(4,5,1);
-B_arrow(5,6,1);
+% B_arrow(5,6,1);
+B_arrowcol(5, 6, 2, col1, evenly scaled scA);
 
 endfig;
 end

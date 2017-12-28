@@ -1,4 +1,4 @@
-% tex/conc/mp/tree71.mp   2014-12-21   Alan U. Kennington.
+% tex/conc/mp/tree71.mp   2017-12-28   Alan U. Kennington.
 % $Id: tex/conc/mp/tree71.mp c411b46503 2014-12-21 03:34:58Z Alan U. Kennington $
 % Family tree for classes of omega-infinite, countable and uncountable sets.
 
@@ -19,6 +19,7 @@ etex
 beginfig(1);
 numeric w[], h[];
 pair p[];
+color col[];
 
 w0 := 180pt;
 w1 := 45pt;
@@ -29,6 +30,9 @@ h2 := h1 + 4pt;
 h3 := h1 + 10pt;
 h4 := h3 + 2pt;
 sepA := 20pt;
+
+col1 := 0.3white;
+scA := 0.8;
 
 p1 := (0,0);
 p2 := p1 + (-w1,-h1);
@@ -127,8 +131,10 @@ B_arrow(1,3,1);
 B_arrow(3,4,1);
 B_arrow(4,5,1);
 
-B_arrow(2,10,1);
-B_arrow(5,10,1);
+% B_arrow(2,10,2);
+% B_arrow(5,10,2);
+B_arrowcol(2, 10, 2, col1, evenly scaled scA);
+B_arrowcol(5, 10, 2, col1, evenly scaled scA);
 
 B_arrow(3,20,1);
 B_arrow(4,21,1);
@@ -139,8 +145,10 @@ B_arrow(41,42,1);
 B_arrow(41,43,1);
 B_arrow(43,45,1);
 
-B_arrow(42,50,1);
-B_arrow(45,50,1);
+% B_arrow(42,50,2);
+% B_arrow(45,50,2);
+B_arrowcol(42, 50, 2, col1, evenly scaled scA);
+B_arrowcol(45, 50, 2, col1, evenly scaled scA);
 
 B_arrow(43,60,1);
 
