@@ -1,9 +1,9 @@
-% tex/conc/mp/fn103.mp   2017-1-25   Alan U. Kennington.
+% tex/conc/mp/fn103.mp   2018-2-1   Alan U. Kennington.
 % $Id: tex/conc/mp/fn103.mp 3983b3269e 2017-01-25 07:35:03Z Alan U. Kennington $
 % Non-regular inclusion of submanifold.
 
-\input mapmax
-\input centmax
+input mapmax
+input centmax
 verbatimtex
 \input akmath
 etex

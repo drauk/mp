@@ -1,8 +1,8 @@
-% tex/conc/mp/fn2d24.mp   2016-9-28   Alan U. Kennington.
+% tex/conc/mp/fn2d24.mp   2018-2-1   Alan U. Kennington.
 % $Id: tex/conc/mp/fn2d24.mp 15c8338a29 2016-09-28 02:37:55Z Alan U. Kennington $
 % Unit level curves of p-norms for 2-space.
 
-\input mapmax
+input mapmax
 verbatimtex
 \input akmath
 etex

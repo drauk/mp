@@ -1,8 +1,8 @@
-% tex/conc/mp/tangmap20.mp   2012-5-8   Alan U. Kennington.
+% tex/conc/mp/tangmap20.mp   2018-1-26   Alan U. Kennington.
 % $Id: tex/conc/mp/tangmap20.mp e9ad6d6cf6 2015-05-09 11:39:53Z Alan U. Kennington $
 % Transition maps for tangent space of a tangent space.
 
-input mapmax.mp
+input mapmax
 verbatimtex
 \input akmath
 \input dgmpmax
@@ -100,12 +100,12 @@ label.top(btex \strut$\psi_1$ etex, 0.5[w0,w6]);
 w10 := w4+(1.0cm,0.0cm);
 pickup pencircle scaled penB;
 S_arrowspaces(w10,w4,0,0.2cm,1,black);
-% label.rt(btex $\scriptstyle \phantom{=}\,\tangtang{z,w_1,\psi^{(1)}_1}$ etex,
+% label.rt(btex $\scriptstyle \phantom{=}\,\tang{z,w_1,\psi^{(1)}_1}$ etex,
 %  w10+(0,5pt));
-% label.rt(btex $\scriptstyle =\,\tangtang{z,w_2,\psi^{(1)}_2}$ etex,
+% label.rt(btex $\scriptstyle =\,\tang{z,w_2,\psi^{(1)}_2}$ etex,
 %  w10+(0,-5pt));
 label.rt(btex
-$\tangtang{z,w_1,\psi^{(1)}_1}=\tangtang{z,w_2,\psi^{(1)}_2}$ etex, w10);
+$\tang{z,w_1,\psi^{(1)}_1}=\tang{z,w_2,\psi^{(1)}_2}$ etex, w10);
 
 endfig;
 end

@@ -1,9 +1,9 @@
-% tex/conc/mp/tangmap34.mp   2016-8-31   Alan U. Kennington.
+% tex/conc/mp/tangmap34.mp   2018-1-26   Alan U. Kennington.
 % $Id: tex/conc/mp/tangmap34.mp 6ca9ae4555 2016-08-31 13:44:02Z Alan U. Kennington $
 % Double differential of a map between two manifolds.
 
-input mapmax.mp
-input centmax.mp
+input mapmax
+input centmax
 verbatimtex
 \input akmath
 \input dgmpmax

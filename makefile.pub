@@ -1,4 +1,4 @@
-# tex/conc/mp/makefile.pub   2017-12-21   Alan U. Kennington.
+# tex/conc/mp/makefile.pub   2018-2-1   Alan U. Kennington.
 # $Id: tex/conc/mp/makefile.pub 631e2d0fd4 2017-09-23 03:47:28Z Alan U. Kennington $
 # Makefile for:  http://www.topology.org/tex/conc/mp/
 #          and:  http://www.geometry.org/tex/conc/mp/
@@ -92,7 +92,7 @@ MPFILES     = \
 	    fn85.mp fn86.mp fn87.mp \
 	    fn90.mp fn91.mp fn94.mp \
 	    fn96.mp fn97.mp fn98.mp fn99.mp \
-	    fn100.mp fn101.mp fn102.mp fn103.mp \
+	    fn100.mp fn101.mp fn102.mp fn103.mp fn104.mp \
 	fnmap1.mp fnmap2.mp fnmap3.mp fnmap4.mp \
 	    fnmap5.mp fnmap6.mp \
 	fn2d1.mp fn2d2.mp fn2d3.mp fn2d4.mp \
@@ -100,7 +100,7 @@ MPFILES     = \
 	    fn2d10.mp fn2d11.mp fn2d12.mp fn2d13.mp fn2d14.mp \
 	    fn2d15.mp fn2d16.mp fn2d17.mp fn2d18.mp fn2d19.mp \
 	    fn2d20.mp fn2d21.mp fn2d22.mp fn2d23.mp fn2d24.mp \
-	    fn2d25.mp \
+	    fn2d25.mp fn2d26.mp \
 	grid1.mp grid2.mp grid3.mp grid4.mp \
 	    grid5.mp grid6.mp grid7.mp grid8.mp \
 	int1.mp int2.mp int3.mp int4.mp \
@@ -199,7 +199,7 @@ MPFILES     = \
 	    3d20.mp 3d21.mp 3d22.mp 3d23.mp 3d24.mp \
 	    3d25.mp 3d26.mp 3d27.mp 3d28.mp 3d29.mp \
 	    3d30.mp 3d31.mp 3d32.mp 3d33.mp 3d34.mp \
-	    3d35.mp 3d36.mp
+	    3d35.mp 3d36.mp 3d37.mp
 
 # Metapost output files (postscript).
 MPFILES1    = $(MPFILES:.mp=.1)
@@ -525,6 +525,7 @@ fn100.1:
 fn101.1: mapmax.mp
 fn102.1:
 fn103.1: mapmax.mp centmax.mp
+fn104.1: centmax.mp
 
 fnmap1.1:
 fnmap2.1: mapmax.mp
@@ -558,6 +559,7 @@ fn2d22.1:
 fn2d23.1: mapmax.mp
 fn2d24.1: mapmax.mp
 fn2d25.1: mapmax.mp
+fn2d26.1: mapmax.mp centmax.mp
 
 grid1.1: gridmax.mp
 grid2.1: gridmax.mp
@@ -993,6 +995,7 @@ vec31.1: mapmax.mp
 3d34.1: 3dmax.mp
 3d35.1: 3dmax.mp mapmax.mp
 3d36.1: 3dmax.mp mapmax.mp $(DGMPTEX)
+3d37.1: 3dmax.mp mapmax.mp
 
 # Assume as a worst case that all files depend on akmath.tex.
 $(MPFILES1): $(TEXMAXFILES)

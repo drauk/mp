@@ -1,4 +1,4 @@
-% tex/conc/dgmpmax.tex   2017-11-24   Alan U. Kennington.
+% tex/conc/dgmpmax.tex   2018-1-13   Alan U. Kennington.
 % $Id: tex/conc/dgmpmax.tex fb0adf70be 2017-11-24 12:18:46Z Alan U. Kennington $
 % Some macros for use in the DG book and MetaPost files.
 % General mathematics things should go in akmath.tex.
@@ -104,7 +104,7 @@
 % Could also define \overlineleftright and \overlineleft etc.?
 \def\overlineright#1#2{%
  {\setbox0\hbox{$#2$}\hbox to\wd0{\hss$\overline{\hbox to#1{\hss$#2$}}$}}}
-\def\XXoline{\overlineright{9pt}{\XX}{}}
+\def\XXoline{\overlineright{8pt}{\XX}{}}
 
 \let\XXcut\XXoline              % Short-cut de-tagged form cross-sections.
 
@@ -459,3 +459,7 @@
 \def\Slice{\textop{Slice}}
 \def\Subst{\textop{Subst}}
 \def\opLift{\textop{Lift}} % Not to be confused with \lift.
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Constant vector field extensions of vectors on differentiable manifolds.
+\def\Extn{\textop{Extn}}

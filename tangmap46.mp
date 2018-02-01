@@ -1,4 +1,4 @@
-% tex/conc/mp/tangmap46.mp   2017-7-1   Alan U. Kennington.
+% tex/conc/mp/tangmap46.mp   2018-1-13   Alan U. Kennington.
 % $Id: tex/conc/mp/tangmap46.mp 6ae8e3cc5a 2017-07-01 08:07:38Z Alan U. Kennington $
 % Exterior derivative of differential forms on manifolds without/with short-cut.
 
@@ -24,6 +24,7 @@ sepA := 2pt;
 sepB := 1.6a;               % Distance between the two diagrams.
 sepY := r*1.1;
 ratA := 0.45;
+sepZ := 13pt;
 
 % Centres of circles.
 w0 := (0,0);
@@ -33,9 +34,9 @@ w2 := w0+(0,b);             % M
 w4 := w0+(-a/2,2b);         % Left space.
 w5 := w0+(a/2,2b);          % Right space.
 
-w10 := w2 + (sepB,0);
-w11 := w10 + (a/2,b);
-w12 := w10 + (a,0);
+w10 := w2 + (sepB,0);       % T^m(M)
+w11 := w10 + (a/2,b);       % W
+w12 := w10 + (a,0);         % T^{m+1}(M)
 midpt := 0.5[w2,w11];
 
 % Subsets.
@@ -91,9 +92,19 @@ label.lft(btex $T^m(M)$ etex, w10+(-q,0));
 label.rt(btex $T^{m+1}(M)$ etex, w12+(q,0));
 
 % Labels on diagrams.
-v20 := (xpart(w11),ypart(w10));
-label.bot(btex without short-cut etex, w2+(0,-sepY));
-label.bot(btex with short-cut etex, v20+(0,-sepY));
+v20 := (xpart(w2),ypart(w4));
+v21 := (xpart(w11),ypart(w10));
+label.top(btex\strut without short-cuts etex, v20+(0,sepY));
+label.top(btex\strut with short-cuts etex, w11+(0,sepY));
+
+label.bot(btex\strut $\omega\in\XX^1(\Lamb m(T(M),W)\vertXX U)$ etex,
+ w2+(0,-sepY));
+label.bot(btex\strut $d\omega\in\XX^0(\Lamb{m+1}(T(M),W)\vertXX U)$ etex,
+ w2+(0,-sepY-sepZ));
+label.bot(btex\strut $\omega\in\XXcut^1(\Lamb m(T(M),W)\vertXX U)$ etex,
+ v21+(0,-sepY));
+label.bot(btex\strut $d\omega\in\XXcut^0(\Lamb{m+1}(T(M),W)\vertXX U)$ etex,
+ v21+(0,-sepY-sepZ));
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % C_bbox_centre_set(currentpicture)(midpt);

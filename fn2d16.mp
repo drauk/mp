@@ -1,8 +1,8 @@
-% tex/conc/mp/fn2d16.mp   2012-5-7   Alan U. Kennington.
+% tex/conc/mp/fn2d16.mp   2018-2-1   Alan U. Kennington.
 % $Id: tex/conc/mp/fn2d16.mp d453a5fd74 2015-08-09 06:01:41Z Alan U. Kennington $
 % Difference between restricted point-maps and set-maps.
 
-\input mapmax
+input mapmax
 verbatimtex
 \input akmath
 etex

@@ -1,9 +1,9 @@
-% tex/conc/mp/fn77.mp   2017-1-25   Alan U. Kennington.
+% tex/conc/mp/fn77.mp   2018-2-1   Alan U. Kennington.
 % $Id: tex/conc/mp/fn77.mp 3983b3269e 2017-01-25 07:35:03Z Alan U. Kennington $
 % Discontinuous function satisfying
 % $\forall S\in\powerset(Y),\,\Int(S)\subseteq f(\Int(f^{-1}(S)))$.
 
-\input centmax
+input centmax
 verbatimtex
 \input akmath
 etex

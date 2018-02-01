@@ -1,9 +1,13 @@
-% tex/conc/mp/misc22.mp   2014-11-11   Alan U. Kennington.
+% tex/conc/mp/misc22.mp   2018-1-5   Alan U. Kennington.
 % $Id: tex/conc/mp/misc22.mp c2a2b82d8f 2014-11-11 02:04:47Z Alan U. Kennington $
 % The MSC 2010 subject list with Helvetica font phvr8y. Clockwise version.
+% This version has British spelling.
 
-input mapmax.mp
+input mapmax
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%       figure 1        %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 beginfig(1);
 pair c[];
 string str[], strCODE;
