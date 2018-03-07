@@ -1,4 +1,4 @@
-% tex/conc/mp/fibdiag4.mp   2017-1-17   Alan U. Kennington.
+% tex/conc/mp/fibdiag4.mp   2018-2-4   Alan U. Kennington.
 % $Id: tex/conc/mp/fibdiag4.mp e6195bdce8 2017-01-17 13:47:55Z Alan U. Kennington $
 % Spaces and maps for baseless figure/frame bundles.
 
@@ -144,10 +144,10 @@ label.top(btex $\mu_G^F$ etex, ratA[w15,w12]+(0,0.3cr));
 % S_tiltlabel_bot_up(btex $\pi$ etex, 0.5[w10,w14], angle(w14-w10), 0pt);
 label.llft(btex \strut$q$ etex, 0.5[w10,w13]);
 label.lrt(btex \strut$\pi$ etex, 0.5[w10,w14]);
-% label.urt(btex \strut$\phi\in\XX(T(P))$ etex, 0.5[w14,w12]);
+% label.urt(btex \strut$\phi\in\YY(T(P))$ etex, 0.5[w14,w12]);
 S_tiltlabel_top_up(btex $\eta(\phi,\cdotsp)$ etex,
  0.5[w12,w14], angle(w14-w12), 0pt);
-S_tiltlabel_bot_up(btex $\phi\in\XX(T(P))$ etex,
+S_tiltlabel_bot_up(btex $\phi\in\YY(T(P))$ etex,
  0.5[w12,w14], angle(w14-w12), 1.5pt);
 
 label.bot(btex \fibre//frame bundle etex, w10+(0,-sepA));

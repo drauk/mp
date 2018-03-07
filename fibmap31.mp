@@ -1,4 +1,4 @@
-% tex/conc/mp/fibmap31.mp   2015-10-26   Alan U. Kennington.
+% tex/conc/mp/fibmap31.mp   2018-2-4   Alan U. Kennington.
 % $Id: tex/conc/mp/fibmap31.mp d20b973ae3 2015-10-26 10:06:59Z Alan U. Kennington $
 % Relation between connection on fibration and vector field on fibre space.
 
@@ -46,13 +46,13 @@ draw fullcircle scaled d shifted w3;
 label.lft(btex $E$ etex, w0-(q,0));
 label.rt(btex $F$ etex, w1+(q,0));
 
-% label.top(btex $\konv_V\in\XX(T(E)\vertXX E_p)$ etex, w2+(0,q));
+% label.top(btex $\konv_V\in\YY(T(E)\vertYY E_p)$ etex, w2+(0,q));
 label.top(btex $\konv_V$ etex, w2+(0,q));
-% label.lft(btex $\XX(T(E)\vertXX E_p)$ etex, w2+(-q,0));
+% label.lft(btex $\YY(T(E)\vertYY E_p)$ etex, w2+(-q,0));
 
-% label.top(btex $\phi_*\circ\konv_V\in\XX(T(F))$ etex, w3+(0,q));
+% label.top(btex $\phi_*\circ\konv_V\in\YY(T(F))$ etex, w3+(0,q));
 label.top(btex $\phi_*\circ\konv_V$ etex, w3+(0,q));
-% label.rt(btex $\XX(T(F))$ etex, w3+(q,0));
+% label.rt(btex $\YY(T(F))$ etex, w3+(q,0));
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % Points inside circles.
@@ -102,8 +102,8 @@ bboxmargin := 0;
 pat1 := bbox currentpicture;
 bboxmargin := bbx;
 
-label.lft(btex $\XX(T(E)\vertXX E_p)$ etex, w2+(-q,0));
-label.rt(btex $\XX(T(F))$ etex, w3+(q,0));
+label.lft(btex $\YY(T(E)\vertYY E_p)$ etex, w2+(-q,0));
+label.rt(btex $\YY(T(F))$ etex, w3+(q,0));
 
 setbounds currentpicture to pat1;
 

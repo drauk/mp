@@ -1,4 +1,4 @@
-# tex/conc/mp/makefile.pub   2018-2-1   Alan U. Kennington.
+# tex/conc/mp/makefile.pub   2018-2-2   Alan U. Kennington.
 # $Id: tex/conc/mp/makefile.pub 631e2d0fd4 2017-09-23 03:47:28Z Alan U. Kennington $
 # Makefile for:  http://www.topology.org/tex/conc/mp/
 #          and:  http://www.geometry.org/tex/conc/mp/
@@ -102,7 +102,7 @@ MPFILES     = \
 	    fn2d20.mp fn2d21.mp fn2d22.mp fn2d23.mp fn2d24.mp \
 	    fn2d25.mp fn2d26.mp \
 	grid1.mp grid2.mp grid3.mp grid4.mp \
-	    grid5.mp grid6.mp grid7.mp grid8.mp \
+	    grid5.mp grid6.mp grid7.mp grid8.mp grid9.mp \
 	int1.mp int2.mp int3.mp int4.mp \
 	    int5.mp int6.mp int7.mp int9.mp \
 	    int10.mp int11.mp int12.mp int13.mp int14.mp \
@@ -569,6 +569,7 @@ grid5.1: gridmax.mp
 grid6.1: gridmax.mp
 grid7.1: gridmax.mp $(DGMPTEX)
 grid8.1: gridmax.mp $(DGMPTEX)
+grid9.1: gridmax.mp
 
 int1.1: mapmax.mp
 int2.1: mapmax.mp

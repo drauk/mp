@@ -1,4 +1,4 @@
-% tex/conc/mp/fibdiag7.mp   2017-1-15   Alan U. Kennington.
+% tex/conc/mp/fibdiag7.mp   2018-2-4   Alan U. Kennington.
 % $Id: tex/conc/mp/fibdiag7.mp 09099b7be7 2017-01-15 12:55:05Z Alan U. Kennington $
 % Spaces and maps for combined topological figure/frame bundles.
 
@@ -99,7 +99,7 @@ label.urt(btex $\phi$ etex, 0.47[w10,w13]+(0.7offA,0.7offA));
 label.lrt(btex $\pi$ etex, 0.5[w10,w14]);
 
 % S_tiltlabel_top_up(btex $\eta_\phi$ etex, 0.5[w12,w14], angle(w14-w12), 0pt);
-% S_tiltlabel_bot_up(btex $\phi\in\XX(T(P))$ etex,
+% S_tiltlabel_bot_up(btex $\phi\in\YY(T(P))$ etex,
 %  0.5[w12,w14], angle(w14-w12), 0pt);
 label.urt(btex $\eta_\phi$ etex, 0.5[w14,w12]);
 

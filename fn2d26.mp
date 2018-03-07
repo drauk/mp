@@ -1,4 +1,4 @@
-% tex/conc/mp/fn2d26.mp   2018-2-1   Alan U. Kennington.
+% tex/conc/mp/fn2d26.mp   2018-2-2   Alan U. Kennington.
 % $Id$
 % Unit level curves of some norms for 2-space.
 
@@ -30,6 +30,7 @@ gcol := 0.35white;  % Colour of axes and notches.
 xcol := 0.35white;  % Colour of spirals.
 
 penARROW := 0.5bp;
+penARROWLAB := 0.5bp;
 penAXIS := 0.5bp;
 penLN := 0.5bp;
 penNOTCH := 0.5bp;
@@ -115,6 +116,12 @@ for i = 0 upto narrows:
     pickup pencircle scaled penPT;
     draw zz31;
     endfor
+
+pickup pencircle scaled penARROWLAB;
+zz40 := point (3.8 * arrowDT) of pat1;
+zz41 := zz40 + (0.7unit,0.5unit);
+label.rt(btex $\gamma_{(0,1)}$ etex, zz41);
+S_arrowspaces(zz41, zz40, 0pt, 2pt, 1, black);
 
 C_bbox_centre_set(currentpicture)(midpt);
 

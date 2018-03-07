@@ -1,4 +1,4 @@
-% tex/conc/mp/gridmax.mp   2016-8-31   Alan U. Kennington.
+% tex/conc/mp/gridmax.mp   2018-2-2   Alan U. Kennington.
 % $Id: tex/conc/mp/gridmax.mp 6ca9ae4555 2016-08-31 13:44:02Z Alan U. Kennington $
 % Set-map MetaPost macros.
 % These macros are not designed as a general purpose library.
@@ -50,18 +50,18 @@ enddef; % End of function G_drawmask.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Draw an interpolated grid between 4 paths.
-% path p[]          array of 4 paths - indices 1..4
+% path pat[]        array of 4 paths - indices 1..4
 % numeric m         ratio for dividing the X-direction
 % numeric n         ratio for dividing the Y-direction
 % numeric mx        extra grid points in X-direction
 % numeric nx        extra grid points in Y-direction
-% color col         colour to draw in
 % If mx > 1, then mx-1 grid points are interpolated between
 % each point on the n curves. Similarly for nx.
 % mx and nx are "oversampling" factors.
 % numeric ma        bit-map of required arrowheads
 % numeric na        bit-map of required arrowheads
-% Bitmap 0 = neither, 1 = forward, 2 = reverse, 3 = both.
+% Bitmap 0 = neither, 1 = forward, 2 = reverse, 3 = both, 4 = not drawn.
+% color col         colour to draw in
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %        G_grid         %
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,25 +118,29 @@ for i=0 upto G_a1:
     endfor
 
 % Draw the linear interpolation lines.
-for i=0 upto G_m:
-    G_drawmask(ma) for j=0 upto G_a2-1:
-        G_p[i*G_b1][j]..
+if (ma >= 0) and (ma <= 3):
+    for i=0 upto G_m:
+        G_drawmask(ma) for j=0 upto G_a2-1:
+            G_p[i*G_b1][j]..
+            endfor
+            G_p[i*G_b1][G_a2] withcolor col;
         endfor
-        G_p[i*G_b1][G_a2] withcolor col;
-    endfor
-for j=0 upto G_n:
-    G_drawmask(na) for i=0 upto G_a1-1:
-        G_p[i][j*G_b2]..
+    fi
+if (na >= 0) and (na <= 3):
+    for j=0 upto G_n:
+        G_drawmask(na) for i=0 upto G_a1-1:
+            G_p[i][j*G_b2]..
+            endfor
+            G_p[G_a1][j*G_b2] withcolor col;
         endfor
-        G_p[G_a1][j*G_b2] withcolor col;
-    endfor
+    fi
 endgroup
 enddef; % End of function G_grid.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Draw an interpolated grid between 4 paths.
 % Obsolete function.
-% path p[]          array of 4 paths - indices 1..4
+% path pat[]        array of 4 paths - indices 1..4
 % numeric m         ratio for dividing the X-direction
 % numeric n         ratio for dividing the Y-direction
 % numeric xt        extension in the X-direction

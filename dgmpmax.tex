@@ -1,4 +1,4 @@
-% tex/conc/dgmpmax.tex   2018-1-13   Alan U. Kennington.
+% tex/conc/dgmpmax.tex   2018-2-6   Alan U. Kennington.
 % $Id: tex/conc/dgmpmax.tex fb0adf70be 2017-11-24 12:18:46Z Alan U. Kennington $
 % Some macros for use in the DG book and MetaPost files.
 % General mathematics things should go in akmath.tex.
@@ -71,50 +71,51 @@
 \gdef\cdotss{\relax\ifmmode\cdotsIV\else$\m@th\cdotsIV\,$\fi}
 }
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\def\Xstyle{3}
+%==============================================================================
+% Use the letter "Y" in "X" macros because "X" clashes with biblio-references.
+\def\Ystyle{3}
 
-\ifcase\Xstyle
+\ifcase\Ystyle
 % 0. Plain X definition.
-\gdef\XX{X}                     % Space of cross-sections.
-\gdef\XXo{\overcirc\XX}         % Space of local/partial cross-sections.
-\gdef\XXhat{\hat\XX}            % De-tagged covariant form cross-sections?
-\gdef\XXchk{\check\XX}          % De-tagged covariant form cross-sections?
+\gdef\YY{X}                     % Space of cross-sections.
+\gdef\YYo{\overcirc\YY}         % Space of local/partial cross-sections.
+\gdef\YYhat{\hat\YY}            % De-tagged covariant form cross-sections?
+\gdef\YYchk{\check\YY}          % De-tagged covariant form cross-sections?
 \or
 % 1. Squiggly X definition.
-\gdef\XX{{\eusm X}}             % Space of cross-sections.
-\gdef\XXo{\skew2\overcirc\XX}   % Space of local/partial cross-sections.
-\gdef\XXhat{\skew{1.5}\hat\XX}  % De-tagged covariant form cross-sections?
-\gdef\XXchk{\skew{1.5}\check\XX} % De-tagged covariant form cross-sections?
+\gdef\YY{{\eusm X}}             % Space of cross-sections.
+\gdef\YYo{\skew2\overcirc\YY}   % Space of local/partial cross-sections.
+\gdef\YYhat{\skew{1.5}\hat\YY}  % De-tagged covariant form cross-sections?
+\gdef\YYchk{\skew{1.5}\check\YY} % De-tagged covariant form cross-sections?
 \or
 % 2. Bold X definition.
-\gdef\XX{{\bf X}}               % Space of cross-sections.
-\gdef\XXo{\skew2\overcirc\XX}   % Space of local/partial cross-sections.
-\gdef\XXhat{\skew{1.5}\hat\XX}  % De-tagged covariant form cross-sections?
-\gdef\XXchk{\skew{1.5}\check\XX} % De-tagged covariant form cross-sections?
+\gdef\YY{{\bf X}}               % Space of cross-sections.
+\gdef\YYo{\skew2\overcirc\YY}   % Space of local/partial cross-sections.
+\gdef\YYhat{\skew{1.5}\hat\YY}  % De-tagged covariant form cross-sections?
+\gdef\YYchk{\skew{1.5}\check\YY} % De-tagged covariant form cross-sections?
 \or
 % 3. Italic bold X definition.
-\gdef\XX{{\cmmib X}}            % Space of cross-sections.
-\gdef\XXo{\skew3\overcirc\XX}   % Space of local/partial cross-sections.
-\gdef\XXhat{\skew{2.5}\hat\XX}  % De-tagged covariant form cross-sections?
-\gdef\XXchk{\skew{2.5}\check\XX} % De-tagged covariant form cross-sections?
+\gdef\YY{{\cmmib X}}            % Space of cross-sections.
+\gdef\YYo{\skew3\overcirc\YY}   % Space of local/partial cross-sections.
+\gdef\YYhat{\skew{2.5}\hat\YY}  % De-tagged covariant form cross-sections?
+\gdef\YYchk{\skew{2.5}\check\YY} % De-tagged covariant form cross-sections?
 \fi
 
 % 2017-7-2. Probably the \overlineright macro should be in akmath.tex.
 % Could also define \overlineleftright and \overlineleft etc.?
 \def\overlineright#1#2{%
  {\setbox0\hbox{$#2$}\hbox to\wd0{\hss$\overline{\hbox to#1{\hss$#2$}}$}}}
-\def\XXoline{\overlineright{8pt}{\XX}{}}
+\def\YYoline{\overlineright{8pt}{\YY}{}}
 
-\let\XXcut\XXoline              % Short-cut de-tagged form cross-sections.
+\let\YYcut\YYoline              % Short-cut de-tagged form cross-sections.
 
-% 2016-12-11. The notations \XXo and \XXloc need further study!
-\def\XXloc{\XX_{\rm loc}}       % Local cross-sections with open domain.
+% 2016-12-11. The notations \YYo and \YYloc need further study!
+\def\YYloc{\YY_{\rm loc}}       % Local cross-sections with open domain.
 
-% \gdef\vertXX{\,\bigr\vert\,}    % Restriction of space of cross-sections.
-\gdef\vertXX{\,\vert\,}         % Restriction of space of cross-sections.
+% \gdef\vertYY{\,\bigr\vert\,}    % Restriction of space of cross-sections.
+\gdef\vertYY{\,\vert\,}         % Restriction of space of cross-sections.
 
-% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%==============================================================================
 \def\tagpartial{\hat\partial} % Tagged partial-symbol.
 \def\tagD{\hat D}            % Tagged tangent operator for given tangent vector.
 
@@ -199,13 +200,17 @@
 \def\parenspace{{\cal B}}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-% Quoted math-mode text within the math context.
+% Quoted text without/with extra space within the math context.
 \def\hboxq#1{\hbox{``#1''}}
-\def\hboxqm#1{\hbox{``$#1$''}}
-
-% Quoted mathematical expression with extra space within text context.
 \def\hboxqs#1{\hbox{``\ts#1\ts''}}
+\def\hboxqsl#1{\hbox{``\ts#1''}}
+\def\hboxqsr#1{\hbox{``#1\ts''}}
+
+% Quoted mathematical expression without/with extra space within text context.
+\def\hboxqm#1{\hbox{``$#1$''}}
 \def\hboxqsm#1{\hbox{``\ts$#1$\ts''}}
+\def\hboxqslm#1{\hbox{``\ts$#1$''}}
+\def\hboxqsrm#1{\hbox{``$#1$\ts''}}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % Substitution of logical expressions into a logical expression.

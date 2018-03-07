@@ -1,4 +1,4 @@
-% tex/conc/mp/tangmap46.mp   2018-1-13   Alan U. Kennington.
+% tex/conc/mp/tangmap46.mp   2018-2-4   Alan U. Kennington.
 % $Id: tex/conc/mp/tangmap46.mp 6ae8e3cc5a 2017-07-01 08:07:38Z Alan U. Kennington $
 % Exterior derivative of differential forms on manifolds without/with short-cut.
 
@@ -97,13 +97,13 @@ v21 := (xpart(w11),ypart(w10));
 label.top(btex\strut without short-cuts etex, v20+(0,sepY));
 label.top(btex\strut with short-cuts etex, w11+(0,sepY));
 
-label.bot(btex\strut $\omega\in\XX^1(\Lamb m(T(M),W)\vertXX U)$ etex,
+label.bot(btex\strut $\omega\in\YY^1(\Lamb m(T(M),W)\vertYY U)$ etex,
  w2+(0,-sepY));
-label.bot(btex\strut $d\omega\in\XX^0(\Lamb{m+1}(T(M),W)\vertXX U)$ etex,
+label.bot(btex\strut $d\omega\in\YY^0(\Lamb{m+1}(T(M),W)\vertYY U)$ etex,
  w2+(0,-sepY-sepZ));
-label.bot(btex\strut $\omega\in\XXcut^1(\Lamb m(T(M),W)\vertXX U)$ etex,
+label.bot(btex\strut $\omega\in\YYcut^1(\Lamb m(T(M),W)\vertYY U)$ etex,
  v21+(0,-sepY));
-label.bot(btex\strut $d\omega\in\XXcut^0(\Lamb{m+1}(T(M),W)\vertXX U)$ etex,
+label.bot(btex\strut $d\omega\in\YYcut^0(\Lamb{m+1}(T(M),W)\vertYY U)$ etex,
  v21+(0,-sepY-sepZ));
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
